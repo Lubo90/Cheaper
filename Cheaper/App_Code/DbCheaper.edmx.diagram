@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33852d089c414c35982c045e95591151" Name="Diagram1">
+        <EntityTypeShape EntityType="CheaperModel.AdditionalUserInfo" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.BudgetPositions" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Budgets" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Categories" Width="1.5" PointX="0.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Contacts" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Conversations" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.ExpenseCategories" Width="1.5" PointX="3" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Messages" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Products" Width="1.5" PointX="3" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Shops" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Users" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="CheaperModel.FK__Additiona__UserI__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__BudgetPos__Budge__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__BudgetPos__Expen__37703C52" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__BudgetPos__ProdI__395884C4" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__BudgetPos__ShopI__3864608B" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Budgets__UserID__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Products__Catego__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Contacts__UserID__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Conversat__Creat__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Messages__Conver__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__Messages__Sender__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.ConversationParticipants" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
