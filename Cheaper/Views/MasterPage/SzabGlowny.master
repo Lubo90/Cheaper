@@ -1,5 +1,8 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SzabGlowny.master.cs" Inherits="SzabGlowny" %>
 
+<%@ Register Src="~/Views/MasterPage/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
+
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,30 +15,35 @@
     </style>
     <script type="text/javascript">
     </script>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <link type="text/css" href="../../CSS/StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <asp:EntityDataSource ID="cheaperEntities" ConnectionString="name=CheaperEntities" EnableFlattening="false" EntitySetName="Users" DefaultContainerName="CheaperEntities" runat="server"></asp:EntityDataSource>
     <form id="form1" runat="server">
         <asp:Panel ID="pnlNaglowekLogowanie" runat="server" HorizontalAlign="Right" Wrap="false">
-            <span style="padding-left:5px; padding-right:5px;">Logowanie
             <asp:MultiView ID="mvLogowanie" ActiveViewIndex="0" runat="server">
                 <asp:View ID="vLogowanie" runat="server">
+                    <span style="padding-left: 5px; padding-right: 5px;">Logowanie
                     <asp:TextBox ID="tbLogin" Text="login" runat="server" onFocus="if(this.value == 'login') this.value = '';" onBlur="if(this.value == '') this.value = 'login';" CssClass="inlineControls" />
                     <asp:TextBox ID="tbHaslo" Text="hasło" runat="server" onFocus="if(this.value == 'hasło') this.value = '';" onBlur="if(this.value == '') this.value = 'hasło';" CssClass="inlineControls" />
                     <asp:Button runat="server" ID="btnZaloguj" Text="Zaloguj!" OnClick="btnZaloguj_Click" />
+                    </span>
                 </asp:View>
                 <asp:View ID="vPowitanie" runat="server">
-                    <p>Witaj z powrotem, <asp:Label ID="lblLogin" Text="" runat="server" />.</p>
+                    <p>
+                        Witaj z powrotem,
+                        <asp:Label ID="lblLogin" Text="" runat="server" />.
+                    </p>
                 </asp:View>
-            </asp:MultiView></span>
+            </asp:MultiView>
         </asp:Panel>
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
+        <uc1:Menu runat="server" ID="Menu" />
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
+    <asp:EntityDataSource ID="cheaperEntities" ConnectionString="name=CheaperEntities" EnableFlattening="false" EntitySetName="Users" DefaultContainerName="CheaperEntities" runat="server"></asp:EntityDataSource>
 </body>
 </html>

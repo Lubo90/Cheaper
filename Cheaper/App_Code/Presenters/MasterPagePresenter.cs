@@ -1,7 +1,7 @@
-﻿using Cheaper.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace Cheaper.Presenters
@@ -11,10 +11,10 @@ namespace Cheaper.Presenters
     /// </summary>
     public class MasterPagePresenter
     {
-        private IMasterPage _view;
+        private IMasterPageView _view;
         private ICheaperService _service;
 
-        public MasterPagePresenter(IMasterPage view)
+        public MasterPagePresenter(IMasterPageView view)
         {
             _view = view;
             _service = new CheaperService();
@@ -22,7 +22,7 @@ namespace Cheaper.Presenters
 
         public void AuthenticateUser(string login, string pw)
         {
-            if (_service.AuthenticateUser(login, pw))
+            if (_service.CheckUserAuthentication(login, pw))
             {
                 _view.SwitchMultiViewActiveView(MultiViewContent.UserGreetings);
                 _view.SnLoggedIn = true;

@@ -1,0 +1,193 @@
+@charset "iso-8859-2";
+/* CSS Document */
+
+body {
+	background: #222222 url(images/tlo_gora.jpg) repeat-x top;
+}
+
+#calosc {
+	height: auto;
+	width: 920px;
+	margin: 0 auto 0 auto;
+}
+
+#logo {
+	margin-top: 5px;
+	margin-left: 100px;
+	width: 253px;
+	height: 72px;
+}
+
+#dolna_czesc {
+	margin-top: 60px;
+	height: auto;
+}
+
+.napis_naglowek {
+	padding-top: 5px;
+	padding-left: 10px;
+	font: 14px Arial;
+	font-style: italic;
+	font-weight: bolder;
+	letter-spacing: 3px;
+	color: #FFFFFF;
+	float: left;
+}
+
+.zawartosc_menu {
+	background: #333333;
+}
+
+#lewa_strona {
+	width: 160px;
+	float: left;
+}
+
+dl {
+	margin: 0;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+
+dt {
+	padding-bottom: 2px;
+	padding-left: 15px;
+	background: url(images/wypunktowanie_otwarte.gif) no-repeat;
+	cursor: pointer;
+}
+
+dd {
+	margin-left: 15px;
+	padding-bottom: 2px;
+	padding-left: 15px;
+	background: url(images/wypunktowanie.gif) no-repeat;
+	cursor: pointer;
+}
+
+#prawa_strona {
+	width: 160px;
+	float: right;
+}
+
+.akapit_menu {
+	margin-bottom: 10px;
+	border: 1px solid #000000;
+	float: left;
+}
+
+.naglowek_menu {
+	height: 28px;
+	background: url(images/naglowek.jpg) repeat-x;
+	border-bottom: 1px solid #000000;
+}
+
+.zawartosc_menu .tekst {
+	padding: 3px;
+	padding-left: 5px;
+	font: 12px Arial;
+	text-align: justify;
+	color: #FFFFFF;
+}
+
+#logowanie {
+	height: 120px;
+}
+
+#form_text {
+	padding-left: 10px;
+	padding-top: 5px;
+	font: 12px Arial;
+	color: #999999;
+	float: left;
+}
+
+#form_text .text {
+	margin-top: 1px;
+	margin-bottom: 2px;
+	width: 140px;
+	border: none;
+	background: #999999;
+	color: #333333;
+}
+
+#form_text .text:focus {
+	background: #CCCCCC;
+}
+
+#form_text .submit {
+	margin-right: 10px;
+	margin-top: 10px;
+	float: right;
+	background: #999999;
+	border: 1px solid #666666;
+	text-align: center;
+	font: 12px Verdana Arial Helvetica sans-serif;
+}
+
+#srodek {
+	margin-left: 22px;
+	margin-top: 1px;
+	width: 550px;
+	height: auto;
+	float: left;
+}
+
+#srodek .akapit {
+	width: 550px;
+	margin-bottom: 10px;
+	border: 1px solid #000000;
+}
+
+.naglowek_srodek {
+	height: 28px;
+	width: 550px;
+	background: url(images/naglowek.jpg) repeat-x;
+	
+}
+
+
+.napis_srodek {
+	padding-top: 5px;
+	padding-left: 10px;
+	font: 14px Arial;
+	font-style: italic;
+	font-weight: bolder;
+	letter-spacing: 3px;
+	color: #FFFFFF;
+	float: left;
+}
+
+.data_autor_srodek {
+	padding-top: 13px;
+	padding-right: 3px;
+	font: 10px Arial;
+	color: #FFFFFF;
+	float: right;
+}
+
+.zawartosc {
+	min-height: 150px;
+	background: #333333;
+}
+
+.zawartosc .tekst {
+	padding: 3px;
+	padding-left: 5px;
+	font: 12px Arial;
+	text-align: justify;
+	color: #999999;
+}
+
+#stopka, #stopka a {
+	margin-top: 5px;
+	padding-top: 3px;
+	margin-bottom: 5px;
+	width: 550px;
+	height: 1px;
+	border-top: 1px solid #555555;
+	text-align: center;
+	font: 10px Verdana;
+	text-decoration: none;
+	color: #CCCCCC;
+}

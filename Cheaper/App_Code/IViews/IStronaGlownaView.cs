@@ -5,5 +5,5 @@ using System.Web;
 
 public interface IStronaGlownaView
 {
-    
+    object UsersRepaterDataSource { set; }
 }

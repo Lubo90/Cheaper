@@ -3,11 +3,12 @@ GO
 
 USE Cheaper;
 GO
-
 BEGIN TRANSACTION;
+insert into Users values ('lubo', 'f6a3a3e101a484c1b0ff5facacf1be56', 'lubo@ue.katowice.pl', getdate(), getdate(), null);
+commit;
 CREATE TABLE Users (
 	UserName NVARCHAR(24) PRIMARY KEY,
-	Passwd NVARCHAR(32) NOT NULL CHECK (DATALENGTH(Passwd) = 32),
+	Passwd VARCHAR(32) NOT NULL CHECK (DATALENGTH(Passwd) = 32),
 	Email NVARCHAR(40) NOT NULL,
 	BirthDate DATETIME NOT NULL,
 	RegisterDate DATETIME NOT NULL DEFAULT GETDATE(),

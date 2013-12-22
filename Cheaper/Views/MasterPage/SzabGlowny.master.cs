@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Cheaper.Presenters;
 
-public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPage
+public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
 {
     MasterPagePresenter _presenter;
 

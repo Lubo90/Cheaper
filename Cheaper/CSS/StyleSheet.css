@@ -1,0 +1,10 @@
+﻿body {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+.menuItem {
+    float: left;
+    margin-top: 20px;
+    text-align:justify;
+}

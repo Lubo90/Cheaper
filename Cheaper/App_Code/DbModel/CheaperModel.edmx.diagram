@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2a5fff5f267646ffaa3f51bce973a1b4" Name="Diagram1">
+      <Diagram DiagramId="128705af0efd47cfba740b6d2120c356" Name="Diagram1">
         <EntityTypeShape EntityType="CheaperModel.AdditionalUserInfo" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.BudgetPositions" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Budgets" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />

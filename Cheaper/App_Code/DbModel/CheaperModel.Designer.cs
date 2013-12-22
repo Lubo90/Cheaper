@@ -19,22 +19,22 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Additiona__UserI__06CD04F7", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Users), "AdditionalUserInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Repo.AdditionalUserInfo), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Budge__2180FB33", "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Budgets), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Expen__22751F6C", "ExpenseCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.ExpenseCategories), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ProdI__245D67DE", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Products), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ShopI__236943A5", "Shops", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Shops), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Budgets__UserID__10566F31", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Users), "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Budgets), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Products__Catego__17F790F9", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Products), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Contacts__UserID__0A9D95DB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Users), "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Contacts), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Conversat__Creat__29221CFB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Users), "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Conversations), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Conversations), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Messages), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Repo.Users), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Messages), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "ConversationParticipants", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Conversations), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Repo.Users))]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Additiona__UserI__06CD04F7", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "AdditionalUserInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DbModel.AdditionalUserInfo), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Budge__2180FB33", "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Budgets), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Expen__22751F6C", "ExpenseCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.ExpenseCategories), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ProdI__245D67DE", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Products), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ShopI__236943A5", "Shops", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Shops), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Budgets__UserID__10566F31", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Budgets), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Products__Catego__17F790F9", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Products), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Contacts__UserID__0A9D95DB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Contacts), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Conversat__Creat__29221CFB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Conversations), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "ConversationParticipants", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Users))]
 
 #endregion
 
-namespace Repo
+namespace DbModel
 {
     #region Contexts
     
@@ -50,7 +50,7 @@ namespace Repo
         /// </summary>
         public CheaperEntities() : base("name=CheaperEntities", "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
             OnContextCreated();
         }
     
@@ -59,7 +59,7 @@ namespace Repo
         /// </summary>
         public CheaperEntities(string connectionString) : base(connectionString, "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
             OnContextCreated();
         }
     
@@ -68,7 +68,7 @@ namespace Repo
         /// </summary>
         public CheaperEntities(EntityConnection connection) : base(connection, "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = true;
+            this.ContextOptions.LazyLoadingEnabled = false;
             OnContextCreated();
         }
     

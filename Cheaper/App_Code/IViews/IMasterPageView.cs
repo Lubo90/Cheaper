@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for IMasterPage
 /// </summary>
-public interface IMasterPage
+public interface IMasterPageView
 {
     bool SnLoggedIn { get; set; }
     string SnUserLogin { get; set; }

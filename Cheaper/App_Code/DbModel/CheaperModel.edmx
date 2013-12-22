@@ -351,7 +351,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CheaperModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="CheaperEntities" p1:LazyLoadingEnabled="true">
+        <EntityContainer Name="CheaperEntities" p1:LazyLoadingEnabled="false">
           <EntitySet Name="AdditionalUserInfo" EntityType="CheaperModel.AdditionalUserInfo" />
           <EntitySet Name="BudgetPositions" EntityType="CheaperModel.BudgetPositions" />
           <EntitySet Name="Budgets" EntityType="CheaperModel.Budgets" />

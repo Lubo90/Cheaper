@@ -10,11 +10,25 @@ namespace Cheaper.Presenters
     /// </summary>
     public class StronaGlownaPresenter
     {
-        public StronaGlownaPresenter()
+        private IStronaGlownaView _view;
+        private ICheaperService _service;
+
+        public StronaGlownaPresenter(IStronaGlownaView view)
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            _view = view;
+            _service = new CheaperService();
+        }
+
+        /// <summary>
+        /// Metoda ładująca dane dla widoku.
+        /// </summary>
+        /// <param name="isPostBack">Określa, czy to pierwsze wczytanie strony. Jeśli tak, wczytuje dane.</param>
+        public void InitView(bool isPostBack)
+        {
+            if(isPostBack)
+                return;
+
+            _view.UsersRepaterDataSource = _service.GetUsers();
         }
     }
 }
