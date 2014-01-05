@@ -10,4 +10,8 @@ public interface ICheaperService
 {
     bool CheckUserAuthentication(string login, string password);
     List<UsersModel> GetUsers();
+
+    List<BudgetsModel> GetBudgets(string userName);
+
+    bool AddBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia);
 }

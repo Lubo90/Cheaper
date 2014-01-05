@@ -20,16 +20,30 @@ namespace Cheaper.Presenters
             _service = new CheaperService();
         }
 
+        public void InitView(bool isPostBack)
+        {
+            SetViewGreetingsData();
+        }
+
+        public void SetViewGreetingsData()
+        {
+            if (_view.SnLoggedIn)
+                _view.SwitchMultiViewActiveView(LoggingMultiViewContent.UserGreetings);
+            else
+                _view.SwitchMultiViewActiveView(LoggingMultiViewContent.LoggingForm);
+
+            _view.SetUsernameGreetingText();
+        }
+
         public void AuthenticateUser(string login, string pw)
         {
             if (_service.CheckUserAuthentication(login, pw))
             {
-                _view.SwitchMultiViewActiveView(MultiViewContent.UserGreetings);
                 _view.SnLoggedIn = true;
                 _view.SnUserLogin = login;
             }
-            else
-                _view.SwitchMultiViewActiveView(MultiViewContent.LoggingForm);
+
+            SetViewGreetingsData();
         }
     }
 }

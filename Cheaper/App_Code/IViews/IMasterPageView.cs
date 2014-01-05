@@ -10,5 +10,6 @@ public interface IMasterPageView
 {
     bool SnLoggedIn { get; set; }
     string SnUserLogin { get; set; }
-    void SwitchMultiViewActiveView(MultiViewContent activeView);
+    void SwitchMultiViewActiveView(LoggingMultiViewContent activeView);
+    void SetUsernameGreetingText();
 }

@@ -4,7 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:Panel runat="server" Style="text-align: center;">
-        <div style="font-size: 26px; margin: auto 0 auto 0;"><asp:Label runat="server">Witam na stronie Cheaper!</asp:Label></div>
         <div style="float: left;">Lista użytkowników<br />
             <asp:Repeater ID="rptrUsers" runat="server">
                 <HeaderTemplate>

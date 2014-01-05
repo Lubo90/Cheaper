@@ -3,8 +3,53 @@
     font-size: 12px;
 }
 
-.menuItem {
+#calosc {
+    width: 1024px;
+    margin: 0 auto 0 auto;
+    font: 12px Verdana;
+    overflow:hidden;
+    background-color: azure;
+    text-align: center;
+}
+
+#pasek {
+    width: 1020px;
+    border: 2px solid #88cdff;
+    background-color:#d4edff;
     float: left;
-    margin-top: 20px;
-    text-align:justify;
+}
+
+#menu {
+    width: 100px;
+    min-height: 300px;
+    background-color: #85d478;
+    text-align:center;
+    float: left;
+    background-color:#d4edff;
+    border: 2px solid #88cdff;
+    border-top:none;
+    margin-top:-2px;
+}
+
+#zawartosc {
+    width: 920px;
+    height:1024px;
+    margin: 0 auto 0 auto;
+    float: left;
+}
+
+#content {
+    float:left;
+    margin: 0 auto 0 auto;
+
+}
+
+.menuItem {
+    display: table-row;
+    margin-top: 100px;
+    float: left;
+    width: inherit;
+    margin: 20px auto 0 auto;
+    text-align:center;
+    vertical-align:middle;
 }

@@ -1,8 +1,11 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SzabGlowny.master.cs" Inherits="SzabGlowny" %>
 
-<%@ Register Src="~/Views/MasterPage/Menu.ascx" TagPrefix="uc1" TagName="Menu" %>
-
-
+<% var page = Request.Url.Segments.Last();
+   if (!this.SnLoggedIn && page != "Default.aspx")
+       //this.Response.Redirect("~/Views/StronaGlowna/Default.aspx", true);
+       mvContent.ActiveViewIndex = 1;
+   else
+       mvContent.ActiveViewIndex = 0; %>
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -13,37 +16,58 @@
             display: inline-block;
         }
     </style>
-    <script type="text/javascript">
-    </script>
+    <link href="../../App_Themes/LeFrog/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+    <script src="../../jquery/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../jquery/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
     <link type="text/css" href="../../CSS/StyleSheet.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <asp:Panel ID="pnlNaglowekLogowanie" runat="server" HorizontalAlign="Right" Wrap="false">
-            <asp:MultiView ID="mvLogowanie" ActiveViewIndex="0" runat="server">
-                <asp:View ID="vLogowanie" runat="server">
-                    <span style="padding-left: 5px; padding-right: 5px;">Logowanie
-                    <asp:TextBox ID="tbLogin" Text="login" runat="server" onFocus="if(this.value == 'login') this.value = '';" onBlur="if(this.value == '') this.value = 'login';" CssClass="inlineControls" />
-                    <asp:TextBox ID="tbHaslo" Text="hasło" runat="server" onFocus="if(this.value == 'hasło') this.value = '';" onBlur="if(this.value == '') this.value = 'hasło';" CssClass="inlineControls" />
-                    <asp:Button runat="server" ID="btnZaloguj" Text="Zaloguj!" OnClick="btnZaloguj_Click" />
-                    </span>
-                </asp:View>
-                <asp:View ID="vPowitanie" runat="server">
-                    <p>
-                        Witaj z powrotem,
+<body onload="inicjuj();">
+    <div id="calosc">
+        <form id="form1" runat="server">
+            <div id="pasek">
+                <asp:Panel ID="pnlNaglowekLogowanie" runat="server" HorizontalAlign="Right" Wrap="false">
+                    <asp:MultiView ID="mvLogowanie" ActiveViewIndex="0" runat="server">
+                        <asp:View ID="vLogowanie" runat="server">
+                            <span style="padding-left: 5px; padding-right: 5px;">Logowanie
+                        <asp:TextBox ID="tbLogin" runat="server" />
+                                <asp:TextBox TextMode="Password" ID="tbPassword" runat="server" />
+                                <asp:Button runat="server" ID="btnZaloguj" Text="Zaloguj!" OnClick="btnZaloguj_Click" />
+                            </span>
+                        </asp:View>
+                        <asp:View ID="vPowitanie" runat="server">
+                            <p>
+                                Witaj z powrotem,
                         <asp:Label ID="lblLogin" Text="" runat="server" />.
-                    </p>
-                </asp:View>
-            </asp:MultiView>
-        </asp:Panel>
-        <uc1:Menu runat="server" ID="Menu" />
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-    </form>
+                            </p>
+                        </asp:View>
+                    </asp:MultiView>
+                </asp:Panel>
+            </div>
+            <div id="menu">
+                <span>Menu</span>
+                <span class="menuItem">
+                    <asp:LinkButton ID="menuStronaGlowna" PostBackUrl="~/Views/StronaGlowna/Default.aspx" Text="Strona główna" runat="server" /></span><br />
+                <span class="menuItem">
+                    <asp:LinkButton ID="menuBudzety" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Mój budżet" runat="server" /></span><br />
+            </div>
+            <div id="zawartosc">
+                <div style="font-size: 26px; margin: 30px auto 30px auto; text-align: center; color: #04b41a; font-weight: bold; font-family: Verdana;">
+                    <asp:Label ID="Label1" runat="server">Cheaper - twój budżet!</asp:Label>
+                </div>
+                <asp:MultiView ID="mvContent" runat="server">
+                    <asp:View runat="server">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </asp:View>
+                    <asp:View runat="server">
+                        <div style="text-align: center; color: red; font: 26px Verdana;">Musisz być zalogowany, aby przeglądać tę stronę!</div>
+                    </asp:View>
+                </asp:MultiView>
+            </div>
+        </form>
+    </div>
     <asp:EntityDataSource ID="cheaperEntities" ConnectionString="name=CheaperEntities" EnableFlattening="false" EntitySetName="Users" DefaultContainerName="CheaperEntities" runat="server"></asp:EntityDataSource>
 </body>
 </html>

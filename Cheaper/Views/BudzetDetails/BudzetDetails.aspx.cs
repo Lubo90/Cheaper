@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Views_MasterPage_Menu : System.Web.UI.UserControl
+public partial class Views_BudzetDetails_BudzetDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

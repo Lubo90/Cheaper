@@ -37,6 +37,32 @@ public class CheaperService:ICheaperService
         }
     }
 
+    public List<BudgetsModel> GetBudgets(string userName)
+    {
+        using (var context = new CheaperEntities())
+        {
+            var select = from c in context.Budgets where c.UserID == userName select new BudgetsModel() { BudgetName = c.BudgetName, CreationDate = c.CreationDate, Expenses = c.Expenses, Income = c.Income };
+            return select.ToList();
+        }
+    }
+
+    public bool AddBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia)
+    {
+        using (var context = new CheaperEntities())
+        {
+            var nowyBudzet = new Budgets();
+            nowyBudzet.BudgetName = nazwaBudzetu;
+            nowyBudzet.CreationDate = dataUtworzenia;
+            nowyBudzet.UserID = login;
+
+            context.Budgets.AddObject(nowyBudzet);
+            if (context.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+        }
+    }
+
     #region Metody pomocnicze
     private string GetMD5Hash(string input)
     {

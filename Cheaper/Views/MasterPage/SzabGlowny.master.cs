@@ -8,6 +8,7 @@ using Cheaper.Presenters;
 
 public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
 {
+    #region Metody i właściwości pozwalające prezenterowi zarządzać widokiem
     MasterPagePresenter _presenter;
 
     public bool SnLoggedIn
@@ -36,22 +37,31 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         set
         {
             Session["UserLogin"] = value;
-            lblLogin.Text = value;
         }
     }
 
+    public void SetUsernameGreetingText()
+    {
+        if (SnLoggedIn)
+            lblLogin.Text = SnUserLogin;
+    }
+
+    public void SwitchMultiViewActiveView(LoggingMultiViewContent activeView)
+    {
+        mvLogowanie.ActiveViewIndex = (int)activeView;
+    }
+    #endregion
+
+    #region Zdarzenia
     protected void Page_Load(object sender, EventArgs e)
     {
         _presenter = new MasterPagePresenter(this);
-    }
-
-    public void SwitchMultiViewActiveView(MultiViewContent activeView)
-    {
-        mvLogowanie.ActiveViewIndex = (int)activeView;
+        _presenter.InitView(this.IsPostBack);
     }
 
     protected void btnZaloguj_Click(object sender, EventArgs e)
     {
-        _presenter.AuthenticateUser(tbLogin.Text, tbHaslo.Text);
+        _presenter.AuthenticateUser(tbLogin.Text, tbPassword.Text);
     }
+    #endregion
 }

@@ -50,7 +50,7 @@ namespace DbModel
         /// </summary>
         public CheaperEntities() : base("name=CheaperEntities", "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = false;
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -59,7 +59,7 @@ namespace DbModel
         /// </summary>
         public CheaperEntities(string connectionString) : base(connectionString, "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = false;
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -68,7 +68,7 @@ namespace DbModel
         /// </summary>
         public CheaperEntities(EntityConnection connection) : base(connection, "CheaperEntities")
         {
-            this.ContextOptions.LazyLoadingEnabled = false;
+            this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
@@ -1203,6 +1203,30 @@ namespace DbModel
         private global::System.Decimal _Expenses;
         partial void OnExpensesChanging(global::System.Decimal value);
         partial void OnExpensesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BudgetName
+        {
+            get
+            {
+                return _BudgetName;
+            }
+            set
+            {
+                OnBudgetNameChanging(value);
+                ReportPropertyChanging("BudgetName");
+                _BudgetName = StructuralObject.SetValidValue(value, true, "BudgetName");
+                ReportPropertyChanged("BudgetName");
+                OnBudgetNameChanged();
+            }
+        }
+        private global::System.String _BudgetName;
+        partial void OnBudgetNameChanging(global::System.String value);
+        partial void OnBudgetNameChanged();
 
         #endregion
 
