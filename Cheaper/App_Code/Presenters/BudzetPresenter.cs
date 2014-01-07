@@ -6,30 +6,32 @@ using System.Web;
 /// <summary>
 /// Summary description for BudzetPresenter
 /// </summary>
-public class BudzetPresenter
+public class BudzetPresenter : BasePresenter<IBudzetView>
 {
-    private IBudzetView _view;
     private ICheaperService _service;
 
-	public BudzetPresenter(IBudzetView view)
-	{
-        _view = view;
+    public BudzetPresenter(IBudzetView view)
+        : base(view)
+    {
         _service = new CheaperService();
-	}
+    }
 
     public void InitView(bool isPostBack)
     {
-        if (isPostBack)
+        _view.RepeaterDataSource = _service.GetBudgets(_view.UserName);
+        switch (_view.GetQueryStringValue(GETValueIdentifiers.PAGE))
         {
-            _view.BudgetsRepaterDataSource = _service.GetBudgets(_view.UserName);
-            _view.ActiveView = BudgetMultiViewContent.BudgetList;
+            case GET_PAGEIdentifiers.LIST:
+                _view.ActiveView = BudgetMultiViewContent.BudgetList;
+                break;
+            case GET_PAGEIdentifiers.NOWY_BUDZET:
+                _view.ActiveView = BudgetMultiViewContent.NewBudget;
+                _view.BudgetDate = DateTime.Now.ToString("dd-MM-yyyy");
+                break;
+            default:
+                _view.ActiveView = BudgetMultiViewContent.BudgetList;
+                break;
         }
-    }
-
-    public void SetNowyBudzetActiveView()
-    {
-        _view.ActiveView = BudgetMultiViewContent.NewBudget;
-        _view.BudgetDate = DateTime.Now.ToString("dd-MM-yyyy");
     }
 
     public bool SaveBudzet(string nazwaBudzetu)

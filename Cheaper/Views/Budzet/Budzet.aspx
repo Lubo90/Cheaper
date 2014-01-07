@@ -9,7 +9,7 @@
     <div style="overflow: hidden; margin: 0 auto 0 auto;">
         <div style="font-size: 20px; font-weight: bold; font-family: Arial; float: none; text-align: center">Budżety</div>
         <div style="text-align: center; float: none;">
-            <asp:LinkButton ID="btnNowyBudzet" runat="server" OnClick="btnNowyBudzet_Click">Dodaj nowy budżet</asp:LinkButton>
+            <asp:LinkButton ID="btnNowyBudzet" PostBackUrl="~/Views/Budzet/Budzet.aspx?p=new" runat="server">Dodaj nowy budżet</asp:LinkButton>
         </div>
         <div id="content">
             <asp:MultiView ID="mvBudzet" runat="server" ActiveViewIndex="0">
@@ -35,6 +35,9 @@
                         </tr>
                     </table>
                         </div>
+                </asp:View>
+                <asp:View runat="server">
+                    <p>Nieprawidłowa wartość parametru.</p>
                 </asp:View>
             </asp:MultiView>
         </div>

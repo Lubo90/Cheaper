@@ -9,14 +9,13 @@ namespace Cheaper.Presenters
     /// <summary>
     /// Summary description for MasterPagePresenter
     /// </summary>
-    public class MasterPagePresenter
+    public class MasterPagePresenter : BasePresenter<IMasterPageView>
     {
-        private IMasterPageView _view;
         private ICheaperService _service;
 
         public MasterPagePresenter(IMasterPageView view)
+            : base(view)
         {
-            _view = view;
             _service = new CheaperService();
         }
 
@@ -27,20 +26,21 @@ namespace Cheaper.Presenters
 
         public void SetViewGreetingsData()
         {
-            if (_view.SnLoggedIn)
+            if (_view.IsLoggedIn)
                 _view.SwitchMultiViewActiveView(LoggingMultiViewContent.UserGreetings);
             else
                 _view.SwitchMultiViewActiveView(LoggingMultiViewContent.LoggingForm);
 
-            _view.SetUsernameGreetingText();
+            if (_view.IsLoggedIn)
+                _view.LabelUserName = _view.UserName;
         }
 
         public void AuthenticateUser(string login, string pw)
         {
             if (_service.CheckUserAuthentication(login, pw))
             {
-                _view.SnLoggedIn = true;
-                _view.SnUserLogin = login;
+                _view.IsLoggedIn = true;
+                _view.UserName = login;
             }
 
             SetViewGreetingsData();

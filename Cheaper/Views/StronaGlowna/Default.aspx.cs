@@ -8,7 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Cheaper.Presenters;
 
-public partial class _Default : System.Web.UI.Page, IStronaGlownaView
+public partial class _Default : BaseView, IStronaGlownaView
 {
     private StronaGlownaPresenter _presenter;
 

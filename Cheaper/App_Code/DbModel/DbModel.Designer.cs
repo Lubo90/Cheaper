@@ -31,6 +31,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Conversations), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
 [assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
 [assembly: EdmRelationshipAttribute("CheaperModel", "ConversationParticipants", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Users))]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Events), true)]
 
 #endregion
 
@@ -257,6 +258,22 @@ namespace DbModel
             }
         }
         private ObjectSet<Users> _Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Events> Events
+        {
+            get
+            {
+                if ((_Events == null))
+                {
+                    _Events = base.CreateObjectSet<Events>("Events");
+                }
+                return _Events;
+            }
+        }
+        private ObjectSet<Events> _Events;
 
         #endregion
 
@@ -348,6 +365,14 @@ namespace DbModel
         public void AddToUsers(Users users)
         {
             base.AddObject("Users", users);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEvents(Events events)
+        {
+            base.AddObject("Events", events);
         }
 
         #endregion
@@ -1778,6 +1803,208 @@ namespace DbModel
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CheaperModel", Name="Events")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Events : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Events object.
+        /// </summary>
+        /// <param name="eventID">Initial value of the EventID property.</param>
+        /// <param name="methodName">Initial value of the MethodName property.</param>
+        /// <param name="exMessage">Initial value of the ExMessage property.</param>
+        /// <param name="occurenceDate">Initial value of the OccurenceDate property.</param>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        public static Events CreateEvents(global::System.Int32 eventID, global::System.String methodName, global::System.String exMessage, global::System.DateTime occurenceDate, global::System.String userName)
+        {
+            Events events = new Events();
+            events.EventID = eventID;
+            events.MethodName = methodName;
+            events.ExMessage = exMessage;
+            events.OccurenceDate = occurenceDate;
+            events.UserName = userName;
+            return events;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EventID
+        {
+            get
+            {
+                return _EventID;
+            }
+            set
+            {
+                if (_EventID != value)
+                {
+                    OnEventIDChanging(value);
+                    ReportPropertyChanging("EventID");
+                    _EventID = StructuralObject.SetValidValue(value, "EventID");
+                    ReportPropertyChanged("EventID");
+                    OnEventIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _EventID;
+        partial void OnEventIDChanging(global::System.Int32 value);
+        partial void OnEventIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String MethodName
+        {
+            get
+            {
+                return _MethodName;
+            }
+            set
+            {
+                OnMethodNameChanging(value);
+                ReportPropertyChanging("MethodName");
+                _MethodName = StructuralObject.SetValidValue(value, false, "MethodName");
+                ReportPropertyChanged("MethodName");
+                OnMethodNameChanged();
+            }
+        }
+        private global::System.String _MethodName;
+        partial void OnMethodNameChanging(global::System.String value);
+        partial void OnMethodNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ExMessage
+        {
+            get
+            {
+                return _ExMessage;
+            }
+            set
+            {
+                OnExMessageChanging(value);
+                ReportPropertyChanging("ExMessage");
+                _ExMessage = StructuralObject.SetValidValue(value, false, "ExMessage");
+                ReportPropertyChanged("ExMessage");
+                OnExMessageChanged();
+            }
+        }
+        private global::System.String _ExMessage;
+        partial void OnExMessageChanging(global::System.String value);
+        partial void OnExMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime OccurenceDate
+        {
+            get
+            {
+                return _OccurenceDate;
+            }
+            set
+            {
+                OnOccurenceDateChanging(value);
+                ReportPropertyChanging("OccurenceDate");
+                _OccurenceDate = StructuralObject.SetValidValue(value, "OccurenceDate");
+                ReportPropertyChanged("OccurenceDate");
+                OnOccurenceDateChanged();
+            }
+        }
+        private global::System.DateTime _OccurenceDate;
+        partial void OnOccurenceDateChanging(global::System.DateTime value);
+        partial void OnOccurenceDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false, "UserName");
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Users")]
+        public Users Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Users> UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="CheaperModel", Name="ExpenseCategories")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -2856,6 +3083,28 @@ namespace DbModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conversations>("CheaperModel.ConversationParticipants", "Conversations", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Events")]
+        public EntityCollection<Events> Events
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Events>("CheaperModel.FK__Events__UserName__51300E55", "Events");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Events>("CheaperModel.FK__Events__UserName__51300E55", "Events", value);
                 }
             }
         }

@@ -12,6 +12,10 @@ public interface ICheaperService
     List<UsersModel> GetUsers();
 
     List<BudgetsModel> GetBudgets(string userName);
+    BudgetsModel GetBudgetData(int budgetId, string userName);
+    List<BudgetDetailsModel> GetBudgetDetailsData(int budgetId, string userName);
 
     bool AddBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia);
+
+    bool LogEvent(string methodName, string exceptionMessage, string userName);
 }

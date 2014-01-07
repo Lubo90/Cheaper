@@ -6,10 +6,11 @@ using System.Web;
 /// <summary>
 /// Summary description for IMasterPage
 /// </summary>
-public interface IMasterPageView
+public interface IMasterPageView : IView
 {
-    bool SnLoggedIn { get; set; }
-    string SnUserLogin { get; set; }
     void SwitchMultiViewActiveView(LoggingMultiViewContent activeView);
-    void SetUsernameGreetingText();
+    //void SetUsernameGreetingText();
+    string LabelUserName { set; }
+    bool IsLoggedIn { get; set; }
+    string UserName { get; set; }
 }

@@ -3,6 +3,8 @@
     font-size: 12px;
 }
 
+/******* STRUKTURA *******/
+
 #calosc {
     width: 1024px;
     margin: 0 auto 0 auto;
@@ -42,6 +44,26 @@
     float:left;
     margin: 0 auto 0 auto;
 
+}
+
+/******* TABELE *******/
+
+table {
+    border:1px solid #0094ff;
+}
+
+.tableHeader {
+    background: #88cdff;
+}
+
+.tableItem {
+    border: 1px solid #43ff24;
+    background: #bcffb0;
+}
+
+.altTableItem {
+    border: 1px solid #ffbf0f;
+    background: #ffe293;
 }
 
 .menuItem {

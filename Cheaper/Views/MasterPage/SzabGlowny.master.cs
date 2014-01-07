@@ -8,10 +8,30 @@ using Cheaper.Presenters;
 
 public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
 {
+    #region Zdarzenia
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        _presenter = new MasterPagePresenter(this);
+        _presenter.InitView(this.IsPostBack);
+    }
+
+    protected void btnZaloguj_Click(object sender, EventArgs e)
+    {
+        _presenter.AuthenticateUser(tbLogin.Text, tbPassword.Text);
+        this.OnDataBinding(new EventArgs());
+    }
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+        this.DataBind();
+    }
+    #endregion
+
     #region Metody i właściwości pozwalające prezenterowi zarządzać widokiem
     MasterPagePresenter _presenter;
 
-    public bool SnLoggedIn
+    public bool IsLoggedIn
     {
         get
         {
@@ -25,7 +45,7 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
             Session["UserLoggedIn"] = value;
         }
     }
-    public string SnUserLogin
+    public string UserName
     {
         get
         {
@@ -40,28 +60,23 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         }
     }
 
-    public void SetUsernameGreetingText()
+    public string LabelUserName
     {
-        if (SnLoggedIn)
-            lblLogin.Text = SnUserLogin;
+        set { lblLogin.Text = value; }
+    }
+
+    public string GetQueryStringValue(string parameter)
+    {
+        if (!string.IsNullOrEmpty(Request.QueryString[parameter] as string))
+            return Request.QueryString[parameter] as string;
+        else
+            return string.Empty;
     }
 
     public void SwitchMultiViewActiveView(LoggingMultiViewContent activeView)
     {
         mvLogowanie.ActiveViewIndex = (int)activeView;
     }
-    #endregion
 
-    #region Zdarzenia
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        _presenter = new MasterPagePresenter(this);
-        _presenter.InitView(this.IsPostBack);
-    }
-
-    protected void btnZaloguj_Click(object sender, EventArgs e)
-    {
-        _presenter.AuthenticateUser(tbLogin.Text, tbPassword.Text);
-    }
     #endregion
 }

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-public interface IBudzetView
+public interface IBudzetView : IView
 {
-    List<BudgetsModel> BudgetsRepaterDataSource { set; }
-    string UserName { get; }
+    List<BudgetsModel> RepeaterDataSource { set; }
     BudgetMultiViewContent ActiveView { set; }
     string BudgetDate { set; }
     void SaveBudzet(string nazwaBudzetu);

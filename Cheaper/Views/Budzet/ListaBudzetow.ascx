@@ -4,7 +4,7 @@
 <asp:Repeater runat="server" ID="rptrBudgets">
     <HeaderTemplate>
         <table>
-            <tr>
+            <tr class="tableHeader">
                 <td>Nazwa budżetu</td>
                 <td>Data utworzenia</td>
                 <td>Przychody</td>
@@ -12,13 +12,21 @@
             </tr>
     </HeaderTemplate>
     <ItemTemplate>
-        <tr>
-            <td><%# Eval("BudgetName") %></td>
+        <tr class="tableItem">
+            <td><asp:LinkButton runat="server" PostBackUrl='<%# "~/Views/BudzetDetails/BudzetDetails.aspx?id=" + Eval("BudgetID") %>'><%# Eval("BudgetName") %></asp:LinkButton></td>
             <td><%# Eval("CreationDate") %></td>
             <td><%# Eval("Income") %></td>
             <td><%# Eval("Expenses") %></td>
         </tr>
     </ItemTemplate>
+    <AlternatingItemTemplate>
+        <tr class="altTableItem">
+            <td><asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl='<%# "~/Views/BudzetDetails/BudzetDetails.aspx?id=" + Eval("BudgetID") %>'><%# Eval("BudgetName") %></asp:LinkButton></td>
+            <td><%# Eval("CreationDate") %></td>
+            <td><%# Eval("Income") %></td>
+            <td><%# Eval("Expenses") %></td>
+        </tr>
+    </AlternatingItemTemplate>
     <FooterTemplate>
         </table>
     </FooterTemplate>

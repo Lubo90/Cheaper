@@ -12,7 +12,8 @@ public class BudgetsModel
 	{
         
 	}
-    
+
+    public int BudgetID { get; set; }
     public string BudgetName { get; set; }
     public DateTime CreationDate { get; set; }
     public decimal Expenses { get; set; }
