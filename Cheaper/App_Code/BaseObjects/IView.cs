@@ -11,4 +11,5 @@ public interface IView
     bool IsLoggedIn { get; }
     string UserName { get; }
     string GetQueryStringValue(string parameter);
+    void RedirectTo(string page, bool endResponse = false);
 }

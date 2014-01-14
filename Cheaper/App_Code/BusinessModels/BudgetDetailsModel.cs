@@ -17,7 +17,26 @@ public class BudgetDetailsModel
     public long PositionID { get; set; }
     public decimal Price { get; set; }
     public DateTime? PurchaseDate { get; set; }
+    public string PurchaseDateString
+    {
+        get
+        {
+            if(!PurchaseDate.HasValue)
+                return string.Empty;
+
+            return string.Format("{0} {1} {2}", PurchaseDate.Value.Day.ToString(),
+                Converters.GetMonthAsString(PurchaseDate.Value.Month),
+                PurchaseDate.Value.Year);
+        }
+    }
     public int Quantity { get; set; }
+    public decimal Wartosc
+    {
+        get
+        {
+            return (decimal)Price * Quantity;
+        }
+    }
     public string AddInfo { get; set; }
 
     public string ExpenseCatName { get; set; }

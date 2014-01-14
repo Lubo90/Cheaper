@@ -17,8 +17,8 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
 
     protected void btnZaloguj_Click(object sender, EventArgs e)
     {
-        _presenter.AuthenticateUser(tbLogin.Text, tbPassword.Text);
-        this.OnDataBinding(new EventArgs());
+        //_presenter.AuthenticateUser(tbLogin.Text, tbPassword.Text);
+        //this.OnDataBinding(new EventArgs());
     }
 
     protected override void OnPreRender(EventArgs e)
@@ -60,6 +60,11 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         }
     }
 
+    public void RedirectTo(string page, bool endResponse = false)
+    {
+        Response.Redirect(page, endResponse);
+    }
+
     public string LabelUserName
     {
         set { lblLogin.Text = value; }
@@ -79,4 +84,8 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
     }
 
     #endregion
+    protected void lbWyloguj_Click(object sender, EventArgs e)
+    {
+        _presenter.LogUserOut();
+    }
 }

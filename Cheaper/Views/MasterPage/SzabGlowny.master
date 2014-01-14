@@ -17,16 +17,10 @@
         }
     </style>
     <link href="../../App_Themes/LeFrog/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
-    <script src="../../jquery/jquery-1.9.1.js" type="text/javascript"></script>
-    <script src="../../jquery/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
+    <script src="../../jsScripts/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="../../jsScripts/jquery-ui-1.10.3.custom.js" type="text/javascript"></script>
     <link type="text/css" href="../../CSS/StyleSheet.css" rel="stylesheet" />
-    <script type="text/ecmascript">
-        $(function () {
-            $(document).tooltip({
-                track: true
-            });
-        });
-    </script>
+    <script src="../../jsScripts/scripts.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -37,16 +31,18 @@
                 <asp:Panel ID="pnlNaglowekLogowanie" runat="server" HorizontalAlign="Right" Wrap="false">
                     <asp:MultiView ID="mvLogowanie" ActiveViewIndex="0" runat="server">
                         <asp:View ID="vLogowanie" runat="server">
-                            <span style="padding-left: 5px; padding-right: 5px;">Logowanie
-                        <asp:TextBox ID="tbLogin" runat="server" />
+                            <div style="margin: 10px 15px 10px 15px;">
+                                <asp:LinkButton OnClientClick='$("#pupLogowanie").dialog("open"); return false;' runat="server" Text="Zaloguj się" />
+                                <%--<asp:TextBox ID="tbLogin" runat="server" />
                                 <asp:TextBox TextMode="Password" ID="tbPassword" runat="server" />
-                                <asp:Button runat="server" ID="btnZaloguj" Text="Zaloguj!" OnClick="btnZaloguj_Click" />
-                            </span>
+                                <asp:Button runat="server" ID="btnZaloguj" Text="Zaloguj!" OnClick="btnZaloguj_Click" />--%>
+                            </div>
                         </asp:View>
                         <asp:View ID="vPowitanie" runat="server">
                             <p>
                                 Witaj z powrotem,
                         <asp:Label ID="lblLogin" Text="" runat="server" />.
+                                <asp:LinkButton runat="server" ID="lbWyloguj" Text="Wyloguj" OnClick="lbWyloguj_Click" />
                             </p>
                         </asp:View>
                     </asp:MultiView>
@@ -57,11 +53,14 @@
                 <span class="menuItem">
                     <asp:LinkButton ID="menuStronaGlowna" PostBackUrl="~/Views/StronaGlowna/Default.aspx" Text="Strona główna" runat="server" /><br />
                 </span>
-                <span class="menuItem">
-                    <asp:Panel runat="server" Visible="<%# this.IsLoggedIn %>">
-                        <asp:LinkButton ID="menuBudzety" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Mój budżet" runat="server" /><br />
-                    </asp:Panel>
-                </span>
+                <asp:Panel runat="server" Visible="<%# this.IsLoggedIn %>">
+                    <span class="menuItem">
+                        <asp:LinkButton ID="menuBudzety" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Lista budżetów" runat="server" /><br />
+                    </span>
+                    <span class="menuItem">
+                        <asp:LinkButton ID="menuKategorieWyd" PostBackUrl="~/Views/KategorieWydatkow/KategorieWydatkow.aspx" Text="Kategorie wydatków" runat="server" /><br />
+                    </span>
+                </asp:Panel>
             </div>
             <div id="zawartosc">
                 <div style="font-size: 26px; margin: 30px auto 30px auto; text-align: center; color: #04b41a; font-weight: bold; font-family: Verdana;">
@@ -76,6 +75,25 @@
                         <div style="text-align: center; color: red; font: 26px Verdana;">Musisz być zalogowany, aby przeglądać tę stronę!</div>
                     </asp:View>
                 </asp:MultiView>
+            </div>
+            <div id="pupLogowanie" title="Formularz logowania">
+                <table>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lLogin" runat="server" Text="Login: "></asp:Label></td>
+                        <td>
+                            <asp:TextBox ID="tbbLogin" runat="server" BorderStyle="None"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lPassword" runat="server" Text="Hasło: "></asp:Label></td>
+                        <td>
+                            <asp:TextBox ID="tbbPassword" runat="server" TextMode="Password" BorderStyle="None"></asp:TextBox></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="color: #ff4949; font-weight:bold; font-variant-caps:titling-caps; display: none;" id="trNieudaneLogowanie">Niepoprawny login lub hasło.</td>
+                    </tr>
+                </table>
             </div>
         </form>
     </div>

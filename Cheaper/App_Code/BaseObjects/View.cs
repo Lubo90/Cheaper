@@ -29,6 +29,11 @@ public class BaseView : System.Web.UI.Page
             return string.Empty;
     }
 
+    public void RedirectTo(string page, bool endResponse = false)
+    {
+        Response.Redirect(page, endResponse);
+    }
+
     public string UserName
     {
         get

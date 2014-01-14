@@ -19,19 +19,21 @@ using System.Xml.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Additiona__UserI__06CD04F7", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "AdditionalUserInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DbModel.AdditionalUserInfo), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Budge__2180FB33", "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Budgets), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Expen__22751F6C", "ExpenseCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.ExpenseCategories), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ProdI__245D67DE", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Products), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ShopI__236943A5", "Shops", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Shops), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Budgets__UserID__10566F31", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Budgets), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Products__Catego__17F790F9", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Products), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Contacts__UserID__0A9D95DB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Contacts), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Conversat__Creat__29221CFB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Conversations), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Additiona__UserI__182C9B23", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "AdditionalUserInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DbModel.AdditionalUserInfo), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Budge__4316F928", "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Budgets), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__Expen__440B1D61", "ExpenseCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.ExpenseCategories), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPos__ShopI__44FF419A", "Shops", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(DbModel.Shops), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__BudgetPositions__45F365D3", "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Products), "BudgetPositions", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.BudgetPositions), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Budgets__UserID__1FCDBCEB", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Budgets", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Budgets), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Products__Catego__24927208", "Categories", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Categories), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Products), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Contacts__UserID__1BFD2C07", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Contacts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Contacts), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Conversat__Creat__2D27B809", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Conver__34C8D9D1", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Conversations), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Events__UserName__3A81B327", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Events), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__ExpenseCa__UserI__29572725", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "ExpenseCategories", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.ExpenseCategories), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Messages__Sender__35BCFE0A", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Messages", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Messages), true)]
+[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Products__UserID__25869641", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Products", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Products), true)]
 [assembly: EdmRelationshipAttribute("CheaperModel", "ConversationParticipants", "Conversations", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Conversations), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Users))]
-[assembly: EdmRelationshipAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(DbModel.Users), "Events", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(DbModel.Events), true)]
 
 #endregion
 
@@ -182,6 +184,22 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Events> Events
+        {
+            get
+            {
+                if ((_Events == null))
+                {
+                    _Events = base.CreateObjectSet<Events>("Events");
+                }
+                return _Events;
+            }
+        }
+        private ObjectSet<Events> _Events;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<ExpenseCategories> ExpenseCategories
         {
             get
@@ -262,18 +280,34 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Events> Events
+        public ObjectSet<BudgetsWithExpenses> BudgetsWithExpenses
         {
             get
             {
-                if ((_Events == null))
+                if ((_BudgetsWithExpenses == null))
                 {
-                    _Events = base.CreateObjectSet<Events>("Events");
+                    _BudgetsWithExpenses = base.CreateObjectSet<BudgetsWithExpenses>("BudgetsWithExpenses");
                 }
-                return _Events;
+                return _BudgetsWithExpenses;
             }
         }
-        private ObjectSet<Events> _Events;
+        private ObjectSet<BudgetsWithExpenses> _BudgetsWithExpenses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ExpenseCatLastMthBalance> ExpenseCatLastMthBalance
+        {
+            get
+            {
+                if ((_ExpenseCatLastMthBalance == null))
+                {
+                    _ExpenseCatLastMthBalance = base.CreateObjectSet<ExpenseCatLastMthBalance>("ExpenseCatLastMthBalance");
+                }
+                return _ExpenseCatLastMthBalance;
+            }
+        }
+        private ObjectSet<ExpenseCatLastMthBalance> _ExpenseCatLastMthBalance;
 
         #endregion
 
@@ -328,6 +362,14 @@ namespace DbModel
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEvents(Events events)
+        {
+            base.AddObject("Events", events);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the ExpenseCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToExpenseCategories(ExpenseCategories expenseCategories)
@@ -368,11 +410,19 @@ namespace DbModel
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BudgetsWithExpenses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToEvents(Events events)
+        public void AddToBudgetsWithExpenses(BudgetsWithExpenses budgetsWithExpenses)
         {
-            base.AddObject("Events", events);
+            base.AddObject("BudgetsWithExpenses", budgetsWithExpenses);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ExpenseCatLastMthBalance EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToExpenseCatLastMthBalance(ExpenseCatLastMthBalance expenseCatLastMthBalance)
+        {
+            base.AddObject("ExpenseCatLastMthBalance", expenseCatLastMthBalance);
         }
 
         #endregion
@@ -595,16 +645,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Additiona__UserI__06CD04F7", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Additiona__UserI__182C9B23", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__06CD04F7", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__182C9B23", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__06CD04F7", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__182C9B23", "Users").Value = value;
             }
         }
         /// <summary>
@@ -616,13 +666,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__06CD04F7", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__182C9B23", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__06CD04F7", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Additiona__UserI__182C9B23", "Users", value);
                 }
             }
         }
@@ -647,19 +697,19 @@ namespace DbModel
         /// <param name="positionID">Initial value of the PositionID property.</param>
         /// <param name="budgetID">Initial value of the BudgetID property.</param>
         /// <param name="expenseCatID">Initial value of the ExpenseCatID property.</param>
-        /// <param name="shopID">Initial value of the ShopID property.</param>
-        /// <param name="prodID">Initial value of the ProdID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        /// <param name="prodName">Initial value of the ProdName property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="quantity">Initial value of the Quantity property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
-        public static BudgetPositions CreateBudgetPositions(global::System.Int64 positionID, global::System.Int32 budgetID, global::System.Int32 expenseCatID, global::System.Int32 shopID, global::System.Int64 prodID, global::System.Decimal price, global::System.Int16 quantity, global::System.DateTime creationDate)
+        public static BudgetPositions CreateBudgetPositions(global::System.Int64 positionID, global::System.Int32 budgetID, global::System.Int32 expenseCatID, global::System.String userID, global::System.String prodName, global::System.Decimal price, global::System.Int32 quantity, global::System.DateTime creationDate)
         {
             BudgetPositions budgetPositions = new BudgetPositions();
             budgetPositions.PositionID = positionID;
             budgetPositions.BudgetID = budgetID;
             budgetPositions.ExpenseCatID = expenseCatID;
-            budgetPositions.ShopID = shopID;
-            budgetPositions.ProdID = prodID;
+            budgetPositions.UserID = userID;
+            budgetPositions.ProdName = prodName;
             budgetPositions.Price = price;
             budgetPositions.Quantity = quantity;
             budgetPositions.CreationDate = creationDate;
@@ -748,9 +798,9 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 ShopID
+        public Nullable<global::System.Int32> ShopID
         {
             get
             {
@@ -765,8 +815,8 @@ namespace DbModel
                 OnShopIDChanged();
             }
         }
-        private global::System.Int32 _ShopID;
-        partial void OnShopIDChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _ShopID;
+        partial void OnShopIDChanging(Nullable<global::System.Int32> value);
         partial void OnShopIDChanged();
     
         /// <summary>
@@ -774,24 +824,48 @@ namespace DbModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 ProdID
+        public global::System.String UserID
         {
             get
             {
-                return _ProdID;
+                return _UserID;
             }
             set
             {
-                OnProdIDChanging(value);
-                ReportPropertyChanging("ProdID");
-                _ProdID = StructuralObject.SetValidValue(value, "ProdID");
-                ReportPropertyChanged("ProdID");
-                OnProdIDChanged();
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
             }
         }
-        private global::System.Int64 _ProdID;
-        partial void OnProdIDChanging(global::System.Int64 value);
-        partial void OnProdIDChanged();
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ProdName
+        {
+            get
+            {
+                return _ProdName;
+            }
+            set
+            {
+                OnProdNameChanging(value);
+                ReportPropertyChanging("ProdName");
+                _ProdName = StructuralObject.SetValidValue(value, false, "ProdName");
+                ReportPropertyChanged("ProdName");
+                OnProdNameChanged();
+            }
+        }
+        private global::System.String _ProdName;
+        partial void OnProdNameChanging(global::System.String value);
+        partial void OnProdNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -846,7 +920,7 @@ namespace DbModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 Quantity
+        public global::System.Int32 Quantity
         {
             get
             {
@@ -861,8 +935,8 @@ namespace DbModel
                 OnQuantityChanged();
             }
         }
-        private global::System.Int16 _Quantity;
-        partial void OnQuantityChanging(global::System.Int16 value);
+        private global::System.Int32 _Quantity;
+        partial void OnQuantityChanging(global::System.Int32 value);
         partial void OnQuantityChanged();
     
         /// <summary>
@@ -923,16 +997,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Budge__2180FB33", "Budgets")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Budge__4316F928", "Budgets")]
         public Budgets Budgets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "Budgets").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__4316F928", "Budgets").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "Budgets").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__4316F928", "Budgets").Value = value;
             }
         }
         /// <summary>
@@ -944,13 +1018,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "Budgets");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__4316F928", "Budgets");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "Budgets", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Budgets>("CheaperModel.FK__BudgetPos__Budge__4316F928", "Budgets", value);
                 }
             }
         }
@@ -961,16 +1035,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Expen__22751F6C", "ExpenseCategories")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Expen__440B1D61", "ExpenseCategories")]
         public ExpenseCategories ExpenseCategories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "ExpenseCategories").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "ExpenseCategories").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "ExpenseCategories").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "ExpenseCategories").Value = value;
             }
         }
         /// <summary>
@@ -982,13 +1056,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "ExpenseCategories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "ExpenseCategories");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "ExpenseCategories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ExpenseCategories>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "ExpenseCategories", value);
                 }
             }
         }
@@ -999,54 +1073,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ProdI__245D67DE", "Products")]
-        public Products Products
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "Products").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "Products").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Products> ProductsReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "Products");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Products>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "Products", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ShopI__236943A5", "Shops")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ShopI__44FF419A", "Shops")]
         public Shops Shops
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "Shops").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "Shops").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "Shops").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "Shops").Value = value;
             }
         }
         /// <summary>
@@ -1058,13 +1094,51 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "Shops");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "Shops");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "Shops", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Shops>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "Shops", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPositions__45F365D3", "Products")]
+        public Products Products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPositions__45F365D3", "Products").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPositions__45F365D3", "Products").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Products> ProductsReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Products>("CheaperModel.FK__BudgetPositions__45F365D3", "Products");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Products>("CheaperModel.FK__BudgetPositions__45F365D3", "Products", value);
                 }
             }
         }
@@ -1089,16 +1163,12 @@ namespace DbModel
         /// <param name="budgetID">Initial value of the BudgetID property.</param>
         /// <param name="userID">Initial value of the UserID property.</param>
         /// <param name="creationDate">Initial value of the CreationDate property.</param>
-        /// <param name="income">Initial value of the Income property.</param>
-        /// <param name="expenses">Initial value of the Expenses property.</param>
-        public static Budgets CreateBudgets(global::System.Int32 budgetID, global::System.String userID, global::System.DateTime creationDate, global::System.Decimal income, global::System.Decimal expenses)
+        public static Budgets CreateBudgets(global::System.Int32 budgetID, global::System.String userID, global::System.DateTime creationDate)
         {
             Budgets budgets = new Budgets();
             budgets.BudgetID = budgetID;
             budgets.UserID = userID;
             budgets.CreationDate = creationDate;
-            budgets.Income = income;
-            budgets.Expenses = expenses;
             return budgets;
         }
 
@@ -1160,6 +1230,30 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BudgetName
+        {
+            get
+            {
+                return _BudgetName;
+            }
+            set
+            {
+                OnBudgetNameChanging(value);
+                ReportPropertyChanging("BudgetName");
+                _BudgetName = StructuralObject.SetValidValue(value, true, "BudgetName");
+                ReportPropertyChanged("BudgetName");
+                OnBudgetNameChanged();
+            }
+        }
+        private global::System.String _BudgetName;
+        partial void OnBudgetNameChanging(global::System.String value);
+        partial void OnBudgetNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreationDate
@@ -1180,54 +1274,161 @@ namespace DbModel
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
+
+        #endregion
+
+        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        public global::System.Decimal Income
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Budge__4316F928", "BudgetPositions")]
+        public EntityCollection<BudgetPositions> BudgetPositions
         {
             get
             {
-                return _Income;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Budge__4316F928", "BudgetPositions");
             }
             set
             {
-                OnIncomeChanging(value);
-                ReportPropertyChanging("Income");
-                _Income = StructuralObject.SetValidValue(value, "Income");
-                ReportPropertyChanged("Income");
-                OnIncomeChanged();
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Budge__4316F928", "BudgetPositions", value);
+                }
             }
         }
-        private global::System.Decimal _Income;
-        partial void OnIncomeChanging(global::System.Decimal value);
-        partial void OnIncomeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        public global::System.Decimal Expenses
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Budgets__UserID__1FCDBCEB", "Users")]
+        public Users Users
         {
             get
             {
-                return _Expenses;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Users").Value;
             }
             set
             {
-                OnExpensesChanging(value);
-                ReportPropertyChanging("Expenses");
-                _Expenses = StructuralObject.SetValidValue(value, "Expenses");
-                ReportPropertyChanged("Expenses");
-                OnExpensesChanged();
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Users").Value = value;
             }
         }
-        private global::System.Decimal _Expenses;
-        partial void OnExpensesChanging(global::System.Decimal value);
-        partial void OnExpensesChanged();
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Users> UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CheaperModel", Name="BudgetsWithExpenses")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BudgetsWithExpenses : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BudgetsWithExpenses object.
+        /// </summary>
+        /// <param name="budgetID">Initial value of the BudgetID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        /// <param name="creationDate">Initial value of the CreationDate property.</param>
+        /// <param name="thisMonthExpenses">Initial value of the ThisMonthExpenses property.</param>
+        /// <param name="thisYearExpenses">Initial value of the ThisYearExpenses property.</param>
+        public static BudgetsWithExpenses CreateBudgetsWithExpenses(global::System.Int32 budgetID, global::System.String userID, global::System.DateTime creationDate, global::System.Decimal thisMonthExpenses, global::System.Decimal thisYearExpenses)
+        {
+            BudgetsWithExpenses budgetsWithExpenses = new BudgetsWithExpenses();
+            budgetsWithExpenses.BudgetID = budgetID;
+            budgetsWithExpenses.UserID = userID;
+            budgetsWithExpenses.CreationDate = creationDate;
+            budgetsWithExpenses.ThisMonthExpenses = thisMonthExpenses;
+            budgetsWithExpenses.ThisYearExpenses = thisYearExpenses;
+            return budgetsWithExpenses;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 BudgetID
+        {
+            get
+            {
+                return _BudgetID;
+            }
+            set
+            {
+                if (_BudgetID != value)
+                {
+                    OnBudgetIDChanging(value);
+                    ReportPropertyChanging("BudgetID");
+                    _BudgetID = StructuralObject.SetValidValue(value, "BudgetID");
+                    ReportPropertyChanged("BudgetID");
+                    OnBudgetIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _BudgetID;
+        partial void OnBudgetIDChanging(global::System.Int32 value);
+        partial void OnBudgetIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                if (_UserID != value)
+                {
+                    OnUserIDChanging(value);
+                    ReportPropertyChanging("UserID");
+                    _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                    ReportPropertyChanged("UserID");
+                    OnUserIDChanged();
+                }
+            }
+        }
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1252,70 +1453,87 @@ namespace DbModel
         private global::System.String _BudgetName;
         partial void OnBudgetNameChanging(global::System.String value);
         partial void OnBudgetNameChanged();
-
-        #endregion
-
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Budge__2180FB33", "BudgetPositions")]
-        public EntityCollection<BudgetPositions> BudgetPositions
+        public global::System.DateTime CreationDate
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "BudgetPositions");
+                return _CreationDate;
             }
             set
             {
-                if ((value != null))
+                if (_CreationDate != value)
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Budge__2180FB33", "BudgetPositions", value);
+                    OnCreationDateChanging(value);
+                    ReportPropertyChanging("CreationDate");
+                    _CreationDate = StructuralObject.SetValidValue(value, "CreationDate");
+                    ReportPropertyChanged("CreationDate");
+                    OnCreationDateChanged();
                 }
             }
         }
+        private global::System.DateTime _CreationDate;
+        partial void OnCreationDateChanging(global::System.DateTime value);
+        partial void OnCreationDateChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Budgets__UserID__10566F31", "Users")]
-        public Users Users
+        public global::System.Decimal ThisMonthExpenses
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__10566F31", "Users").Value;
+                return _ThisMonthExpenses;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__10566F31", "Users").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Users> UsersReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__10566F31", "Users");
-            }
-            set
-            {
-                if ((value != null))
+                if (_ThisMonthExpenses != value)
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Budgets__UserID__10566F31", "Users", value);
+                    OnThisMonthExpensesChanging(value);
+                    ReportPropertyChanging("ThisMonthExpenses");
+                    _ThisMonthExpenses = StructuralObject.SetValidValue(value, "ThisMonthExpenses");
+                    ReportPropertyChanged("ThisMonthExpenses");
+                    OnThisMonthExpensesChanged();
                 }
             }
         }
+        private global::System.Decimal _ThisMonthExpenses;
+        partial void OnThisMonthExpensesChanging(global::System.Decimal value);
+        partial void OnThisMonthExpensesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ThisYearExpenses
+        {
+            get
+            {
+                return _ThisYearExpenses;
+            }
+            set
+            {
+                if (_ThisYearExpenses != value)
+                {
+                    OnThisYearExpensesChanging(value);
+                    ReportPropertyChanging("ThisYearExpenses");
+                    _ThisYearExpenses = StructuralObject.SetValidValue(value, "ThisYearExpenses");
+                    ReportPropertyChanged("ThisYearExpenses");
+                    OnThisYearExpensesChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ThisYearExpenses;
+        partial void OnThisYearExpensesChanging(global::System.Decimal value);
+        partial void OnThisYearExpensesChanged();
 
         #endregion
 
@@ -1409,18 +1627,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__Catego__17F790F9", "Products")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__Catego__24927208", "Products")]
         public EntityCollection<Products> Products
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Products>("CheaperModel.FK__Products__Catego__17F790F9", "Products");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Products>("CheaperModel.FK__Products__Catego__24927208", "Products");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Products>("CheaperModel.FK__Products__Catego__17F790F9", "Products", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Products>("CheaperModel.FK__Products__Catego__24927208", "Products", value);
                 }
             }
         }
@@ -1546,16 +1764,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Contacts__UserID__0A9D95DB", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Contacts__UserID__1BFD2C07", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Users").Value = value;
             }
         }
         /// <summary>
@@ -1567,13 +1785,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Users", value);
                 }
             }
         }
@@ -1720,16 +1938,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Conversat__Creat__29221CFB", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Conversat__Creat__2D27B809", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__29221CFB", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__2D27B809", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__29221CFB", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__2D27B809", "Users").Value = value;
             }
         }
         /// <summary>
@@ -1741,13 +1959,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__29221CFB", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__2D27B809", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__29221CFB", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Conversat__Creat__2D27B809", "Users", value);
                 }
             }
         }
@@ -1758,18 +1976,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Messages")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Conver__34C8D9D1", "Messages")]
         public EntityCollection<Messages> Messages
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Messages>("CheaperModel.FK__Messages__Conver__30C33EC3", "Messages");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Messages>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Messages");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Messages>("CheaperModel.FK__Messages__Conver__30C33EC3", "Messages", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Messages>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Messages", value);
                 }
             }
         }
@@ -1911,6 +2129,30 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String InnerExMessage
+        {
+            get
+            {
+                return _InnerExMessage;
+            }
+            set
+            {
+                OnInnerExMessageChanging(value);
+                ReportPropertyChanging("InnerExMessage");
+                _InnerExMessage = StructuralObject.SetValidValue(value, true, "InnerExMessage");
+                ReportPropertyChanged("InnerExMessage");
+                OnInnerExMessageChanged();
+            }
+        }
+        private global::System.String _InnerExMessage;
+        partial void OnInnerExMessageChanging(global::System.String value);
+        partial void OnInnerExMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime OccurenceDate
@@ -1966,16 +2208,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__3A81B327", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__3A81B327", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__3A81B327", "Users").Value = value;
             }
         }
         /// <summary>
@@ -1987,13 +2229,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Events__UserName__3A81B327", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Events__UserName__51300E55", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Events__UserName__3A81B327", "Users", value);
                 }
             }
         }
@@ -2018,12 +2260,14 @@ namespace DbModel
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="amount">Initial value of the Amount property.</param>
-        public static ExpenseCategories CreateExpenseCategories(global::System.Int32 id, global::System.String name, global::System.Decimal amount)
+        /// <param name="userID">Initial value of the UserID property.</param>
+        public static ExpenseCategories CreateExpenseCategories(global::System.Int32 id, global::System.String name, global::System.Decimal amount, global::System.String userID)
         {
             ExpenseCategories expenseCategories = new ExpenseCategories();
             expenseCategories.Id = id;
             expenseCategories.Name = name;
             expenseCategories.Amount = amount;
+            expenseCategories.UserID = userID;
             return expenseCategories;
         }
 
@@ -2109,6 +2353,237 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Expen__440B1D61", "BudgetPositions")]
+        public EntityCollection<BudgetPositions> BudgetPositions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "BudgetPositions");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Expen__440B1D61", "BudgetPositions", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__ExpenseCa__UserI__29572725", "Users")]
+        public Users Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__ExpenseCa__UserI__29572725", "Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__ExpenseCa__UserI__29572725", "Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Users> UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__ExpenseCa__UserI__29572725", "Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__ExpenseCa__UserI__29572725", "Users", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="CheaperModel", Name="ExpenseCatLastMthBalance")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ExpenseCatLastMthBalance : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ExpenseCatLastMthBalance object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="amount">Initial value of the Amount property.</param>
+        public static ExpenseCatLastMthBalance CreateExpenseCatLastMthBalance(global::System.Int32 id, global::System.String userID, global::System.String name, global::System.Decimal amount)
+        {
+            ExpenseCatLastMthBalance expenseCatLastMthBalance = new ExpenseCatLastMthBalance();
+            expenseCatLastMthBalance.Id = id;
+            expenseCatLastMthBalance.UserID = userID;
+            expenseCatLastMthBalance.Name = name;
+            expenseCatLastMthBalance.Amount = amount;
+            return expenseCatLastMthBalance;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                if (_UserID != value)
+                {
+                    OnUserIDChanging(value);
+                    ReportPropertyChanging("UserID");
+                    _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                    ReportPropertyChanged("UserID");
+                    OnUserIDChanged();
+                }
+            }
+        }
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (_Name != value)
+                {
+                    OnNameChanging(value);
+                    ReportPropertyChanging("Name");
+                    _Name = StructuralObject.SetValidValue(value, false, "Name");
+                    ReportPropertyChanged("Name");
+                    OnNameChanged();
+                }
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                if (_Amount != value)
+                {
+                    OnAmountChanging(value);
+                    ReportPropertyChanging("Amount");
+                    _Amount = StructuralObject.SetValidValue(value, "Amount");
+                    ReportPropertyChanged("Amount");
+                    OnAmountChanged();
+                }
+            }
+        }
+        private global::System.Decimal _Amount;
+        partial void OnAmountChanging(global::System.Decimal value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Balance
@@ -2129,32 +2604,6 @@ namespace DbModel
         private Nullable<global::System.Decimal> _Balance;
         partial void OnBalanceChanging(Nullable<global::System.Decimal> value);
         partial void OnBalanceChanged();
-
-        #endregion
-
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__Expen__22751F6C", "BudgetPositions")]
-        public EntityCollection<BudgetPositions> BudgetPositions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "BudgetPositions");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__Expen__22751F6C", "BudgetPositions", value);
-                }
-            }
-        }
 
         #endregion
 
@@ -2329,16 +2778,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Conver__30C33EC3", "Conversations")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Conver__34C8D9D1", "Conversations")]
         public Conversations Conversations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__30C33EC3", "Conversations").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Conversations").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__30C33EC3", "Conversations").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Conversations").Value = value;
             }
         }
         /// <summary>
@@ -2350,13 +2799,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__30C33EC3", "Conversations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Conversations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__30C33EC3", "Conversations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Conversations>("CheaperModel.FK__Messages__Conver__34C8D9D1", "Conversations", value);
                 }
             }
         }
@@ -2367,16 +2816,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Users")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Sender__35BCFE0A", "Users")]
         public Users Users
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__31B762FC", "Users").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Users").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__31B762FC", "Users").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Users").Value = value;
             }
         }
         /// <summary>
@@ -2388,13 +2837,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__31B762FC", "Users");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Users");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Messages__Sender__31B762FC", "Users", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Users", value);
                 }
             }
         }
@@ -2416,15 +2865,15 @@ namespace DbModel
         /// <summary>
         /// Create a new Products object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="categoryID">Initial value of the CategoryID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Products CreateProducts(global::System.Int64 id, global::System.Int16 categoryID, global::System.String name)
+        /// <param name="categoryID">Initial value of the CategoryID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        public static Products CreateProducts(global::System.String name, global::System.Int16 categoryID, global::System.String userID)
         {
             Products products = new Products();
-            products.Id = id;
-            products.CategoryID = categoryID;
             products.Name = name;
+            products.CategoryID = categoryID;
+            products.UserID = userID;
             return products;
         }
 
@@ -2437,27 +2886,27 @@ namespace DbModel
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 Id
+        public global::System.String Name
         {
             get
             {
-                return _Id;
+                return _Name;
             }
             set
             {
-                if (_Id != value)
+                if (_Name != value)
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value, "Id");
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    OnNameChanging(value);
+                    ReportPropertyChanging("Name");
+                    _Name = StructuralObject.SetValidValue(value, false, "Name");
+                    ReportPropertyChanged("Name");
+                    OnNameChanged();
                 }
             }
         }
-        private global::System.Int64 _Id;
-        partial void OnIdChanging(global::System.Int64 value);
-        partial void OnIdChanged();
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2486,26 +2935,29 @@ namespace DbModel
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Name
+        public global::System.String UserID
         {
             get
             {
-                return _Name;
+                return _UserID;
             }
             set
             {
-                OnNameChanging(value);
-                ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false, "Name");
-                ReportPropertyChanged("Name");
-                OnNameChanged();
+                if (_UserID != value)
+                {
+                    OnUserIDChanging(value);
+                    ReportPropertyChanging("UserID");
+                    _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                    ReportPropertyChanged("UserID");
+                    OnUserIDChanged();
+                }
             }
         }
-        private global::System.String _Name;
-        partial void OnNameChanging(global::System.String value);
-        partial void OnNameChanged();
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
 
         #endregion
 
@@ -2517,18 +2969,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ProdI__245D67DE", "BudgetPositions")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPositions__45F365D3", "BudgetPositions")]
         public EntityCollection<BudgetPositions> BudgetPositions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "BudgetPositions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPositions__45F365D3", "BudgetPositions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ProdI__245D67DE", "BudgetPositions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPositions__45F365D3", "BudgetPositions", value);
                 }
             }
         }
@@ -2539,16 +2991,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__Catego__17F790F9", "Categories")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__Catego__24927208", "Categories")]
         public Categories Categories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__17F790F9", "Categories").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__24927208", "Categories").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__17F790F9", "Categories").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__24927208", "Categories").Value = value;
             }
         }
         /// <summary>
@@ -2560,13 +3012,51 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__17F790F9", "Categories");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Categories>("CheaperModel.FK__Products__Catego__24927208", "Categories");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Categories>("CheaperModel.FK__Products__Catego__17F790F9", "Categories", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Categories>("CheaperModel.FK__Products__Catego__24927208", "Categories", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__UserID__25869641", "Users")]
+        public Users Users
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Products__UserID__25869641", "Users").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Products__UserID__25869641", "Users").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Users> UsersReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Users>("CheaperModel.FK__Products__UserID__25869641", "Users");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Users>("CheaperModel.FK__Products__UserID__25869641", "Users", value);
                 }
             }
         }
@@ -2590,11 +3080,13 @@ namespace DbModel
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="friendlyName">Initial value of the FriendlyName property.</param>
-        public static Shops CreateShops(global::System.Int32 id, global::System.String friendlyName)
+        /// <param name="userID">Initial value of the UserID property.</param>
+        public static Shops CreateShops(global::System.Int32 id, global::System.String friendlyName, global::System.String userID)
         {
             Shops shops = new Shops();
             shops.Id = id;
             shops.FriendlyName = friendlyName;
+            shops.UserID = userID;
             return shops;
         }
 
@@ -2724,6 +3216,30 @@ namespace DbModel
         private global::System.String _PostCode;
         partial void OnPostCodeChanging(global::System.String value);
         partial void OnPostCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, false, "UserID");
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.String _UserID;
+        partial void OnUserIDChanging(global::System.String value);
+        partial void OnUserIDChanged();
 
         #endregion
 
@@ -2735,18 +3251,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ShopI__236943A5", "BudgetPositions")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__BudgetPos__ShopI__44FF419A", "BudgetPositions")]
         public EntityCollection<BudgetPositions> BudgetPositions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "BudgetPositions");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "BudgetPositions");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ShopI__236943A5", "BudgetPositions", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BudgetPositions>("CheaperModel.FK__BudgetPos__ShopI__44FF419A", "BudgetPositions", value);
                 }
             }
         }
@@ -2945,16 +3461,16 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Additiona__UserI__06CD04F7", "AdditionalUserInfo")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Additiona__UserI__182C9B23", "AdditionalUserInfo")]
         public AdditionalUserInfo AdditionalUserInfo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__06CD04F7", "AdditionalUserInfo").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__182C9B23", "AdditionalUserInfo").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__06CD04F7", "AdditionalUserInfo").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__182C9B23", "AdditionalUserInfo").Value = value;
             }
         }
         /// <summary>
@@ -2966,13 +3482,13 @@ namespace DbModel
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__06CD04F7", "AdditionalUserInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__182C9B23", "AdditionalUserInfo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__06CD04F7", "AdditionalUserInfo", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<AdditionalUserInfo>("CheaperModel.FK__Additiona__UserI__182C9B23", "AdditionalUserInfo", value);
                 }
             }
         }
@@ -2983,18 +3499,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Budgets__UserID__10566F31", "Budgets")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Budgets__UserID__1FCDBCEB", "Budgets")]
         public EntityCollection<Budgets> Budgets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Budgets>("CheaperModel.FK__Budgets__UserID__10566F31", "Budgets");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Budgets>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Budgets");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Budgets>("CheaperModel.FK__Budgets__UserID__10566F31", "Budgets", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Budgets>("CheaperModel.FK__Budgets__UserID__1FCDBCEB", "Budgets", value);
                 }
             }
         }
@@ -3005,18 +3521,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Contacts__UserID__0A9D95DB", "Contacts")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Contacts__UserID__1BFD2C07", "Contacts")]
         public EntityCollection<Contacts> Contacts
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contacts>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Contacts");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Contacts>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Contacts");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contacts>("CheaperModel.FK__Contacts__UserID__0A9D95DB", "Contacts", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Contacts>("CheaperModel.FK__Contacts__UserID__1BFD2C07", "Contacts", value);
                 }
             }
         }
@@ -3027,18 +3543,18 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Conversat__Creat__29221CFB", "Conversations")]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Conversat__Creat__2D27B809", "Conversations")]
         public EntityCollection<Conversations> Conversations
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conversations>("CheaperModel.FK__Conversat__Creat__29221CFB", "Conversations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Conversations>("CheaperModel.FK__Conversat__Creat__2D27B809", "Conversations");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conversations>("CheaperModel.FK__Conversat__Creat__29221CFB", "Conversations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conversations>("CheaperModel.FK__Conversat__Creat__2D27B809", "Conversations", value);
                 }
             }
         }
@@ -3049,18 +3565,84 @@ namespace DbModel
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Sender__31B762FC", "Messages")]
-        public EntityCollection<Messages> Messages
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__3A81B327", "Events")]
+        public EntityCollection<Events> Events
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Messages>("CheaperModel.FK__Messages__Sender__31B762FC", "Messages");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Events>("CheaperModel.FK__Events__UserName__3A81B327", "Events");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Messages>("CheaperModel.FK__Messages__Sender__31B762FC", "Messages", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Events>("CheaperModel.FK__Events__UserName__3A81B327", "Events", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__ExpenseCa__UserI__29572725", "ExpenseCategories")]
+        public EntityCollection<ExpenseCategories> ExpenseCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ExpenseCategories>("CheaperModel.FK__ExpenseCa__UserI__29572725", "ExpenseCategories");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ExpenseCategories>("CheaperModel.FK__ExpenseCa__UserI__29572725", "ExpenseCategories", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Messages__Sender__35BCFE0A", "Messages")]
+        public EntityCollection<Messages> Messages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Messages>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Messages");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Messages>("CheaperModel.FK__Messages__Sender__35BCFE0A", "Messages", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Products__UserID__25869641", "Products")]
+        public EntityCollection<Products> Products
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Products>("CheaperModel.FK__Products__UserID__25869641", "Products");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Products>("CheaperModel.FK__Products__UserID__25869641", "Products", value);
                 }
             }
         }
@@ -3083,28 +3665,6 @@ namespace DbModel
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Conversations>("CheaperModel.ConversationParticipants", "Conversations", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("CheaperModel", "FK__Events__UserName__51300E55", "Events")]
-        public EntityCollection<Events> Events
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Events>("CheaperModel.FK__Events__UserName__51300E55", "Events");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Events>("CheaperModel.FK__Events__UserName__51300E55", "Events", value);
                 }
             }
         }

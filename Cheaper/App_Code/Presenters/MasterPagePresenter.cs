@@ -45,5 +45,13 @@ namespace Cheaper.Presenters
 
             SetViewGreetingsData();
         }
+
+        public void LogUserOut()
+        {
+            _view.IsLoggedIn = false;
+            _view.UserName = null;
+
+            _view.RedirectTo("~/Views/StronaGlowna/Default.aspx", true);
+        }
     }
 }

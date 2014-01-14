@@ -18,9 +18,11 @@ public class BudzetDetailsPresenter : BasePresenter<IBudzetDetailsView>
 
     public void InitView(bool isPostBack)
     {
+        if (!_view.IsLoggedIn)
+            return;
+
         var budgetData = _service.GetBudgetData(int.Parse(_view.GetQueryStringValue(GETValueIdentifiers.ID)), _view.UserName);
         _view.BudgetName = budgetData.BudgetName;
-
         this._view.RepeaterDataSource = _service.GetBudgetDetailsData(int.Parse(_view.GetQueryStringValue("id")), _view.UserName);
     }
 }
