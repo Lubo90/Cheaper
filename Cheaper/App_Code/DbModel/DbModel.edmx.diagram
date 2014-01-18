@@ -4,26 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="330205885a2b4663bcd08e15cf321b5e" Name="Diagram1">
-        <EntityTypeShape EntityType="CheaperModel.AdditionalUserInfo" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.BudgetPositions" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Budgets" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Categories" Width="1.5" PointX="5.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Contacts" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Conversations" Width="1.5" PointX="3" PointY="13" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Events" Width="1.5" PointX="3" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.ExpenseCategories" Width="1.5" PointX="3" PointY="19.25" IsExpanded="true" />
+      <Diagram DiagramId="8283a1ddeac3456088fa4004fc3ff2c3" Name="Diagram1">
+        <EntityTypeShape EntityType="CheaperModel.AdditionalUserInfo" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.BudgetPositions" Width="1.5" PointX="5.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Budgets" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Categories" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Contacts" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Conversations" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Events" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.ExpenseCategories" Width="1.5" PointX="3" PointY="19.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Messages" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Products" Width="1.5" PointX="8" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Shops" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CheaperModel.Users" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Shops" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.Users" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.BudgetsWithExpenses" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.ExpenseCatLastMthBalance" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="CheaperModel.FK__Additiona__UserI__182C9B23" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__BudgetPos__Budge__4316F928" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__BudgetPos__Expen__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="CheaperModel.FK__BudgetPos__ProdI__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__BudgetPos__ShopI__44FF419A" ManuallyRouted="false" />
-        <AssociationConnector Association="CheaperModel.FK__BudgetPositions__45F365D3" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__Budgets__UserID__1FCDBCEB" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__Products__Catego__24927208" ManuallyRouted="false" />
         <AssociationConnector Association="CheaperModel.FK__Contacts__UserID__1BFD2C07" ManuallyRouted="false" />

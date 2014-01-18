@@ -50,12 +50,12 @@
             <End Role="ExpenseCategories" EntitySet="ExpenseCategories" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__BudgetPos__ShopI__44FF419A" Association="CheaperModel.Store.FK__BudgetPos__ShopI__44FF419A">
-            <End Role="Shops" EntitySet="Shops" />
+          <AssociationSet Name="FK__BudgetPos__ProdI__45F365D3" Association="CheaperModel.Store.FK__BudgetPos__ProdI__45F365D3">
+            <End Role="Products" EntitySet="Products" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__BudgetPositions__45F365D3" Association="CheaperModel.Store.FK__BudgetPositions__45F365D3">
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK__BudgetPos__ShopI__44FF419A" Association="CheaperModel.Store.FK__BudgetPos__ShopI__44FF419A">
+            <End Role="Shops" EntitySet="Shops" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
           <AssociationSet Name="FK__Budgets__UserID__1FCDBCEB" Association="CheaperModel.Store.FK__Budgets__UserID__1FCDBCEB">
@@ -124,7 +124,7 @@
           <Property Name="ExpenseCatID" Type="int" Nullable="false" />
           <Property Name="ShopID" Type="int" />
           <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="24" />
-          <Property Name="ProdName" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="ProdID" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="datetime" />
           <Property Name="Quantity" Type="int" Nullable="false" />
@@ -206,9 +206,9 @@
         </EntityType>
         <EntityType Name="Products">
           <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ProductID" />
           </Key>
+          <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="40" />
           <Property Name="CategoryID" Type="smallint" Nullable="false" />
           <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="24" />
@@ -305,6 +305,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__BudgetPos__ProdI__45F365D3">
+          <End Role="Products" Type="CheaperModel.Store.Products" Multiplicity="1" />
+          <End Role="BudgetPositions" Type="CheaperModel.Store.BudgetPositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BudgetPositions">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__BudgetPos__ShopI__44FF419A">
           <End Role="Shops" Type="CheaperModel.Store.Shops" Multiplicity="0..1" />
           <End Role="BudgetPositions" Type="CheaperModel.Store.BudgetPositions" Multiplicity="*" />
@@ -314,20 +326,6 @@
             </Principal>
             <Dependent Role="BudgetPositions">
               <PropertyRef Name="ShopID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__BudgetPositions__45F365D3">
-          <End Role="Products" Type="CheaperModel.Store.Products" Multiplicity="1" />
-          <End Role="BudgetPositions" Type="CheaperModel.Store.BudgetPositions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Name" />
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="BudgetPositions">
-              <PropertyRef Name="ProdName" />
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -495,12 +493,12 @@
             <End Role="ExpenseCategories" EntitySet="ExpenseCategories" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__BudgetPos__ShopI__44FF419A" Association="CheaperModel.FK__BudgetPos__ShopI__44FF419A">
-            <End Role="Shops" EntitySet="Shops" />
+          <AssociationSet Name="FK__BudgetPos__ProdI__45F365D3" Association="CheaperModel.FK__BudgetPos__ProdI__45F365D3">
+            <End Role="Products" EntitySet="Products" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__BudgetPositions__45F365D3" Association="CheaperModel.FK__BudgetPositions__45F365D3">
-            <End Role="Products" EntitySet="Products" />
+          <AssociationSet Name="FK__BudgetPos__ShopI__44FF419A" Association="CheaperModel.FK__BudgetPos__ShopI__44FF419A">
+            <End Role="Shops" EntitySet="Shops" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
           <AssociationSet Name="FK__Budgets__UserID__1FCDBCEB" Association="CheaperModel.FK__Budgets__UserID__1FCDBCEB">
@@ -566,7 +564,7 @@
           <Property Name="ExpenseCatID" Type="Int32" Nullable="false" />
           <Property Name="ShopID" Type="Int32" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
-          <Property Name="ProdName" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="ProdID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
@@ -574,8 +572,8 @@
           <Property Name="AdditionalInfo" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Budgets" Relationship="CheaperModel.FK__BudgetPos__Budge__4316F928" FromRole="BudgetPositions" ToRole="Budgets" />
           <NavigationProperty Name="ExpenseCategories" Relationship="CheaperModel.FK__BudgetPos__Expen__440B1D61" FromRole="BudgetPositions" ToRole="ExpenseCategories" />
+          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__BudgetPos__ProdI__45F365D3" FromRole="BudgetPositions" ToRole="Products" />
           <NavigationProperty Name="Shops" Relationship="CheaperModel.FK__BudgetPos__ShopI__44FF419A" FromRole="BudgetPositions" ToRole="Shops" />
-          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__BudgetPositions__45F365D3" FromRole="BudgetPositions" ToRole="Products" />
         </EntityType>
         <EntityType Name="Budgets">
           <Key>
@@ -656,13 +654,13 @@
         </EntityType>
         <EntityType Name="Products">
           <Key>
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ProductID" />
           </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
           <Property Name="CategoryID" Type="Int16" Nullable="false" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="BudgetPositions" Relationship="CheaperModel.FK__BudgetPositions__45F365D3" FromRole="Products" ToRole="BudgetPositions" />
+          <NavigationProperty Name="BudgetPositions" Relationship="CheaperModel.FK__BudgetPos__ProdI__45F365D3" FromRole="Products" ToRole="BudgetPositions" />
           <NavigationProperty Name="Categories" Relationship="CheaperModel.FK__Products__Catego__24927208" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Products__UserID__25869641" FromRole="Products" ToRole="Users" />
         </EntityType>
@@ -762,6 +760,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__BudgetPos__ProdI__45F365D3">
+          <End Role="Products" Type="CheaperModel.Products" Multiplicity="1" />
+          <End Role="BudgetPositions" Type="CheaperModel.BudgetPositions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="BudgetPositions">
+              <PropertyRef Name="ProdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__BudgetPos__ShopI__44FF419A">
           <End Role="Shops" Type="CheaperModel.Shops" Multiplicity="0..1" />
           <End Role="BudgetPositions" Type="CheaperModel.BudgetPositions" Multiplicity="*" />
@@ -771,20 +781,6 @@
             </Principal>
             <Dependent Role="BudgetPositions">
               <PropertyRef Name="ShopID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__BudgetPositions__45F365D3">
-          <End Role="Products" Type="CheaperModel.Products" Multiplicity="1" />
-          <End Role="BudgetPositions" Type="CheaperModel.BudgetPositions" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Products">
-              <PropertyRef Name="Name" />
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="BudgetPositions">
-              <PropertyRef Name="ProdName" />
-              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -927,7 +923,7 @@
                 <ScalarProperty Name="ExpenseCatID" ColumnName="ExpenseCatID" />
                 <ScalarProperty Name="ShopID" ColumnName="ShopID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="ProdName" ColumnName="ProdName" />
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
@@ -1009,6 +1005,7 @@
           <EntitySetMapping Name="Products">
             <EntityTypeMapping TypeName="CheaperModel.Products">
               <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />

@@ -1,4 +1,4 @@
-IF DB_ID('Cheaper') IS NULL BEGIN CREATE DATABASE Cheaper; END
+﻿IF DB_ID('Cheaper') IS NULL BEGIN CREATE DATABASE Cheaper; END
 GO
 
 USE Cheaper;
@@ -13,6 +13,7 @@ CREATE TABLE Users (
 	VerifCode NVARCHAR(16) NULL,
 	CONSTRAINT MinPasswdLength CHECK (DATALENGTH(Passwd) = 32));
 GO
+insert into Users values ('lubo', 'f6a3a3e101a484c1b0ff5facacf1be56', 'lubo@ue.katowice.pl', getdate(), getdate(), null);
 
 CREATE TABLE AdditionalUserInfo (
 	UserID NVARCHAR(24) PRIMARY KEY,
@@ -47,10 +48,10 @@ CREATE TABLE Categories (
 GO
 
 CREATE TABLE Products (
+	ProductID INT IDENTITY(1,1) PRIMARY KEY,
 	Name NVARCHAR(40) NOT NULL,
 	CategoryID SMALLINT NOT NULL,
 	UserID NVARCHAR(24) NOT NULL,
-	PRIMARY KEY (Name, UserID),
 	FOREIGN KEY (CategoryID) REFERENCES Categories(Id) ON UPDATE CASCADE ON DELETE NO ACTION,
 	FOREIGN KEY (UserID) REFERENCES Users(UserName) ON UPDATE NO ACTION ON DELETE NO ACTION);
 GO
@@ -116,7 +117,7 @@ CREATE TABLE BudgetPositions (
 	ExpenseCatID INT NOT NULL,
 	ShopID INT NULL,
 	UserID NVARCHAR(24) NOT NULL,
-	ProdName NVARCHAR(40) NOT NULL,
+	ProdID INT NOT NULL,
 	Price DECIMAL(9,2) NOT NULL DEFAULT 0,
 	PurchaseDate DATETIME NULL,
 	Quantity INT NOT NULL DEFAULT 1,
@@ -125,7 +126,7 @@ CREATE TABLE BudgetPositions (
 	FOREIGN KEY (BudgetID) REFERENCES Budgets(BudgetID) ON UPDATE CASCADE ON DELETE NO ACTION,
 	FOREIGN KEY (ExpenseCatID) REFERENCES ExpenseCategories(Id) ON UPDATE CASCADE ON DELETE NO ACTION,
 	FOREIGN KEY (ShopID) REFERENCES Shops(Id) ON UPDATE CASCADE ON DELETE NO ACTION,
-	FOREIGN KEY (ProdName, UserID) REFERENCES Products(Name, UserID) ON UPDATE CASCADE ON DELETE NO ACTION,
+	FOREIGN KEY (ProdID) REFERENCES Products(ProductID) ON UPDATE CASCADE ON DELETE NO ACTION,
 	CONSTRAINT MinPrice CHECK (Price >= 0));
 GO
 
@@ -154,5 +155,19 @@ SELECT b.BudgetID, b.UserID, b.BudgetName, b.CreationDate,
 		AND YEAR(bp.PurchaseDate) = YEAR(GETDATE())), 0) AS ThisYearExpenses
 FROM Budgets b;
 GO
+
+commit;
+
+-- POPULACJA STRUKTUR SŁOWNIKOWYCH DANYMI
+begin transaction;
+
+INSERT INTO Categories(Name)
+	SELECT 'Artykuły gospodarstwa domowego'
+	UNION SELECT 'RTV'
+	UNION SELECT 'Słodycze'
+	UNION SELECT 'Owoce'
+	UNION SELECT 'Warzywa'
+	UNION SELECT 'Fastfood'
+	UNION SELECT 'Elektronika';
 
 commit;

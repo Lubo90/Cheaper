@@ -1,6 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPage/SzabGlowny.master" AutoEventWireup="true" CodeFile="NowaPozycjaBudzetu.aspx.cs" Inherits="Views_BudzetDetails_NowaPozycjaBudzetu" %>
 
+<%@ Register Namespace="Cheaper.Controls" TagPrefix="ctl"  %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#tbShops").change(function () {
+                $("#tbShopId").val(null);
+            });
+
+            $("#tbProducts").change(function () {
+                $("#tbProductsId").val("sdfg");
+            });
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <%--<div style="float: left; margin: 0 auto;">--%>
@@ -12,36 +25,49 @@
                     <asp:Label runat="server" Text="Produkt" />
                 </td>
                 <td class="tableItem">
-                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbProducts" /><asp:Button Width="100" runat="server" OnClientClick='$("#pupNowyProdukt").dialog("open"); return false;' Text="Nowy produkt" />
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbProducts" /><ctl:HiddenFieldValidatable runat="server" ID="tbProductsId" ClientIDMode="Static" />
+                <asp:RequiredFieldValidator ID="rfvProducts" runat="server" ControlToValidate="tbProductsId" Display="Dynamic" ToolTip="Musisz wybrać sklep za pomocą podpowiedzi"><div class="validationErr">Podaj wartość</div></asp:RequiredFieldValidator>
                 </td>
+                <td class="tableItem"><asp:Button ID="Button1" Width="100" runat="server" OnClientClick='$("#pupNowyProdukt").dialog("open"); return false;' Text="Nowy produkt" /></td>
             </tr>
             <tr>
                 <td class="tableHeader">Kategoria<br />
                     wydatku</td>
                 <td class="tableItem">
-                    <asp:DropDownList runat="server" ID="ddlKategorieWyd" /><%--<asp:Button runat="server" Width="100" OnClientClick='$("#pupNowaKatWyd").dialog("open"); return false;' Text="Nowa kat. wyd." />--%>
+                    <asp:DropDownList runat="server" ID="ddlKategorieWyd" />
                 </td>
             </tr>
             <tr>
                 <td class="tableHeader">Sklep</td>
                 <td class="tableItem">
-                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbShops" /><asp:HiddenField ID="tbShopId" runat="server" ClientIDMode="Static" />
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbShops" /><ctl:HiddenFieldValidatable runat="server" ID="tbShopId" ClientIDMode="Static" />
+                    <asp:RequiredFieldValidator runat="server" ID="rfvShops" Display="Dynamic" ControlToValidate="tbShopId" ToolTip="Musisz wybrać sklep za pomocą podpowiedzi"><div class="validationErr">Podaj wartość</div></asp:RequiredFieldValidator>
                     <asp:Button Width="100" runat="server" OnClientClick='$("#pupNowySklep").dialog("open"); return false;' Text="Nowy sklep" /></td>
             </tr>
             <tr>
                 <td class="tableHeader">Cena</td>
+                
                 <td class="tableItem">
-                    <asp:TextBox runat="server" ID="tbPrice" /></td>
+                    <asp:TextBox runat="server" ID="tbPrice" ClientIDMode="Static" />
+                    <asp:RangeValidator runat="server" ID="rvPrice" MinimumValue="0" MaximumValue="100000000" Display="Dynamic" Type="Double" ControlToValidate="tbPrice"><div class="validationErr">Niepoprawna wartość</div></asp:RangeValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvPrice" ControlToValidate="tbPrice" Display="Dynamic"><div class="validationErr">Podaj cenę</div></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="tableHeader">Data zakupu</td>
                 <td class="tableItem">
-                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbPurchaseDate" /></td>
+                    <asp:TextBox runat="server" ClientIDMode="Static" ID="tbPurchaseDate" />
+                    <asp:RegularExpressionValidator runat="server" ID="revPurchaseDate" Display="Dynamic" ControlToValidate="tbPurchaseDate" ValidationExpression="^\d{2}-\d{2}-\d{4}"><div class="validationErr">Musisz podać cenę</div></asp:RegularExpressionValidator>
+                </td>
             </tr>
             <tr>
-                <td class="tableHeader">Ilość</td>
+                <td class="tableHeader">
+                    Ilość</td>
                 <td class="tableItem">
-                    <asp:TextBox runat="server" ID="tbQuantity" /></td>
+                    <asp:TextBox runat="server" ID="tbQuantity" />
+                    <asp:RangeValidator runat="server" ID="rvQuantity" MinimumValue="1" MaximumValue="10000" Display="Dynamic" Type="Double" ControlToValidate="tbPrice"><div class="validationErr">Niepoprawna wartość</div></asp:RangeValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvQuantity" ControlToValidate="tbPrice" Display="Dynamic"><div class="validationErr">Podaj ilość</div></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="tableHeader">Dodatkowe informacje</td>

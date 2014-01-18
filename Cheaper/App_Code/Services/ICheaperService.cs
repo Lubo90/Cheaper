@@ -14,7 +14,7 @@ public interface ICheaperService
     List<BudgetsModel> GetBudgets(string userName);
     BudgetsModel GetBudgetData(int budgetId, string userName);
     List<BudgetDetailsModel> GetBudgetDetailsData(int budgetId, string userName);
-    bool DodajPozycjeBudzetu(int idBudzetu, string produkt, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName);
+    bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName);
 
     bool DodajBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia);
     string[] GetProductsAutocomplete(string firstLetter, string userName);

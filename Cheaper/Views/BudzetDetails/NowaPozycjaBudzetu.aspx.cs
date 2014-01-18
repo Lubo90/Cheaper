@@ -39,6 +39,6 @@ public partial class Views_BudzetDetails_NowaPozycjaBudzetu : BaseView, INowaPoz
 
     protected void btnSavePozycja_Click(object sender, EventArgs e)
     {
-        _presenter.SavePozycjaBudzetu(tbProducts.Text, Convert.ToInt32(ddlKategorieWyd.SelectedItem.Value), Convert.ToInt32(tbShopId.Value), Convert.ToDecimal(tbPrice.Text), Convert.ToDateTime(tbPurchaseDate.Text), Convert.ToInt32(tbQuantity.Text), tbAddInfo.Text);
+        _presenter.SavePozycjaBudzetu(Convert.ToInt32(tbProductsId.Value), Convert.ToInt32(ddlKategorieWyd.SelectedItem.Value), Convert.ToInt32(tbShopId.Value), Convert.ToDecimal(tbPrice.Text), Convert.ToDateTime(tbPurchaseDate.Text), Convert.ToInt32(tbQuantity.Text), tbAddInfo.Text);
     }
 }

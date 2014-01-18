@@ -65,7 +65,7 @@ public class CheaperService : ICheaperService
             var select = from budPos in context.BudgetPositions
                          join buds in context.Budgets on budPos.BudgetID equals buds.BudgetID
                          join shops in context.Shops on budPos.ShopID equals shops.Id
-                         join products in context.Products on budPos.ProdName equals products.Name
+                         join products in context.Products on budPos.ProdID equals products.ProductID
                          join expCats in context.ExpenseCategories on budPos.ExpenseCatID equals expCats.Id
                          where budPos.BudgetID == budgetId && buds.UserID == userName
                          select new BudgetDetailsModel()
@@ -87,7 +87,7 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public bool DodajPozycjeBudzetu(int idBudzetu, string produkt, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName)
+    public bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName)
     {
         using (var context = new CheaperEntities())
         {
@@ -97,7 +97,7 @@ public class CheaperService : ICheaperService
 
             var nowaPozycja = new BudgetPositions();
             nowaPozycja.BudgetID = idBudzetu;
-            nowaPozycja.ProdName = produkt;
+            nowaPozycja.ProdID = idProduktu;
             nowaPozycja.ExpenseCatID = idKategorii;
             nowaPozycja.ShopID = idSklepu;
             nowaPozycja.UserID = userName;
@@ -139,9 +139,15 @@ public class CheaperService : ICheaperService
         {
             var select = from c in context.Products
                          where c.Name.StartsWith(firstLetters) && c.UserID == userName
-                         select c.Name;
+                         select new { c.ProductID, c.Name };
 
-            return select.ToArray();
+            List<string> resultList = new List<string>();
+            foreach (var item in select)
+            {
+                resultList.Add(string.Format("{0}~{1}", item.ProductID, item.Name));
+            }
+
+            return resultList.ToArray();
         }
     }
 

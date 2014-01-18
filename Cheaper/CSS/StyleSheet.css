@@ -50,7 +50,7 @@
 /******* TABELE *******/
 
 table.table {
-    border:1px solid #0094ff;
+    /*border:1px solid #0094ff;*/
 }
 
 .tableHeader {
@@ -65,6 +65,14 @@ table.table {
 .altTableItem {
     border: 1px solid #ffbf0f;
     background: #ffe293;
+}
+
+.validationErr {
+    border: 1px solid #f00;
+    background: #fe4545;
+    vertical-align:middle;
+    padding: 5px 8px;
+    display:inline-block;
 }
 
 .menuItem {

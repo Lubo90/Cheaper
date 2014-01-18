@@ -1,11 +1,14 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SzabGlowny.master.cs" Inherits="SzabGlowny" %>
 
-<% var page = Request.Url.Segments.Last();
-   if (!this.IsLoggedIn && page != "Default.aspx")
-       //this.Response.Redirect("~/Views/StronaGlowna/Default.aspx", true);
-       mvContent.ActiveViewIndex = 1;
-   else
-       mvContent.ActiveViewIndex = 0; %>
+<% 
+   //var page = Request.Url.Segments.Last();
+   //if (!this.IsLoggedIn && page != "Default.aspx")
+   //    //this.Response.Redirect("~/Views/StronaGlowna/Default.aspx", true);
+   //    this.ContentPlaceHolder1.Visible = false;
+   //else
+   //    this.ContentPlaceHolder1.Visible = true;
+%>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,7 +45,7 @@
                             <p>
                                 Witaj z powrotem,
                         <asp:Label ID="lblLogin" Text="" runat="server" />.
-                                <asp:LinkButton runat="server" ID="lbWyloguj" Text="Wyloguj" OnClick="lbWyloguj_Click" />
+                                <asp:LinkButton runat="server" ID="lbWyloguj" Text="Wyloguj" CausesValidation="false" OnClick="lbWyloguj_Click" />
                             </p>
                         </asp:View>
                     </asp:MultiView>
@@ -51,14 +54,14 @@
             <div id="menu">
                 <span>Menu</span>
                 <span class="menuItem">
-                    <asp:LinkButton ID="menuStronaGlowna" PostBackUrl="~/Views/StronaGlowna/Default.aspx" Text="Strona główna" runat="server" /><br />
+                    <asp:LinkButton ID="menuStronaGlowna" CausesValidation="false" PostBackUrl="~/Views/StronaGlowna/Default.aspx" Text="Strona główna" runat="server" /><br />
                 </span>
                 <asp:Panel runat="server" Visible="<%# this.IsLoggedIn %>">
                     <span class="menuItem">
-                        <asp:LinkButton ID="menuBudzety" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Lista budżetów" runat="server" /><br />
+                        <asp:LinkButton ID="menuBudzety" CausesValidation="false" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Lista budżetów" runat="server" /><br />
                     </span>
                     <span class="menuItem">
-                        <asp:LinkButton ID="menuKategorieWyd" PostBackUrl="~/Views/KategorieWydatkow/KategorieWydatkow.aspx" Text="Kategorie wydatków" runat="server" /><br />
+                        <asp:LinkButton ID="menuKategorieWyd" CausesValidation="false" PostBackUrl="~/Views/KategorieWydatkow/KategorieWydatkow.aspx" Text="Kategorie wydatków" runat="server" /><br />
                     </span>
                 </asp:Panel>
             </div>
@@ -66,15 +69,11 @@
                 <div style="font-size: 26px; margin: 30px auto 30px auto; text-align: center; color: #04b41a; font-weight: bold; font-family: Verdana;">
                     <asp:Label ID="Label1" runat="server">Cheaper - twój budżet!</asp:Label>
                 </div>
-                <asp:MultiView ID="mvContent" runat="server">
-                    <asp:View runat="server">
-                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                        </asp:ContentPlaceHolder>
-                    </asp:View>
-                    <asp:View runat="server">
-                        <div style="text-align: center; color: red; font: 26px Verdana;">Musisz być zalogowany, aby przeglądać tę stronę!</div>
-                    </asp:View>
-                </asp:MultiView>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" Visible="<%# this.IsLoggedIn %>" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:Panel runat="server" Visible="<%# !this.IsLoggedIn %>">
+                    <div style="text-align: center; color: red; font: 26px Verdana;">Musisz być zalogowany, aby przeglądać tę stronę!</div>
+                </asp:Panel>
             </div>
             <div id="pupLogowanie" title="Formularz logowania">
                 <table>
@@ -91,7 +90,7 @@
                             <asp:TextBox ID="tbbPassword" runat="server" TextMode="Password" BorderStyle="None"></asp:TextBox></td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="color: #ff4949; font-weight:bold; font-variant-caps:titling-caps; display: none;" id="trNieudaneLogowanie">Niepoprawny login lub hasło.</td>
+                        <td colspan="2" style="color: #ff4949; font-weight: bold; font-variant-caps: titling-caps; display: none;" id="trNieudaneLogowanie">Niepoprawny login lub hasło.</td>
                     </tr>
                 </table>
             </div>

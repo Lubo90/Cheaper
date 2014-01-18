@@ -21,7 +21,11 @@ $(document).ready(function () {
                 contentType: "application/json",
                 success: function (data) {
                     response($.map(data.d, function (item) {
-                        return { value: item };
+                        var splitted = item.split('~');
+                        return {
+                            id: splitted[0],
+                            value: splitted[1]
+                        };
                     }))
                 },
                 error: function (a, b, c) { alert(a + "\n" + b + "\n" + c); }
@@ -29,6 +33,7 @@ $(document).ready(function () {
         },
         select: function (e, i) {
             $("#tbProducts").val(i.item.value);
+            $("#tbProductsId").val(i.item.id);
         },
         minLength: 1
     });

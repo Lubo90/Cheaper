@@ -25,12 +25,12 @@ public class NowaPozycjaBudzetuPresenter : BasePresenter<INowaPozycjaBudzetu>
         }
     }
 
-    public void SavePozycjaBudzetu(string produkt, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo)
+    public void SavePozycjaBudzetu(int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo)
     {
         int result;
         if (int.TryParse(_view.GetQueryStringValue("id"), out result))
         {
-            if (_service.DodajPozycjeBudzetu(result, produkt, idKategorii, idSklepu, cena, dataZakupu, ilosc, dodatkoweInfo, _view.UserName))
+            if (_service.DodajPozycjeBudzetu(result, idProduktu, idKategorii, idSklepu, cena, dataZakupu, ilosc, dodatkoweInfo, _view.UserName))
                 _view.RedirectTo(string.Format("~/Views/BudzetDetails/BudzetDetails.aspx?id={0}", _view.GetQueryStringValue("id")));
         }
     }
