@@ -4,17 +4,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <asp:Panel runat="server" Style="text-align: center;">
-        <div style="float: left;">Lista użytkowników<br />
-            <asp:Repeater ID="rptrUsers" runat="server">
-                <HeaderTemplate>
-                    <table style="border:3px solid #00ff21">
-                        <tr style="border:1px solid #d2ee5e">
+        <div id="content">
+
+            <div style="font-size:16px; font-weight:bold; margin-top: 30px; color:#753d6a;">Strona Cheaper pozwoli Ci kontrolować Twój budżet.</div>
+            <asp:Repeater ID="rptrUsers" runat="server" Visible="false">
+                <HeaderTemplate>Lista użytkowników
+                    <table class="table">
+                        <tr class="tableHeader">
                             <td style="border:1px solid #d2ee5e">Nazwa użytkownika</td>
                             <td style="border:1px solid #d2ee5e">Hasło</td>
                         </tr>
                 </HeaderTemplate>
                 <ItemTemplate>
-                    <tr>
+                    <tr class="tableItem">
                         <td style="border:1px solid #d2ee5e; text-align: center;"><%# Eval("UserName") %></td>
                         <td style="border:1px solid #d2ee5e; text-align: center;"><%# Eval("Passwd") %></td>
                     </tr>

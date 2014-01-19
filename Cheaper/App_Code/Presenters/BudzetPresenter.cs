@@ -21,7 +21,22 @@ public class BudzetPresenter : BasePresenter<IBudzetView>
         if (!_view.IsLoggedIn)
             return;
 
-        _view.RepeaterDataSource = _service.GetBudgets(_view.UserName);
+        var budgets=_service.GetBudgets(_view.UserName);
+        _view.RepeaterDataSource = budgets;
+
+        decimal sumaMsc = 0;
+        decimal sumaRok = 0;
+        int sumaPozycji = 0;
+        foreach(var item in budgets)
+        {
+            sumaMsc += item.LastMonthExpenses;
+            sumaRok += item.LastYearExpenses;
+            sumaPozycji += item.PositionsCount;
+        }
+
+        _view.SumaWydatkowMsc = sumaMsc;
+        _view.SumaWydatkowRok = sumaRok;
+        _view.SumaPozycji = sumaPozycji;
     }
 
     public bool SaveBudzet(string nazwaBudzetu)

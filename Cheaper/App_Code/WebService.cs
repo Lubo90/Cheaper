@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
@@ -106,12 +107,105 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod(EnableSession = true)]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public string RegisterUser(object login, object password, object email, object birthDate)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(login.ToString()) || login.ToString().Length < 4)
+                return "login";
+            if (string.IsNullOrWhiteSpace(password.ToString()))
+                return "pw";
+            if (string.IsNullOrWhiteSpace(email.ToString()) || !Regex.IsMatch(email.ToString(), @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z"))
+                return "email";
+            var isMatch = Regex.IsMatch(birthDate.ToString(), @"[12]{1}\d{1}\d{1}\d{1}-[01]?\d{1}-[01]?\d{1}");
+            if (string.IsNullOrWhiteSpace(birthDate.ToString()) || !isMatch)
+                return "birthDate";
+
+            if (service.RegisterNewUser(login.ToString(), password.ToString(), email.ToString(), Convert.ToDateTime(birthDate)))
+                return "ok";
+            else
+                return "error";
+        }
+        catch (Exception ex)
+        {
+            service.LogEvent("RegisterUser", ex, UserName);
+            return "error";
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public bool ValidateUsername(object login)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(login.ToString()))
+                return false;
+
+            return service.IsUsernameAvailable(login.ToString());
+        }
+        catch (Exception ex)
+        {
+            service.LogEvent("DodajBudzet", ex, UserName);
+            return false;
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public bool ValidateEmail(object email)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(email.ToString()))
+                return false;
+
+            if (Regex.IsMatch(email.ToString(), @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z"))
+                return true;
+            else
+                return false;
+        }
+        catch (Exception ex)
+        {
+            service.LogEvent("ValidateEmail", ex, UserName);
+            return false;
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public bool ValidateBirthDate(object birthDate)
+    {
+        try
+        {
+            var bdate = Convert.ToDateTime(birthDate);
+            return true;
+        }
+        catch (InvalidCastException)
+        {
+            return false;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
+        catch (Exception ex)
+        {
+            service.LogEvent("ValidateBirthDate", ex, UserName);
+            return false;
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public bool DodajBudzet(object nazwaBudzetu)
     {
         try
         {
             if (IsLoggedIn)
                 return service.DodajBudzet(nazwaBudzetu.ToString(), UserName, DateTime.Now);
+            else
+                return false;
         }
         catch (Exception ex)
         {
@@ -119,7 +213,6 @@ public class WebService : System.Web.Services.WebService
             return false;
         }
 
-        return false;
     }
 
     [WebMethod(EnableSession = true)]

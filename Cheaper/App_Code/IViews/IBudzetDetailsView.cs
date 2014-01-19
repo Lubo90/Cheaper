@@ -10,4 +10,10 @@ public interface IBudzetDetailsView : IView
 {
     string BudgetName { set; }
     List<BudgetDetailsModel> RepeaterDataSource { set; }
+
+    decimal SumaCeny { get; set; }
+    decimal SumaWartosci { get; set; }
+    int SumaIlosci { get; set; }
+
+    bool CanView { get; set; }
 }

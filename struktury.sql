@@ -108,7 +108,7 @@ CREATE TABLE Shops (
 	City NVARCHAR(30) NULL,
 	PostCode NVARCHAR(6) NULL,
 	UserID NVARCHAR(24) NOT NULL,
-	CONSTRAINT PostCodeLength CHECK (DATALENGTH(PostCode) = 6 OR PostCode IS NULL));
+	CONSTRAINT PostCodeLength CHECK (LEN(PostCode) = 6 OR PostCode IS NULL));
 GO
 
 CREATE TABLE BudgetPositions (

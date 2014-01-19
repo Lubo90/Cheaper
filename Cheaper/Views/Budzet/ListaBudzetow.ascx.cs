@@ -20,4 +20,20 @@ public partial class Views_Budzet_ListaBudzetow : System.Web.UI.UserControl
             this.rptrBudgets.DataBind();
         }
     }
+
+    public bool RepeaterVisible
+    {
+        get
+        {
+            var ds = rptrBudgets.DataSource as List<BudgetsModel>;
+            if (ds != null && ds.Count > 0)
+                return true;
+            else
+                return false;
+        }
+    }
+
+    public decimal SumaWydatkowRok { get; set; }
+    public decimal SumaWydatkowMsc { get; set; }
+    public int SumaPozycji { get; set; }
 }

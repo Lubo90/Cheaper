@@ -21,14 +21,51 @@ public partial class Views_BudzetDetails_BudzetDetails : BaseView, IBudzetDetail
         {
             this.rptrBudgetDetails.DataSource = value;
         }
+        get
+        {
+            return this.rptrBudgetDetails.DataSource as List<BudgetDetailsModel>;
+        }
     }
 
-    private string _budgetName;
+    public bool RepeaterVisible
+    {
+        get
+        {
+            if (RepeaterDataSource != null && RepeaterDataSource.Count > 0)
+                return true;
+            else
+                return false;
+        }
+    }
+
     public string BudgetName
     {
         set
         {
             this.lblBudgetName.Text = value;
         }
+    }
+
+    public bool CanView { get; set; }
+
+    private decimal _sumaCeny;
+    public decimal SumaCeny
+    {
+        get { return _sumaCeny; }
+        set { _sumaCeny = value; }
+    }
+
+    private decimal _sumaWartosci;
+    public decimal SumaWartosci
+    {
+        get { return _sumaWartosci; }
+        set { _sumaWartosci = value; }
+    }
+
+    private int _sumaIlosci;
+    public int SumaIlosci
+    {
+        get { return _sumaIlosci; }
+        set { _sumaIlosci = value; }
     }
 }

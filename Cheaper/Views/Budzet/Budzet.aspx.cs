@@ -22,4 +22,28 @@ public partial class Views_Budzet_Budzet : BaseView, IBudzetView
             this.ListaBudzetow.BudgetsRepaterDataSource = value;
         }
     }
+
+    public decimal SumaWydatkowRok
+    {
+        set
+        {
+            this.ListaBudzetow.SumaWydatkowRok = value;
+        }
+    }
+
+    public decimal SumaWydatkowMsc
+    {
+        set
+        {
+            this.ListaBudzetow.SumaWydatkowMsc = value;
+        }
+    }
+
+    public int SumaPozycji
+    {
+        set
+        {
+            this.ListaBudzetow.SumaPozycji = value;
+        }
+    }
 }

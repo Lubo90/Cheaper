@@ -26,7 +26,7 @@ public class BaseView : System.Web.UI.Page
         if (!string.IsNullOrEmpty(Request.QueryString[parameter] as string))
             return Request.QueryString[parameter] as string;
         else
-            return string.Empty;
+            return null;
     }
 
     public void RedirectTo(string page, bool endResponse = false)

@@ -23,4 +23,25 @@ public partial class Views_KategorieWydatkow_KategorieWydatkow : BaseView, IKate
             this.rptrKatWyd.DataBind();
         }
     }
+
+    public bool RepeaterVisible
+    {
+        get
+        {
+            var ds = rptrKatWyd.DataSource as List<ExpensesModel>;
+            if (ds != null && ds.Count > 0)
+                return true;
+            else
+                return false;
+        }
+    }
+
+    public string GetColorBasedOnBalance(object balance)
+    {
+        var convBalance = Convert.ToDecimal(balance);
+        if (convBalance < 0)
+            return "color: red;";
+        else
+            return "color: black;";
+    }
 }

@@ -1,14 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SzabGlowny.master.cs" Inherits="SzabGlowny" %>
 
-<% 
-   //var page = Request.Url.Segments.Last();
-   //if (!this.IsLoggedIn && page != "Default.aspx")
-   //    //this.Response.Redirect("~/Views/StronaGlowna/Default.aspx", true);
-   //    this.ContentPlaceHolder1.Visible = false;
-   //else
-   //    this.ContentPlaceHolder1.Visible = true;
-%>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,6 +26,7 @@
                     <asp:MultiView ID="mvLogowanie" ActiveViewIndex="0" runat="server">
                         <asp:View ID="vLogowanie" runat="server">
                             <div style="margin: 10px 15px 10px 15px;">
+                                <asp:LinkButton OnClientClick='$("#pupRejestracja").dialog("open"); return false;' runat="server" Text="Rejestracja" />
                                 <asp:LinkButton OnClientClick='$("#pupLogowanie").dialog("open"); return false;' runat="server" Text="Zaloguj się" />
                                 <%--<asp:TextBox ID="tbLogin" runat="server" />
                                 <asp:TextBox TextMode="Password" ID="tbPassword" runat="server" />
@@ -69,11 +61,45 @@
                 <div style="font-size: 26px; margin: 30px auto 30px auto; text-align: center; color: #04b41a; font-weight: bold; font-family: Verdana;">
                     <asp:Label ID="Label1" runat="server">Cheaper - twój budżet!</asp:Label>
                 </div>
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" Visible="<%# this.IsLoggedIn %>" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" Visible="<%# (this.IsLoggedIn || this.IsDefaultPage) %>" runat="server">
                 </asp:ContentPlaceHolder>
-                <asp:Panel runat="server" Visible="<%# !this.IsLoggedIn %>">
+                <asp:Panel runat="server" Visible="<%# (!this.IsLoggedIn && !this.IsDefaultPage) %>">
                     <div style="text-align: center; color: red; font: 26px Verdana;">Musisz być zalogowany, aby przeglądać tę stronę!</div>
                 </asp:Panel>
+            </div>
+            <div id="stopka">Copyright by Lubo.</div>
+            <div id="pupRejestracja" title="Rejestracja w serwisie">
+                <table>
+                    <tr>
+                        <td>Nazwa użytkownika</td>
+                        <td>
+                            <asp:TextBox runat="server" ID="tbUserName" ClientIDMode="Static" />
+                                <img src="../../Images/ok-mark-small.png" id="usernameAvailable" />
+                                <img id="usernameTaken" src="../../Images/not-ok-mark-small.png" title="Login zajęty"/>
+                                <img id="usernameTooShort" src="../../Images/not-ok-mark-small.png" title="Minimalna długość to 4 znaki" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hasło</td>
+                        <td>
+                            <asp:TextBox runat="server" ID="tbPasswd" ClientIDMode="Static" TextMode="Password" />
+                            <img id="passwordTooShort" src="../../Images/not-ok-mark-small.png" title="Hasło musi mieć przynajmniej 6 znaków" /></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail</td>
+                        <td>
+                            <asp:TextBox runat="server" ID="tbEmail" ClientIDMode="Static" />
+                            <img id="emailNotValid" src="../../Images/not-ok-mark-small.png" title="Niepoprawny adres e-mail" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Data urodzenia</td>
+                        <td>
+                            <asp:TextBox runat="server" ID="tbBirthDate" ClientIDMode="Static" />
+                            <img id="birthDateNotValid" src="../../Images/not-ok-mark-small.png" title="Wprowadź datę urodzenia" />
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div id="pupLogowanie" title="Formularz logowania">
                 <table>

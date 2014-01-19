@@ -3,37 +3,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <div style="overflow: hidden; margin: 0 auto 0 auto;">
-        <div style="font-size: 20px; font-weight: bold; font-family: Arial; float: none; text-align: center">Kategorie wydatków</div>
+    <div id="content">
+        <div class="pageHeader">Kategorie wydatków</div>
         <div style="text-align: center; float: none;">
             <asp:LinkButton ID="btnNowyBudzet" OnClientClick='$("#pupNowaKatWyd").dialog("open"); return false;' runat="server">Dodaj nową kategorię</asp:LinkButton>
         </div>
-        <div id="content">
-        <asp:Repeater runat="server" ID="rptrKatWyd">
+            <div style="display: block; margin-top: 30px; font-size: 16px; color: darkred; font-weight: bold;">
+                <asp:Label ID="Label1" runat="server" Text="Brak dodanych kategorii wydatków" Visible="<%# !this.RepeaterVisible %>" />
+            </div>
+        <asp:Repeater runat="server" ID="rptrKatWyd" Visible="<%# this.RepeaterVisible %>">
             <HeaderTemplate>
                 <table class="table">
                     <tr class="tableHeader">
-                        <td>Nazwa</td>
-                        <td>Miesięczna kwota</td>
-                        <td>Pozostało do wydania</td>
+                        <td class="tekstHeader">Nazwa</td>
+                        <td class="tekstHeader">Miesięczna kwota</td>
+                        <td class="tekstHeader">Pozostało do wydania</td>
                         <td></td>
                     </tr>
             </HeaderTemplate>
             <ItemTemplate>
                 <tr class="tableItem">
-                    <td><%# Eval("Name") %></td>
-                    <td><%# Eval("Amount") %> zł</td>
-                    <td><%# Eval("Balance") %> zł</td>
-                    <td>
+                    <td class="tekst"><%# Eval("Name") %></td>
+                    <td class="liczba"><%# Eval("Amount") %> zł</td>
+                    <td class="liczba" style="<%# this.GetColorBasedOnBalance(Eval("Balance")) %>"><%# Eval("Balance") %> zł</td>
+                    <td class="tekst">
                         <asp:LinkButton ID="LinkButton1" runat="server" Text="Zmień kwotę" OnClientClick='<%# "openKatWydPopUp(" + Eval("Id") + "); return false;" %>' /></td>
                 </tr>
             </ItemTemplate>
             <AlternatingItemTemplate>
                 <tr class="altTableItem">
-                    <td><%# Eval("Name") %></td>
-                    <td><%# Eval("Amount") %> zł</td>
-                    <td><%# Eval("Balance") %> zł</td>
-                    <td>
+                    <td class="tekst"><%# Eval("Name") %></td>
+                    <td class="liczba"><%# Eval("Amount") %> zł</td>
+                    <td class="liczba" style="<%# this.GetColorBasedOnBalance(Eval("Balance")) %>"><%# Eval("Balance") %> zł</td>
+                    <td class="tekst">
                         <asp:LinkButton ID="LinkButton2" runat="server" Text="Zmień kwotę" OnClientClick='<%# "openKatWydPopUp(" + Eval("Id") + "); return false;" %>' /></td>
                 </tr>
             </AlternatingItemTemplate>
@@ -42,7 +44,6 @@
             </FooterTemplate>
         </asp:Repeater>
     </div>
-        </div>
     <div id="pupKwotaKatWyd" title="Zmiana kwoty">
         <table>
             <tr>
@@ -56,11 +57,13 @@
         <table>
             <tr>
                 <td>Nazwa</td>
-                <td><asp:TextBox ClientIDMode="Static" ID="tbNazwaKatWyd" runat="server" /></td>
+                <td>
+                    <asp:TextBox ClientIDMode="Static" ID="tbNazwaKatWyd" runat="server" /></td>
             </tr>
             <tr>
                 <td>Kwota</td>
-                <td><asp:TextBox ClientIDMode="Static" ID="tbKwotaKatWyd" runat="server" /></td>
+                <td>
+                    <asp:TextBox ClientIDMode="Static" ID="tbKwotaKatWyd" runat="server" /></td>
             </tr>
         </table>
     </div>

@@ -31,6 +31,18 @@ public partial class Views_BudzetDetails_NowaPozycjaBudzetu : BaseView, INowaPoz
         }
     }
 
+    public string BudgetName
+    {
+        set
+        {
+            this.lblBudgetName.Text = value;
+        }
+    }
+
+    public bool HasKategorieWydatkow { get; set; }
+
+    public bool CanView { get; set; }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         _presenter = new NowaPozycjaBudzetuPresenter(this);
@@ -39,6 +51,12 @@ public partial class Views_BudzetDetails_NowaPozycjaBudzetu : BaseView, INowaPoz
 
     protected void btnSavePozycja_Click(object sender, EventArgs e)
     {
-        _presenter.SavePozycjaBudzetu(Convert.ToInt32(tbProductsId.Value), Convert.ToInt32(ddlKategorieWyd.SelectedItem.Value), Convert.ToInt32(tbShopId.Value), Convert.ToDecimal(tbPrice.Text), Convert.ToDateTime(tbPurchaseDate.Text), Convert.ToInt32(tbQuantity.Text), tbAddInfo.Text);
+        _presenter.SavePozycjaBudzetu(Convert.ToInt32(tbProductsId.Value),
+            Convert.ToInt32(ddlKategorieWyd.SelectedItem.Value),
+            Convert.ToInt32(tbShopId.Value),
+            Convert.ToDecimal(tbPrice.Text),
+            Convert.ToDateTime(tbPurchaseDate.Text),
+            Convert.ToInt32(tbQuantity.Text),
+            tbAddInfo.Text);
     }
 }

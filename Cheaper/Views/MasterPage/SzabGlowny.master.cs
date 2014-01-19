@@ -60,6 +60,14 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         }
     }
 
+    public bool IsDefaultPage
+    {
+        get
+        {
+            return Request.Url.Segments.Last().StartsWith("Default.aspx");
+        }
+    }
+
     public void RedirectTo(string page, bool endResponse = false)
     {
         Response.Redirect(page, endResponse);
@@ -75,7 +83,7 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         if (!string.IsNullOrEmpty(Request.QueryString[parameter] as string))
             return Request.QueryString[parameter] as string;
         else
-            return string.Empty;
+            return null;
     }
 
     public void SwitchMultiViewActiveView(LoggingMultiViewContent activeView)

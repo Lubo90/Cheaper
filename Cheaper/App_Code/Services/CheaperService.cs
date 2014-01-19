@@ -27,6 +27,38 @@ public class CheaperService : ICheaperService
         }
     }
 
+    public bool RegisterNewUser(string login, string password, string email, DateTime birthDate)
+    {
+        using(var context = new CheaperEntities())
+        {
+            var nowyUser = new Users();
+            nowyUser.UserName = login;
+            nowyUser.Passwd = GetMD5Hash(password);
+            nowyUser.Email = email;
+            nowyUser.BirthDate = birthDate;
+            nowyUser.RegisterDate = DateTime.Now;
+
+            context.Users.AddObject(nowyUser);
+            if (context.SaveChanges() == 1)
+                return true;
+            else
+                return false;
+        }
+    }
+
+    public bool IsUsernameAvailable(string userName)
+    {
+        using (var context = new CheaperEntities())
+        {
+            var select = from c in context.Users where c.UserName == userName select c.UserName;
+
+            if (select.Count() == 0)
+                return true;
+            else
+                return false;
+        }
+    }
+
     public List<UsersModel> GetUsers()
     {
         using (var context = new CheaperEntities())
@@ -40,7 +72,20 @@ public class CheaperService : ICheaperService
     {
         using (var context = new CheaperEntities())
         {
-            var select = from c in context.BudgetsWithExpenses where c.UserID == userName select new BudgetsModel() { BudgetID = c.BudgetID, BudgetName = c.BudgetName, CreationDate = c.CreationDate, LastMonthExpenses = c.ThisMonthExpenses, LastYearExpenses = c.ThisYearExpenses };
+            var select = from c in context.BudgetsWithExpenses
+                         where c.UserID == userName
+                         orderby c.BudgetName ascending
+                         select new BudgetsModel()
+                         {
+                             BudgetID = c.BudgetID,
+                             BudgetName = c.BudgetName,
+                             CreationDate = c.CreationDate,
+                             PositionsCount = (from inc in context.BudgetPositions
+                                               where inc.BudgetID == c.BudgetID
+                                               select inc).Count(),
+                             LastMonthExpenses = c.ThisMonthExpenses,
+                             LastYearExpenses = c.ThisYearExpenses
+                         };
             return select.ToList();
         }
     }
@@ -68,6 +113,7 @@ public class CheaperService : ICheaperService
                          join products in context.Products on budPos.ProdID equals products.ProductID
                          join expCats in context.ExpenseCategories on budPos.ExpenseCatID equals expCats.Id
                          where budPos.BudgetID == budgetId && buds.UserID == userName
+                         orderby budPos.PurchaseDate descending
                          select new BudgetDetailsModel()
                          {
                              PositionID = budPos.PositionID,
@@ -215,8 +261,10 @@ public class CheaperService : ICheaperService
             {
                 resultKategorieWyd.Add(item.Id, item.Name);
             }
-
-            return resultKategorieWyd;
+            if (resultKategorieWyd.Count > 0)
+                return resultKategorieWyd;
+            else
+                return null;
         }
     }
 
@@ -234,12 +282,21 @@ public class CheaperService : ICheaperService
     {
         using (var context = new CheaperEntities())
         {
-            ExpenseCategories katWyd = (from c in context.ExpenseCategories where c.UserID == userName && c.Id == idKatWyd select c).First();
-            katWyd.Amount = kwota;
-            if (context.SaveChanges() == 1)
-                return true;
-            else
-                return false;
+            try
+            {
+                ExpenseCategories katWyd = (from c in context.ExpenseCategories where c.UserID == userName && c.Id == idKatWyd select c).First();
+                //if (katWyd == null)
+                //    throw new NullReferenceException("Próba zmiany kwoty kategorii wydatku nie należącej do użytkownika");
+                katWyd.Amount = kwota;
+                if (context.SaveChanges() == 1)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Próba zmiany kwoty kategorii wydatku nie należącej do użytkownika", ex);
+            }
         }
     }
 
@@ -272,6 +329,8 @@ public class CheaperService : ICheaperService
             nowyEvent.OccurenceDate = DateTime.Now;
             if (!string.IsNullOrEmpty(userName))
                 nowyEvent.UserName = userName;
+            else
+                nowyEvent.UserName = "X";
 
             context.Events.AddObject(nowyEvent);
 

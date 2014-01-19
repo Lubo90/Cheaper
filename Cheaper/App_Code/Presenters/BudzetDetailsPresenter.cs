@@ -21,8 +21,37 @@ public class BudzetDetailsPresenter : BasePresenter<IBudzetDetailsView>
         if (!_view.IsLoggedIn)
             return;
 
+        if (_view.GetQueryStringValue(GETValueIdentifiers.ID) == null)
+        {
+            _view.CanView = false;
+            return;
+        }
+
         var budgetData = _service.GetBudgetData(int.Parse(_view.GetQueryStringValue(GETValueIdentifiers.ID)), _view.UserName);
+        if (budgetData == null)
+        {
+            this._view.CanView = false;
+            _service.LogEvent("BudzetDetails", new Exception("Próba wyświetlenia szczegółów budżetu nienależącego do użytkownika"), _view.UserName);
+            return;
+        }
+        this._view.CanView = true;
+
         _view.BudgetName = budgetData.BudgetName;
-        this._view.RepeaterDataSource = _service.GetBudgetDetailsData(int.Parse(_view.GetQueryStringValue("id")), _view.UserName);
+        var budgetDetails = _service.GetBudgetDetailsData(int.Parse(_view.GetQueryStringValue("id")), _view.UserName);
+        this._view.RepeaterDataSource = budgetDetails;
+
+        decimal sumaCeny = 0;
+        int sumaIlosci = 0;
+        decimal sumaWartosci = 0;
+        foreach (var item in budgetDetails)
+        {
+            sumaCeny += item.Price;
+            sumaIlosci += item.Quantity;
+            sumaWartosci += item.Wartosc;
+        }
+
+        _view.SumaCeny = sumaCeny;
+        _view.SumaIlosci = sumaIlosci;
+        _view.SumaWartosci = sumaWartosci;
     }
 }
