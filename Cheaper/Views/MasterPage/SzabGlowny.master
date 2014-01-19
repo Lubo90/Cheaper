@@ -99,6 +99,13 @@
                             <img id="birthDateNotValid" src="../../Images/not-ok-mark-small.png" title="Wprowadź datę urodzenia" />
                         </td>
                     </tr>
+                    <tr>
+                        <td>Opcje</td>
+                        <td>
+                            <div title="Po włączeniu statystyk nie będziesz mógł dodawać własnych produktów, a jedynie predefiniowane, w słowniku.">
+                            <asp:CheckBox runat="server" ID="cboxStats" ClientIDMode="Static" title="Po włączeniu statystyk nie będziesz mógł dodawać własnych produktów, a jedynie predefiniowane, w słowniku." />Korzystaj z statystyk</div>
+                        </td>
+                    </tr>
                 </table>
             </div>
             <div id="pupLogowanie" title="Formularz logowania">

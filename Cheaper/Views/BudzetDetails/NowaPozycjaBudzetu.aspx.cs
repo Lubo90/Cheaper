@@ -51,12 +51,18 @@ public partial class Views_BudzetDetails_NowaPozycjaBudzetu : BaseView, INowaPoz
 
     protected void btnSavePozycja_Click(object sender, EventArgs e)
     {
+        int? shopId;
+        if(string.IsNullOrWhiteSpace(tbShopId.Value))
+            shopId = null;
+        else
+            shopId = Convert.ToInt32(tbShopId.Value);
+
         _presenter.SavePozycjaBudzetu(Convert.ToInt32(tbProductsId.Value),
             Convert.ToInt32(ddlKategorieWyd.SelectedItem.Value),
-            Convert.ToInt32(tbShopId.Value),
+            shopId,
             Convert.ToDecimal(tbPrice.Text),
             Convert.ToDateTime(tbPurchaseDate.Text),
-            Convert.ToInt32(tbQuantity.Text),
+            Convert.ToDecimal(tbQuantity.Text),
             tbAddInfo.Text);
     }
 }

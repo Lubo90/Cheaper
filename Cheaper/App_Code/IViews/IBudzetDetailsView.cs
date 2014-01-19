@@ -13,7 +13,7 @@ public interface IBudzetDetailsView : IView
 
     decimal SumaCeny { get; set; }
     decimal SumaWartosci { get; set; }
-    int SumaIlosci { get; set; }
+    decimal SumaIlosci { get; set; }
 
     bool CanView { get; set; }
 }

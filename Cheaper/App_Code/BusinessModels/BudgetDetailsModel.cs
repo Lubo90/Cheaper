@@ -29,7 +29,7 @@ public class BudgetDetailsModel
                 PurchaseDate.Value.Year);
         }
     }
-    public int Quantity { get; set; }
+    public decimal Quantity { get; set; }
     public decimal Wartosc
     {
         get

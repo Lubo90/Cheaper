@@ -41,7 +41,7 @@ public class BudzetDetailsPresenter : BasePresenter<IBudzetDetailsView>
         this._view.RepeaterDataSource = budgetDetails;
 
         decimal sumaCeny = 0;
-        int sumaIlosci = 0;
+        decimal sumaIlosci = 0;
         decimal sumaWartosci = 0;
         foreach (var item in budgetDetails)
         {

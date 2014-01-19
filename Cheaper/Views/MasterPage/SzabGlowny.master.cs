@@ -60,6 +60,17 @@ public partial class SzabGlowny : System.Web.UI.MasterPage, IMasterPageView
         }
     }
 
+    public bool StatisticsEnabled
+    {
+        get
+        {
+            if (Session["StatsEnabled"] is bool)
+                return (bool)Session["StatsEnabled"];
+            else
+                return false;
+        }
+    }
+
     public bool IsDefaultPage
     {
         get

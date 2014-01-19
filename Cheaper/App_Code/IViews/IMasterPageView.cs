@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for IMasterPage
 /// </summary>
-public interface IMasterPageView : IView
+public interface IMasterPageView:IView
 {
     void SwitchMultiViewActiveView(LoggingMultiViewContent activeView);
     //void SetUsernameGreetingText();

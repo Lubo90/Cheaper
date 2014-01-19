@@ -52,7 +52,7 @@ public class NowaPozycjaBudzetuPresenter : BasePresenter<INowaPozycjaBudzetu>
         }
     }
 
-    public void SavePozycjaBudzetu(int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo)
+    public void SavePozycjaBudzetu(int idProduktu, int idKategorii, int? idSklepu, decimal cena, DateTime dataZakupu, decimal ilosc, string dodatkoweInfo)
     {
         int result;
         if (int.TryParse(_view.GetQueryStringValue("id"), out result))

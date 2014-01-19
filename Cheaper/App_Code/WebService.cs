@@ -49,13 +49,24 @@ public class WebService : System.Web.Services.WebService
         }
     }
 
+    public bool StatisticsEnabled
+    {
+        get
+        {
+            if (Session["StatsEnabled"] is bool)
+                return (bool)Session["StatsEnabled"];
+            else
+                return false;
+        }
+    }
+
     [WebMethod(EnableSession = true)]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
     public string[] ProductsAutocomplete(object danePrzeslane)
     {
         try
         {
-            return service.GetProductsAutocomplete(danePrzeslane.ToString(), UserName);
+            return service.GetProductsAutocomplete(danePrzeslane.ToString(), UserName, StatisticsEnabled);
         }
         catch (Exception ex)
         {
@@ -92,8 +103,11 @@ public class WebService : System.Web.Services.WebService
 
             if (service.CheckUserAuthentication(dane[0], dane[1]))
             {
+                var userData = service.GetUserData(dane[0]);
                 Session["UserLogin"] = dane[0];
                 Session["UserLoggedIn"] = true;
+                Session["StatsEnabled"] = userData.StatsEnabled;
+
                 return true;
             }
             return false;
@@ -107,7 +121,7 @@ public class WebService : System.Web.Services.WebService
 
     [WebMethod(EnableSession = true)]
     [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-    public string RegisterUser(object login, object password, object email, object birthDate)
+    public string RegisterUser(object login, object password, object email, object birthDate, object statsEnabled)
     {
         try
         {
@@ -121,7 +135,7 @@ public class WebService : System.Web.Services.WebService
             if (string.IsNullOrWhiteSpace(birthDate.ToString()) || !isMatch)
                 return "birthDate";
 
-            if (service.RegisterNewUser(login.ToString(), password.ToString(), email.ToString(), Convert.ToDateTime(birthDate)))
+            if (service.RegisterNewUser(login.ToString(), password.ToString(), email.ToString(), Convert.ToDateTime(birthDate), (bool)statsEnabled))
                 return "ok";
             else
                 return "error";
@@ -139,7 +153,7 @@ public class WebService : System.Web.Services.WebService
     {
         try
         {
-            if (string.IsNullOrWhiteSpace(login.ToString()))
+            if (string.IsNullOrWhiteSpace(login.ToString()) || login.ToString().Length < 4)
                 return false;
 
             return service.IsUsernameAvailable(login.ToString());
@@ -203,7 +217,12 @@ public class WebService : System.Web.Services.WebService
         try
         {
             if (IsLoggedIn)
+            {
+                if(string.IsNullOrWhiteSpace(nazwaBudzetu.ToString()))
+                    return false;
+
                 return service.DodajBudzet(nazwaBudzetu.ToString(), UserName, DateTime.Now);
+            }
             else
                 return false;
         }
@@ -223,8 +242,13 @@ public class WebService : System.Web.Services.WebService
         {
             try
             {
+                var nazwa = nazwaProduktu.ToString();
                 var id = Convert.ToInt16(idKategorii);
-                return service.DodajProdukt(nazwaProduktu.ToString(), id, UserName);
+
+                if (string.IsNullOrWhiteSpace(nazwa))
+                    return false;
+
+                return service.DodajProdukt(nazwa, id, UserName);
             }
             catch (Exception ex)
             {
@@ -269,6 +293,9 @@ public class WebService : System.Web.Services.WebService
                 var nazwa = nazwaKat.ToString();
                 var kwota = Convert.ToDecimal(kwotaKat);
 
+                if (string.IsNullOrWhiteSpace(nazwa))
+                    return false;
+
                 return service.DodajKatWyd(nazwa, kwota, UserName);
             }
             catch (Exception ex)
@@ -293,6 +320,9 @@ public class WebService : System.Web.Services.WebService
                 var street = ulica.ToString();
                 var city = miasto.ToString();
                 var postCode = kodPocztowy.ToString();
+
+                if (string.IsNullOrWhiteSpace(friendlyName))
+                    return false;
 
                 return service.DodajSklep(friendlyName, street, city, string.IsNullOrEmpty(postCode) ? null : postCode, UserName);
             }

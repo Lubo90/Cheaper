@@ -10,6 +10,7 @@ public interface IView
 {
     bool IsLoggedIn { get; }
     string UserName { get; }
+    bool StatisticsEnabled { get; }
     string GetQueryStringValue(string parameter);
     void RedirectTo(string page, bool endResponse = false);
 }

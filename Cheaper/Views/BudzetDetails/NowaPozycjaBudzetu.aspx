@@ -18,7 +18,7 @@
         <table class="table">
             <tr>
                 <td class="tableHeader">Produkt
-                    <asp:ImageButton style="float:right;" ID="ImageButton1" runat="server" ImageUrl="~/Images/add-button-small.png" OnClientClick='$("#pupNowyProdukt").dialog("open"); return false;' />
+                    <asp:ImageButton style="float:right;" ID="ImageButton1" runat="server" ImageUrl="~/Images/add-button-small.png" OnClientClick='$("#pupNowyProdukt").dialog("open"); return false;' Visible="<%# !this.StatisticsEnabled %>" />
                 </td>
                 <td class="tableItem">
                     <asp:TextBox runat="server" ClientIDMode="Static" ID="tbProducts" /><ctl:HiddenFieldValidatable runat="server" ID="tbProductsId" ClientIDMode="Static" />
@@ -38,7 +38,7 @@
                 </td>
                 <td class="tableItem">
                     <asp:TextBox runat="server" ClientIDMode="Static" ID="tbShops" /><ctl:HiddenFieldValidatable runat="server" ID="tbShopId" ClientIDMode="Static" />
-                    <asp:RequiredFieldValidator runat="server" ID="rfvShops" Display="Dynamic" ControlToValidate="tbShopId" ToolTip="Musisz wybrać sklep za pomocą podpowiedzi"><div class="validationErr">Podaj wartość</div></asp:RequiredFieldValidator>
+                    <%--<asp:RequiredFieldValidator runat="server" ID="rfvShops" Display="Dynamic" ControlToValidate="tbShopId" ToolTip="Musisz wybrać sklep za pomocą podpowiedzi"><div class="validationErr">Podaj wartość</div></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
             <tr>
@@ -61,7 +61,7 @@
                 <td class="tableHeader">Ilość</td>
                 <td class="tableItem">
                     <asp:TextBox runat="server" ID="tbQuantity" />
-                    <asp:RangeValidator runat="server" ID="rvQuantity" MinimumValue="1" MaximumValue="10000" Display="Dynamic" Type="Double" ControlToValidate="tbQuantity"><div class="validationErr">Niepoprawna wartość</div></asp:RangeValidator>
+                    <asp:RangeValidator runat="server" ID="rvQuantity" MinimumValue="0" MaximumValue="10000" Display="Dynamic" Type="Double" ControlToValidate="tbQuantity"><div class="validationErr">Niepoprawna wartość</div></asp:RangeValidator>
                     <asp:RequiredFieldValidator runat="server" ID="rfvQuantity" ControlToValidate="tbQuantity" Display="Dynamic"><div class="validationErr">Podaj ilość</div></asp:RequiredFieldValidator></td>
             </tr>
             <tr>

@@ -6,7 +6,7 @@ using System.Web;
 /// <summary>
 /// Summary description for View
 /// </summary>
-public class BaseView : System.Web.UI.Page
+public class BaseView : System.Web.UI.Page, IView
 {
     public BaseView()
     {
@@ -51,6 +51,17 @@ public class BaseView : System.Web.UI.Page
         {
             if (Session["UserLoggedIn"] is bool)
                 return (bool)Session["UserLoggedIn"];
+            else
+                return false;
+        }
+    }
+
+    public bool StatisticsEnabled
+    {
+        get
+        {
+            if (Session["StatsEnabled"] is bool)
+                return (bool)Session["StatsEnabled"];
             else
                 return false;
         }

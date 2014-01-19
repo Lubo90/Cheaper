@@ -412,6 +412,7 @@ function registerUser() {
     var password = $("#tbPasswd").val();
     var email = $("#tbEmail").val();
     var birthDate = $("#tbBirthDate").val();
+    var statsEnabled = $("#cboxStats").prop('checked');
 
     if (usernameOk == false || passwordOk == false || emailOk == false || birthDateOk == false)
         return;
@@ -423,7 +424,8 @@ function registerUser() {
             'login': login,
             'password': password,
             'email': email,
-            'birthDate': birthDate
+            'birthDate': birthDate,
+            'statsEnabled': statsEnabled
         }),
         contentType: "application/json",
         success: function (wynik) {

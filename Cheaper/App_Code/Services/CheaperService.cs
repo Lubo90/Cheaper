@@ -16,6 +16,9 @@ public class CheaperService : ICheaperService
 
     public bool CheckUserAuthentication(string login, string password)
     {
+        if (login.Length < 4)
+            return false;
+
         using (var context = new CheaperEntities())
         {
             string hashedPw = GetMD5Hash(password);
@@ -27,9 +30,9 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public bool RegisterNewUser(string login, string password, string email, DateTime birthDate)
+    public bool RegisterNewUser(string login, string password, string email, DateTime birthDate, bool statsEnabled)
     {
-        using(var context = new CheaperEntities())
+        using (var context = new CheaperEntities())
         {
             var nowyUser = new Users();
             nowyUser.UserName = login;
@@ -38,8 +41,16 @@ public class CheaperService : ICheaperService
             nowyUser.BirthDate = birthDate;
             nowyUser.RegisterDate = DateTime.Now;
 
+            var nowyUserAddInfo = new AdditionalUserInfo();
+            nowyUserAddInfo.UserID = login;
+            nowyUserAddInfo.ShowEmail = false;
+            nowyUserAddInfo.ShowBirthDate = false;
+            nowyUserAddInfo.ShowPhone = false;
+            nowyUserAddInfo.StatsEnabled = statsEnabled;
+
+            context.AdditionalUserInfo.AddObject(nowyUserAddInfo);
             context.Users.AddObject(nowyUser);
-            if (context.SaveChanges() == 1)
+            if (context.SaveChanges() == 2)
                 return true;
             else
                 return false;
@@ -59,12 +70,27 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public List<UsersModel> GetUsers()
+    public UsersModel GetUserData(string userName)
     {
         using (var context = new CheaperEntities())
         {
-            var select = from c in context.Users select new UsersModel() { UserName = c.UserName, Passwd = c.Passwd };
-            return select.ToList();
+            var select = from c in context.Users
+                         join a in context.AdditionalUserInfo on c.UserName equals a.UserID
+                         where c.UserName == userName
+                         select new UsersModel()
+                         {
+                             UserName = c.UserName,
+                             Passwd = c.Passwd,
+                             StatsEnabled = a.StatsEnabled,
+                             ShowPhone = a.ShowPhone,
+                             ShowBirthDate = a.ShowBirthDate,
+                             ShowEmail = a.ShowEmail,
+                             GaduGadu = a.GaduGadu,
+                             Phone = a.Phone,
+                             DisplayPic = a.DisplayPic
+                         };
+
+            return select.First();
         }
     }
 
@@ -108,8 +134,8 @@ public class CheaperService : ICheaperService
         using (var context = new CheaperEntities())
         {
             var select = from budPos in context.BudgetPositions
+                         from shops in context.Shops.Where(x => budPos.ShopID == x.Id).DefaultIfEmpty()
                          join buds in context.Budgets on budPos.BudgetID equals buds.BudgetID
-                         join shops in context.Shops on budPos.ShopID equals shops.Id
                          join products in context.Products on budPos.ProdID equals products.ProductID
                          join expCats in context.ExpenseCategories on budPos.ExpenseCatID equals expCats.Id
                          where budPos.BudgetID == budgetId && buds.UserID == userName
@@ -129,11 +155,13 @@ public class CheaperService : ICheaperService
                              ShopPostCode = shops.PostCode
                          };
 
+            var asdf = select.ToList();
+
             return select.ToList();
         }
     }
 
-    public bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName)
+    public bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int? idSklepu, decimal cena, DateTime dataZakupu, decimal ilosc, string dodatkoweInfo, string userName)
     {
         using (var context = new CheaperEntities())
         {
@@ -179,16 +207,19 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public string[] GetProductsAutocomplete(string firstLetters, string userName)
+    public string[] GetProductsAutocomplete(string firstLetters, string userName, bool getDictValues)
     {
         using (var context = new CheaperEntities())
         {
-            var select = from c in context.Products
-                         where c.Name.StartsWith(firstLetters) && c.UserID == userName
-                         select new { c.ProductID, c.Name };
+            var selectUserValues = from c in context.Products
+                                   where c.Name.StartsWith(firstLetters) && c.UserID == userName
+                                   select new { c.ProductID, c.Name };
+            var selectDictValues = from c in context.Products
+                                   where c.Name.StartsWith(firstLetters) && c.UserID == "dft"
+                                   select new { c.ProductID, c.Name };
 
             List<string> resultList = new List<string>();
-            foreach (var item in select)
+            foreach (var item in (getDictValues ? selectDictValues : selectUserValues))
             {
                 resultList.Add(string.Format("{0}~{1}", item.ProductID, item.Name));
             }

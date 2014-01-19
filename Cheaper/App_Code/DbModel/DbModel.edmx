@@ -38,7 +38,7 @@
       [ExpenseCatLastMthBalance].[Balance] AS [Balance]
       FROM [dbo].[ExpenseCatLastMthBalance] AS [ExpenseCatLastMthBalance]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__Additiona__UserI__182C9B23" Association="CheaperModel.Store.FK__Additiona__UserI__182C9B23">
+          <AssociationSet Name="FK__Additiona__UserI__1920BF5C" Association="CheaperModel.Store.FK__Additiona__UserI__1920BF5C">
             <End Role="Users" EntitySet="Users" />
             <End Role="AdditionalUserInfo" EntitySet="AdditionalUserInfo" />
           </AssociationSet>
@@ -58,47 +58,47 @@
             <End Role="Shops" EntitySet="Shops" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Budgets__UserID__1FCDBCEB" Association="CheaperModel.Store.FK__Budgets__UserID__1FCDBCEB">
+          <AssociationSet Name="FK__Budgets__UserID__20C1E124" Association="CheaperModel.Store.FK__Budgets__UserID__20C1E124">
             <End Role="Users" EntitySet="Users" />
             <End Role="Budgets" EntitySet="Budgets" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacts__UserID__1BFD2C07" Association="CheaperModel.Store.FK__Contacts__UserID__1BFD2C07">
+          <AssociationSet Name="FK__Contacts__UserID__1CF15040" Association="CheaperModel.Store.FK__Contacts__UserID__1CF15040">
             <End Role="Users" EntitySet="Users" />
             <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Conversat__Conve__300424B4" Association="CheaperModel.Store.FK__Conversat__Conve__300424B4">
+          <AssociationSet Name="FK__Conversat__Conve__30F848ED" Association="CheaperModel.Store.FK__Conversat__Conve__30F848ED">
             <End Role="Conversations" EntitySet="Conversations" />
             <End Role="ConversationParticipants" EntitySet="ConversationParticipants" />
           </AssociationSet>
-          <AssociationSet Name="FK__Conversat__Creat__2D27B809" Association="CheaperModel.Store.FK__Conversat__Creat__2D27B809">
+          <AssociationSet Name="FK__Conversat__Creat__2E1BDC42" Association="CheaperModel.Store.FK__Conversat__Creat__2E1BDC42">
             <End Role="Users" EntitySet="Users" />
             <End Role="Conversations" EntitySet="Conversations" />
           </AssociationSet>
-          <AssociationSet Name="FK__Conversat__UserI__30F848ED" Association="CheaperModel.Store.FK__Conversat__UserI__30F848ED">
+          <AssociationSet Name="FK__Conversat__UserI__31EC6D26" Association="CheaperModel.Store.FK__Conversat__UserI__31EC6D26">
             <End Role="Users" EntitySet="Users" />
             <End Role="ConversationParticipants" EntitySet="ConversationParticipants" />
           </AssociationSet>
-          <AssociationSet Name="FK__Events__UserName__3A81B327" Association="CheaperModel.Store.FK__Events__UserName__3A81B327">
+          <AssociationSet Name="FK__Events__UserName__3B75D760" Association="CheaperModel.Store.FK__Events__UserName__3B75D760">
             <End Role="Users" EntitySet="Users" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExpenseCa__UserI__29572725" Association="CheaperModel.Store.FK__ExpenseCa__UserI__29572725">
+          <AssociationSet Name="FK__ExpenseCa__UserI__2A4B4B5E" Association="CheaperModel.Store.FK__ExpenseCa__UserI__2A4B4B5E">
             <End Role="Users" EntitySet="Users" />
             <End Role="ExpenseCategories" EntitySet="ExpenseCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK__Messages__Conver__34C8D9D1" Association="CheaperModel.Store.FK__Messages__Conver__34C8D9D1">
+          <AssociationSet Name="FK__Messages__Conver__35BCFE0A" Association="CheaperModel.Store.FK__Messages__Conver__35BCFE0A">
             <End Role="Conversations" EntitySet="Conversations" />
             <End Role="Messages" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Messages__Sender__35BCFE0A" Association="CheaperModel.Store.FK__Messages__Sender__35BCFE0A">
+          <AssociationSet Name="FK__Messages__Sender__36B12243" Association="CheaperModel.Store.FK__Messages__Sender__36B12243">
             <End Role="Users" EntitySet="Users" />
             <End Role="Messages" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Products__Catego__24927208" Association="CheaperModel.Store.FK__Products__Catego__24927208">
+          <AssociationSet Name="FK__Products__Catego__25869641" Association="CheaperModel.Store.FK__Products__Catego__25869641">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK__Products__UserID__25869641" Association="CheaperModel.Store.FK__Products__UserID__25869641">
+          <AssociationSet Name="FK__Products__UserID__267ABA7A" Association="CheaperModel.Store.FK__Products__UserID__267ABA7A">
             <End Role="Users" EntitySet="Users" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
@@ -111,6 +111,7 @@
           <Property Name="ShowEmail" Type="bit" Nullable="false" />
           <Property Name="ShowPhone" Type="bit" Nullable="false" />
           <Property Name="ShowBirthDate" Type="bit" Nullable="false" />
+          <Property Name="StatsEnabled" Type="bit" Nullable="false" />
           <Property Name="DisplayPic" Type="binary" MaxLength="1" />
           <Property Name="GaduGadu" Type="nvarchar" MaxLength="9" />
           <Property Name="Phone" Type="nvarchar" MaxLength="12" />
@@ -127,7 +128,7 @@
           <Property Name="ProdID" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="datetime" />
-          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="AdditionalInfo" Type="nvarchar" MaxLength="300" />
         </EntityType>
@@ -269,7 +270,7 @@
           <Property Name="Amount" Type="decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="Balance" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
-        <Association Name="FK__Additiona__UserI__182C9B23">
+        <Association Name="FK__Additiona__UserI__1920BF5C">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="AdditionalUserInfo" Type="CheaperModel.Store.AdditionalUserInfo" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -329,7 +330,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Budgets__UserID__1FCDBCEB">
+        <Association Name="FK__Budgets__UserID__20C1E124">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Budgets" Type="CheaperModel.Store.Budgets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -341,7 +342,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacts__UserID__1BFD2C07">
+        <Association Name="FK__Contacts__UserID__1CF15040">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Contacts" Type="CheaperModel.Store.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -353,7 +354,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Conversat__Conve__300424B4">
+        <Association Name="FK__Conversat__Conve__30F848ED">
           <End Role="Conversations" Type="CheaperModel.Store.Conversations" Multiplicity="1" />
           <End Role="ConversationParticipants" Type="CheaperModel.Store.ConversationParticipants" Multiplicity="*" />
           <ReferentialConstraint>
@@ -365,7 +366,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Conversat__Creat__2D27B809">
+        <Association Name="FK__Conversat__Creat__2E1BDC42">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Conversations" Type="CheaperModel.Store.Conversations" Multiplicity="*" />
           <ReferentialConstraint>
@@ -377,7 +378,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Conversat__UserI__30F848ED">
+        <Association Name="FK__Conversat__UserI__31EC6D26">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="ConversationParticipants" Type="CheaperModel.Store.ConversationParticipants" Multiplicity="*" />
           <ReferentialConstraint>
@@ -389,7 +390,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Events__UserName__3A81B327">
+        <Association Name="FK__Events__UserName__3B75D760">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Events" Type="CheaperModel.Store.Events" Multiplicity="*" />
           <ReferentialConstraint>
@@ -401,7 +402,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExpenseCa__UserI__29572725">
+        <Association Name="FK__ExpenseCa__UserI__2A4B4B5E">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="ExpenseCategories" Type="CheaperModel.Store.ExpenseCategories" Multiplicity="*" />
           <ReferentialConstraint>
@@ -413,7 +414,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Messages__Conver__34C8D9D1">
+        <Association Name="FK__Messages__Conver__35BCFE0A">
           <End Role="Conversations" Type="CheaperModel.Store.Conversations" Multiplicity="1" />
           <End Role="Messages" Type="CheaperModel.Store.Messages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -425,7 +426,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Messages__Sender__35BCFE0A">
+        <Association Name="FK__Messages__Sender__36B12243">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Messages" Type="CheaperModel.Store.Messages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -437,7 +438,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Products__Catego__24927208">
+        <Association Name="FK__Products__Catego__25869641">
           <End Role="Categories" Type="CheaperModel.Store.Categories" Multiplicity="1" />
           <End Role="Products" Type="CheaperModel.Store.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -449,7 +450,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Products__UserID__25869641">
+        <Association Name="FK__Products__UserID__267ABA7A">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
           <End Role="Products" Type="CheaperModel.Store.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -481,7 +482,7 @@
           <EntitySet Name="Users" EntityType="CheaperModel.Users" />
           <EntitySet Name="BudgetsWithExpenses" EntityType="CheaperModel.BudgetsWithExpenses" />
           <EntitySet Name="ExpenseCatLastMthBalance" EntityType="CheaperModel.ExpenseCatLastMthBalance" />
-          <AssociationSet Name="FK__Additiona__UserI__182C9B23" Association="CheaperModel.FK__Additiona__UserI__182C9B23">
+          <AssociationSet Name="FK__Additiona__UserI__1920BF5C" Association="CheaperModel.FK__Additiona__UserI__1920BF5C">
             <End Role="Users" EntitySet="Users" />
             <End Role="AdditionalUserInfo" EntitySet="AdditionalUserInfo" />
           </AssociationSet>
@@ -501,39 +502,39 @@
             <End Role="Shops" EntitySet="Shops" />
             <End Role="BudgetPositions" EntitySet="BudgetPositions" />
           </AssociationSet>
-          <AssociationSet Name="FK__Budgets__UserID__1FCDBCEB" Association="CheaperModel.FK__Budgets__UserID__1FCDBCEB">
+          <AssociationSet Name="FK__Budgets__UserID__20C1E124" Association="CheaperModel.FK__Budgets__UserID__20C1E124">
             <End Role="Users" EntitySet="Users" />
             <End Role="Budgets" EntitySet="Budgets" />
           </AssociationSet>
-          <AssociationSet Name="FK__Products__Catego__24927208" Association="CheaperModel.FK__Products__Catego__24927208">
+          <AssociationSet Name="FK__Products__Catego__25869641" Association="CheaperModel.FK__Products__Catego__25869641">
             <End Role="Categories" EntitySet="Categories" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
-          <AssociationSet Name="FK__Contacts__UserID__1BFD2C07" Association="CheaperModel.FK__Contacts__UserID__1BFD2C07">
+          <AssociationSet Name="FK__Contacts__UserID__1CF15040" Association="CheaperModel.FK__Contacts__UserID__1CF15040">
             <End Role="Users" EntitySet="Users" />
             <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Conversat__Creat__2D27B809" Association="CheaperModel.FK__Conversat__Creat__2D27B809">
+          <AssociationSet Name="FK__Conversat__Creat__2E1BDC42" Association="CheaperModel.FK__Conversat__Creat__2E1BDC42">
             <End Role="Users" EntitySet="Users" />
             <End Role="Conversations" EntitySet="Conversations" />
           </AssociationSet>
-          <AssociationSet Name="FK__Messages__Conver__34C8D9D1" Association="CheaperModel.FK__Messages__Conver__34C8D9D1">
+          <AssociationSet Name="FK__Messages__Conver__35BCFE0A" Association="CheaperModel.FK__Messages__Conver__35BCFE0A">
             <End Role="Conversations" EntitySet="Conversations" />
             <End Role="Messages" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Events__UserName__3A81B327" Association="CheaperModel.FK__Events__UserName__3A81B327">
+          <AssociationSet Name="FK__Events__UserName__3B75D760" Association="CheaperModel.FK__Events__UserName__3B75D760">
             <End Role="Users" EntitySet="Users" />
             <End Role="Events" EntitySet="Events" />
           </AssociationSet>
-          <AssociationSet Name="FK__ExpenseCa__UserI__29572725" Association="CheaperModel.FK__ExpenseCa__UserI__29572725">
+          <AssociationSet Name="FK__ExpenseCa__UserI__2A4B4B5E" Association="CheaperModel.FK__ExpenseCa__UserI__2A4B4B5E">
             <End Role="Users" EntitySet="Users" />
             <End Role="ExpenseCategories" EntitySet="ExpenseCategories" />
           </AssociationSet>
-          <AssociationSet Name="FK__Messages__Sender__35BCFE0A" Association="CheaperModel.FK__Messages__Sender__35BCFE0A">
+          <AssociationSet Name="FK__Messages__Sender__36B12243" Association="CheaperModel.FK__Messages__Sender__36B12243">
             <End Role="Users" EntitySet="Users" />
             <End Role="Messages" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK__Products__UserID__25869641" Association="CheaperModel.FK__Products__UserID__25869641">
+          <AssociationSet Name="FK__Products__UserID__267ABA7A" Association="CheaperModel.FK__Products__UserID__267ABA7A">
             <End Role="Users" EntitySet="Users" />
             <End Role="Products" EntitySet="Products" />
           </AssociationSet>
@@ -550,10 +551,11 @@
           <Property Name="ShowEmail" Type="Boolean" Nullable="false" />
           <Property Name="ShowPhone" Type="Boolean" Nullable="false" />
           <Property Name="ShowBirthDate" Type="Boolean" Nullable="false" />
+          <Property Name="StatsEnabled" Type="Boolean" Nullable="false" />
           <Property Name="DisplayPic" Type="Binary" MaxLength="1" FixedLength="true" />
           <Property Name="GaduGadu" Type="String" MaxLength="9" Unicode="true" FixedLength="false" />
           <Property Name="Phone" Type="String" MaxLength="12" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Additiona__UserI__182C9B23" FromRole="AdditionalUserInfo" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Additiona__UserI__1920BF5C" FromRole="AdditionalUserInfo" ToRole="Users" />
         </EntityType>
         <EntityType Name="BudgetPositions">
           <Key>
@@ -567,7 +569,7 @@
           <Property Name="ProdID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AdditionalInfo" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Budgets" Relationship="CheaperModel.FK__BudgetPos__Budge__4316F928" FromRole="BudgetPositions" ToRole="Budgets" />
@@ -584,7 +586,7 @@
           <Property Name="BudgetName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="BudgetPositions" Relationship="CheaperModel.FK__BudgetPos__Budge__4316F928" FromRole="Budgets" ToRole="BudgetPositions" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Budgets__UserID__1FCDBCEB" FromRole="Budgets" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Budgets__UserID__20C1E124" FromRole="Budgets" ToRole="Users" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -592,7 +594,7 @@
           </Key>
           <Property Name="Id" Type="Int16" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__Products__Catego__24927208" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__Products__Catego__25869641" FromRole="Categories" ToRole="Products" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -602,7 +604,7 @@
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="ContactID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Contacts__UserID__1BFD2C07" FromRole="Contacts" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Contacts__UserID__1CF15040" FromRole="Contacts" ToRole="Users" />
         </EntityType>
         <EntityType Name="Conversations">
           <Key>
@@ -612,8 +614,8 @@
           <Property Name="CreationUserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Conversat__Creat__2D27B809" FromRole="Conversations" ToRole="Users" />
-          <NavigationProperty Name="Messages" Relationship="CheaperModel.FK__Messages__Conver__34C8D9D1" FromRole="Conversations" ToRole="Messages" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Conversat__Creat__2E1BDC42" FromRole="Conversations" ToRole="Users" />
+          <NavigationProperty Name="Messages" Relationship="CheaperModel.FK__Messages__Conver__35BCFE0A" FromRole="Conversations" ToRole="Messages" />
           <NavigationProperty Name="Users1" Relationship="CheaperModel.ConversationParticipants" FromRole="Conversations" ToRole="Users" />
         </EntityType>
         <EntityType Name="Events">
@@ -626,7 +628,7 @@
           <Property Name="InnerExMessage" Type="String" MaxLength="2048" Unicode="true" FixedLength="false" />
           <Property Name="OccurenceDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Events__UserName__3A81B327" FromRole="Events" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Events__UserName__3B75D760" FromRole="Events" ToRole="Users" />
         </EntityType>
         <EntityType Name="ExpenseCategories">
           <Key>
@@ -637,7 +639,7 @@
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="BudgetPositions" Relationship="CheaperModel.FK__BudgetPos__Expen__440B1D61" FromRole="ExpenseCategories" ToRole="BudgetPositions" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__ExpenseCa__UserI__29572725" FromRole="ExpenseCategories" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__ExpenseCa__UserI__2A4B4B5E" FromRole="ExpenseCategories" ToRole="Users" />
         </EntityType>
         <EntityType Name="Messages">
           <Key>
@@ -649,8 +651,8 @@
           <Property Name="SenderID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="3000" Unicode="true" FixedLength="false" />
           <Property Name="SendDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Conversations" Relationship="CheaperModel.FK__Messages__Conver__34C8D9D1" FromRole="Messages" ToRole="Conversations" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Messages__Sender__35BCFE0A" FromRole="Messages" ToRole="Users" />
+          <NavigationProperty Name="Conversations" Relationship="CheaperModel.FK__Messages__Conver__35BCFE0A" FromRole="Messages" ToRole="Conversations" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Messages__Sender__36B12243" FromRole="Messages" ToRole="Users" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
@@ -661,8 +663,8 @@
           <Property Name="CategoryID" Type="Int16" Nullable="false" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="BudgetPositions" Relationship="CheaperModel.FK__BudgetPos__ProdI__45F365D3" FromRole="Products" ToRole="BudgetPositions" />
-          <NavigationProperty Name="Categories" Relationship="CheaperModel.FK__Products__Catego__24927208" FromRole="Products" ToRole="Categories" />
-          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Products__UserID__25869641" FromRole="Products" ToRole="Users" />
+          <NavigationProperty Name="Categories" Relationship="CheaperModel.FK__Products__Catego__25869641" FromRole="Products" ToRole="Categories" />
+          <NavigationProperty Name="Users" Relationship="CheaperModel.FK__Products__UserID__267ABA7A" FromRole="Products" ToRole="Users" />
         </EntityType>
         <EntityType Name="Shops">
           <Key>
@@ -686,14 +688,14 @@
           <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="VerifCode" Type="String" MaxLength="16" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="AdditionalUserInfo" Relationship="CheaperModel.FK__Additiona__UserI__182C9B23" FromRole="Users" ToRole="AdditionalUserInfo" />
-          <NavigationProperty Name="Budgets" Relationship="CheaperModel.FK__Budgets__UserID__1FCDBCEB" FromRole="Users" ToRole="Budgets" />
-          <NavigationProperty Name="Contacts" Relationship="CheaperModel.FK__Contacts__UserID__1BFD2C07" FromRole="Users" ToRole="Contacts" />
-          <NavigationProperty Name="Conversations" Relationship="CheaperModel.FK__Conversat__Creat__2D27B809" FromRole="Users" ToRole="Conversations" />
-          <NavigationProperty Name="Events" Relationship="CheaperModel.FK__Events__UserName__3A81B327" FromRole="Users" ToRole="Events" />
-          <NavigationProperty Name="ExpenseCategories" Relationship="CheaperModel.FK__ExpenseCa__UserI__29572725" FromRole="Users" ToRole="ExpenseCategories" />
-          <NavigationProperty Name="Messages" Relationship="CheaperModel.FK__Messages__Sender__35BCFE0A" FromRole="Users" ToRole="Messages" />
-          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__Products__UserID__25869641" FromRole="Users" ToRole="Products" />
+          <NavigationProperty Name="AdditionalUserInfo" Relationship="CheaperModel.FK__Additiona__UserI__1920BF5C" FromRole="Users" ToRole="AdditionalUserInfo" />
+          <NavigationProperty Name="Budgets" Relationship="CheaperModel.FK__Budgets__UserID__20C1E124" FromRole="Users" ToRole="Budgets" />
+          <NavigationProperty Name="Contacts" Relationship="CheaperModel.FK__Contacts__UserID__1CF15040" FromRole="Users" ToRole="Contacts" />
+          <NavigationProperty Name="Conversations" Relationship="CheaperModel.FK__Conversat__Creat__2E1BDC42" FromRole="Users" ToRole="Conversations" />
+          <NavigationProperty Name="Events" Relationship="CheaperModel.FK__Events__UserName__3B75D760" FromRole="Users" ToRole="Events" />
+          <NavigationProperty Name="ExpenseCategories" Relationship="CheaperModel.FK__ExpenseCa__UserI__2A4B4B5E" FromRole="Users" ToRole="ExpenseCategories" />
+          <NavigationProperty Name="Messages" Relationship="CheaperModel.FK__Messages__Sender__36B12243" FromRole="Users" ToRole="Messages" />
+          <NavigationProperty Name="Products" Relationship="CheaperModel.FK__Products__UserID__267ABA7A" FromRole="Users" ToRole="Products" />
           <NavigationProperty Name="Conversations1" Relationship="CheaperModel.ConversationParticipants" FromRole="Users" ToRole="Conversations" />
         </EntityType>
         <EntityType Name="BudgetsWithExpenses">
@@ -724,7 +726,7 @@
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="Balance" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
-        <Association Name="FK__Additiona__UserI__182C9B23">
+        <Association Name="FK__Additiona__UserI__1920BF5C">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="AdditionalUserInfo" Type="CheaperModel.AdditionalUserInfo" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -784,7 +786,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Budgets__UserID__1FCDBCEB">
+        <Association Name="FK__Budgets__UserID__20C1E124">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Budgets" Type="CheaperModel.Budgets" Multiplicity="*" />
           <ReferentialConstraint>
@@ -796,7 +798,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Products__Catego__24927208">
+        <Association Name="FK__Products__Catego__25869641">
           <End Role="Categories" Type="CheaperModel.Categories" Multiplicity="1" />
           <End Role="Products" Type="CheaperModel.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -808,7 +810,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Contacts__UserID__1BFD2C07">
+        <Association Name="FK__Contacts__UserID__1CF15040">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Contacts" Type="CheaperModel.Contacts" Multiplicity="*" />
           <ReferentialConstraint>
@@ -820,7 +822,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Conversat__Creat__2D27B809">
+        <Association Name="FK__Conversat__Creat__2E1BDC42">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Conversations" Type="CheaperModel.Conversations" Multiplicity="*" />
           <ReferentialConstraint>
@@ -832,7 +834,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Messages__Conver__34C8D9D1">
+        <Association Name="FK__Messages__Conver__35BCFE0A">
           <End Role="Conversations" Type="CheaperModel.Conversations" Multiplicity="1" />
           <End Role="Messages" Type="CheaperModel.Messages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -844,7 +846,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Events__UserName__3A81B327">
+        <Association Name="FK__Events__UserName__3B75D760">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Events" Type="CheaperModel.Events" Multiplicity="*" />
           <ReferentialConstraint>
@@ -856,7 +858,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ExpenseCa__UserI__29572725">
+        <Association Name="FK__ExpenseCa__UserI__2A4B4B5E">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="ExpenseCategories" Type="CheaperModel.ExpenseCategories" Multiplicity="*" />
           <ReferentialConstraint>
@@ -868,7 +870,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Messages__Sender__35BCFE0A">
+        <Association Name="FK__Messages__Sender__36B12243">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Messages" Type="CheaperModel.Messages" Multiplicity="*" />
           <ReferentialConstraint>
@@ -880,7 +882,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Products__UserID__25869641">
+        <Association Name="FK__Products__UserID__267ABA7A">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
           <End Role="Products" Type="CheaperModel.Products" Multiplicity="*" />
           <ReferentialConstraint>
@@ -909,6 +911,7 @@
                 <ScalarProperty Name="ShowEmail" ColumnName="ShowEmail" />
                 <ScalarProperty Name="ShowPhone" ColumnName="ShowPhone" />
                 <ScalarProperty Name="ShowBirthDate" ColumnName="ShowBirthDate" />
+                <ScalarProperty Name="StatsEnabled" ColumnName="StatsEnabled" />
                 <ScalarProperty Name="DisplayPic" ColumnName="DisplayPic" />
                 <ScalarProperty Name="GaduGadu" ColumnName="GaduGadu" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

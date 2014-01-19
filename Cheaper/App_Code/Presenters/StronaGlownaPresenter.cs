@@ -28,7 +28,7 @@ namespace Cheaper.Presenters
             //if(isPostBack)
             //return;
 
-            _view.UsersRepaterDataSource = _service.GetUsers();
+            //_view.UsersRepaterDataSource = _service.GetUsers();
         }
     }
 }

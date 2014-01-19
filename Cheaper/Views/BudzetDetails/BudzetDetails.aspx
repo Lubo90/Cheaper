@@ -34,29 +34,29 @@
                 <ItemTemplate>
                     <tr class="tableItem">
                         <td class="tekst"><%# Eval("ProductName") %></td>
-                        <td class="liczba"><%# Eval("Price") %> zł</td>
+                        <td class="liczba"><%# Eval("Price", "{0:0.## zł}") %></td>
                         <td class="liczba"><%# Eval("Quantity") %></td>
-                        <td class="liczba"><%# Eval("Wartosc") %> zł</td>
+                        <td class="liczba"><%# Eval("Wartosc", "{0:0.## zł}") %></td>
                         <td class="tekst"><%# Eval("PurchaseDateString") %></td>
                         <td class="tekst"><%# Eval("ExpenseCatName") %></td>
                         <td>
-                            <img src="../../Images/shop-small.png" title="<%# Eval("ShopFriendlyName") %>" /></td>
+                            <asp:Image ID="imgShop" runat="server" ImageUrl="~/Images/shop-small.png" title='<%# Eval("ShopFriendlyName") %>' Visible='<%# !string.IsNullOrEmpty(Eval("ShopFriendlyName") as string) %>' /></td>
                         <td>
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/info-small.png" title='<%# Eval("AddInfo") %>' Visible='<%# !string.IsNullOrEmpty(Eval("AddInfo") as string) %>' /></td>
+                            <asp:Image ID="imgInfo" runat="server" ImageUrl="~/Images/info-small.png" title='<%# Eval("AddInfo") %>' Visible='<%# !string.IsNullOrEmpty(Eval("AddInfo") as string) %>' /></td>
                     </tr>
                 </ItemTemplate>
                 <AlternatingItemTemplate>
                     <tr class="altTableItem">
                         <td class="tekst"><%# Eval("ProductName") %></td>
-                        <td class="liczba"><%# Eval("Price") %> zł</td>
+                        <td class="liczba"><%# Eval("Price", "{0:0.##}") %></td>
                         <td class="liczba"><%# Eval("Quantity") %></td>
-                        <td class="liczba"><%# Eval("Wartosc") %> zł</td>
+                        <td class="liczba"><%# Eval("Wartosc", "{0:0.## zł}") %></td>
                         <td class="tekst"><%# Eval("PurchaseDateString") %></td>
                         <td class="tekst"><%# Eval("ExpenseCatName") %></td>
                         <td>
-                            <img src="../../Images/shop-small.png" title="<%# Eval("ShopFriendlyName") %>" /></td>
+                            <asp:Image ID="imgShopAlt" runat="server" ImageUrl="~/Images/shop-small.png" title='<%# Eval("ShopFriendlyName") %>' Visible='<%# !string.IsNullOrEmpty(Eval("ShopFriendlyName") as string) %>' /></td>
                         <td>
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/info-small.png" title='<%# Eval("AddInfo") %>' Visible='<%# !string.IsNullOrEmpty(Eval("AddInfo") as string) %>' /></td>
+                            <asp:Image ID="imgInfoAlt" runat="server" ImageUrl="~/Images/info-small.png" title='<%# Eval("AddInfo") %>' Visible='<%# !string.IsNullOrEmpty(Eval("AddInfo") as string) %>' /></td>
                     </tr>
                 </AlternatingItemTemplate>
                 <FooterTemplate>

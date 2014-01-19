@@ -62,8 +62,8 @@ public partial class Views_BudzetDetails_BudzetDetails : BaseView, IBudzetDetail
         set { _sumaWartosci = value; }
     }
 
-    private int _sumaIlosci;
-    public int SumaIlosci
+    private decimal _sumaIlosci;
+    public decimal SumaIlosci
     {
         get { return _sumaIlosci; }
         set { _sumaIlosci = value; }

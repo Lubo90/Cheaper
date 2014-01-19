@@ -13,13 +13,13 @@ CREATE TABLE Users (
 	VerifCode NVARCHAR(16) NULL,
 	CONSTRAINT MinPasswdLength CHECK (DATALENGTH(Passwd) = 32));
 GO
-insert into Users values ('lubo', 'f6a3a3e101a484c1b0ff5facacf1be56', 'lubo@ue.katowice.pl', getdate(), getdate(), null);
 
 CREATE TABLE AdditionalUserInfo (
 	UserID NVARCHAR(24) PRIMARY KEY,
 	ShowEmail BIT NOT NULL DEFAULT 0,
 	ShowPhone BIT NOT NULL DEFAULT 0,
 	ShowBirthDate BIT NOT NULL DEFAULT 1,
+	StatsEnabled BIT NOT NULL DEFAULT 0,
 	DisplayPic BINARY NULL,
 	GaduGadu NVARCHAR(9) NULL,
 	Phone NVARCHAR(12) NULL,
@@ -120,7 +120,7 @@ CREATE TABLE BudgetPositions (
 	ProdID INT NOT NULL,
 	Price DECIMAL(9,2) NOT NULL DEFAULT 0,
 	PurchaseDate DATETIME NULL,
-	Quantity INT NOT NULL DEFAULT 1,
+	Quantity DECIMAL(9,2) NOT NULL,
 	CreationDate DATETIME NOT NULL DEFAULT GETDATE(),
 	AdditionalInfo NVARCHAR(300) NULL,
 	FOREIGN KEY (BudgetID) REFERENCES Budgets(BudgetID) ON UPDATE CASCADE ON DELETE NO ACTION,
@@ -161,13 +161,40 @@ commit;
 -- POPULACJA STRUKTUR SŁOWNIKOWYCH DANYMI
 begin transaction;
 
+insert into Users values ('lubo', 'f6a3a3e101a484c1b0ff5facacf1be56', 'lubo@ue.katowice.pl', getdate(), getdate(), null);
+INSERT INTO Users values ('dft', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'x', getdate(), getdate(), null);
+
 INSERT INTO Categories(Name)
-	SELECT 'Artykuły gospodarstwa domowego'
-	UNION SELECT 'RTV'
-	UNION SELECT 'Słodycze'
-	UNION SELECT 'Owoce'
-	UNION SELECT 'Warzywa'
-	UNION SELECT 'Fastfood'
-	UNION SELECT 'Elektronika';
+	SELECT 'Elektronika'
+	UNION SELECT 'AGD'
+	UNION SELECT 'Żywność'
+	UNION SELECT 'Motoryzacja'
+	UNION SELECT 'Oprogramowanie'
+	UNION SELECT 'Sport'
+	UNION SELECT 'Rozrywka';
+	
+INSERT INTO Products(Name, CategoryID, UserID)
+	VALUES ('Galaxy S3', 1, 'dft'),
+		   ('Nexus 7 2', 1, 'dft'),
+		   ('Monitor LG 23EA63', 1, 'dft'),
+		   ('Lodówka Whirlpool WBC 3546 FCX', 2, 'dft'),
+		   ('Pralka Whirlpool AWE6519/P', 2, 'dft'),
+		   ('Zmywarka Candy CSF 4595 E', 2, 'dft'),
+		   ('Arbuz', 3, 'dft'),
+		   ('Papryka [szt]', 3, 'dft'),
+		   ('Papryka [kg]', 3, 'dft'),
+		   ('Pizza', 3, 'dft'),
+		   ('Wymiana sprzęgła Focus MK II', 4, 'dft'),
+		   ('Wymiana opon na zimowe', 4, 'dft'),
+		   ('Olej napędowy [l]', 4, 'dft'),
+		   ('Pakiet Office 2013', 5, 'dft'),
+		   ('Runtastic PRO', 5, 'dft'),
+		   ('GTA V', 5, 'dft'),
+		   ('Nike DUAL FUSION RUN 2', 6, 'dft'),
+		   ('Koszulka termoaktywna 4F', 6, 'dft'),
+		   ('Pulsometr Sigma PC 10.11', 6, 'dft'),
+		   ('Bilard 1h', 7, 'dft'),
+		   ('Seans 3D', 7, 'dft'),
+		   ('Wesołe miasteczko - karnet całodniowy', 7, 'dft');
 
 commit;

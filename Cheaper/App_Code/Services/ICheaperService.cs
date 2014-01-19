@@ -9,17 +9,17 @@ using System.Web;
 public interface ICheaperService
 {
     bool CheckUserAuthentication(string login, string password);
-    List<UsersModel> GetUsers();
-    bool RegisterNewUser(string login, string password, string email, DateTime birthDate);
+    UsersModel GetUserData(string userName);
+    bool RegisterNewUser(string login, string password, string email, DateTime birthDate, bool statsEnabled);
     bool IsUsernameAvailable(string userName);
 
     List<BudgetsModel> GetBudgets(string userName);
     BudgetsModel GetBudgetData(int budgetId, string userName);
     List<BudgetDetailsModel> GetBudgetDetailsData(int budgetId, string userName);
-    bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int idSklepu, decimal cena, DateTime dataZakupu, int ilosc, string dodatkoweInfo, string userName);
+    bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int? idSklepu, decimal cena, DateTime dataZakupu, decimal ilosc, string dodatkoweInfo, string userName);
 
     bool DodajBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia);
-    string[] GetProductsAutocomplete(string firstLetter, string userName);
+    string[] GetProductsAutocomplete(string firstLetter, string userName, bool getDictValues);
     string[] GetShopsAutocomplete(string startsWith, string userName);
     bool DodajProdukt(string nazwaProduktu, short idKategorii, string userName);
 
