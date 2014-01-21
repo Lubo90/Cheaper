@@ -12,7 +12,7 @@ public partial class Views_Budzet_ListaBudzetow : System.Web.UI.UserControl
 
     }
 
-    public List<BudgetsModel> BudgetsRepaterDataSource
+    public List<BudgetModel> BudgetsRepaterDataSource
     {
         set
         {
@@ -25,7 +25,7 @@ public partial class Views_Budzet_ListaBudzetow : System.Web.UI.UserControl
     {
         get
         {
-            var ds = rptrBudgets.DataSource as List<BudgetsModel>;
+            var ds = rptrBudgets.DataSource as List<BudgetModel>;
             if (ds != null && ds.Count > 0)
                 return true;
             else

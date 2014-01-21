@@ -19,8 +19,8 @@
         <tr class="tableItem">
             <td class="tekst"><asp:LinkButton runat="server" PostBackUrl='<%# "~/Views/BudzetDetails/BudzetDetails.aspx?id=" + Eval("BudgetID") %>'><%# Eval("BudgetName") %></asp:LinkButton></td>
             <td class="tekst"><%# Eval("CreationDate") %></td>
-            <td class="liczba"><%# Eval("LastMonthExpenses") %></td>
-            <td class="liczba"><%# Eval("LastYearExpenses") %></td>
+            <td class="liczba"><%# Eval("LastMonthExpenses", "{0:0.## zł}") %></td>
+            <td class="liczba"><%# Eval("LastYearExpenses", "{0:0.## zł}") %></td>
             <td class="liczba"><%# Eval("PositionsCount") %></td>
         </tr>
     </ItemTemplate>
@@ -28,8 +28,8 @@
         <tr class="altTableItem">
             <td class="tekst"><asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl='<%# "~/Views/BudzetDetails/BudzetDetails.aspx?id=" + Eval("BudgetID") %>'><%# Eval("BudgetName") %></asp:LinkButton></td>
             <td class="tekst"><%# Eval("CreationDate") %></td>
-            <td class="liczba"><%# Eval("LastMonthExpenses") %></td>
-            <td class="liczba"><%# Eval("LastYearExpenses") %></td>
+            <td class="liczba"><%# Eval("LastMonthExpenses", "{0:0.## zł}") %></td>
+            <td class="liczba"><%# Eval("LastYearExpenses", "{0:0.## zł}") %></td>
             <td class="liczba"><%# Eval("PositionsCount") %></td>
         </tr>
     </AlternatingItemTemplate>
@@ -37,8 +37,8 @@
         <tr class="tablePodsumowanie">
             <td class="liczba">Podsumowanie:</td>
             <td></td>
-            <td class="liczba"><%= this.SumaWydatkowMsc.ToString() %> zł</td>
-            <td class="liczba"><%= this.SumaWydatkowRok.ToString() %> zł</td>
+            <td class="liczba"><%= this.SumaWydatkowMsc.ToString("0.##") %> zł</td>
+            <td class="liczba"><%= this.SumaWydatkowRok.ToString("0.##") %> zł</td>
             <td class="liczba"><%= this.SumaPozycji.ToString() %></td>
         </tr>
         </table>

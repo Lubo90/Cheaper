@@ -124,12 +124,19 @@ td.tekstHeader {
     margin: 0;
 }
 
+.menuHeader {
+    font-style:italic;
+    font-family: AngsanaUPC;
+    font-size:30px;
+}
+
 .menuItem {
-    display: table-row;
-    margin-top: 100px;
-    float: left;
+    border-top: 1px dashed #357bad;
+    display: block;
     width: inherit;
-    margin: 20px auto 0 auto;
-    text-align:center;
-    vertical-align:middle;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom:10px;
+    word-wrap:break-word;
+    vertical-align: middle;
 }

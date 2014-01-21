@@ -15,7 +15,7 @@ public partial class Views_BudzetDetails_BudzetDetails : BaseView, IBudzetDetail
         _presenter.InitView(IsPostBack);
     }
 
-    public List<BudgetDetailsModel> RepeaterDataSource
+    public List<BudgetPositionModel> RepeaterDataSource
     {
         set
         {
@@ -23,7 +23,7 @@ public partial class Views_BudzetDetails_BudzetDetails : BaseView, IBudzetDetail
         }
         get
         {
-            return this.rptrBudgetDetails.DataSource as List<BudgetDetailsModel>;
+            return this.rptrBudgetDetails.DataSource as List<BudgetPositionModel>;
         }
     }
 
@@ -48,24 +48,8 @@ public partial class Views_BudzetDetails_BudzetDetails : BaseView, IBudzetDetail
 
     public bool CanView { get; set; }
 
-    private decimal _sumaCeny;
-    public decimal SumaCeny
-    {
-        get { return _sumaCeny; }
-        set { _sumaCeny = value; }
-    }
-
-    private decimal _sumaWartosci;
-    public decimal SumaWartosci
-    {
-        get { return _sumaWartosci; }
-        set { _sumaWartosci = value; }
-    }
-
-    private decimal _sumaIlosci;
-    public decimal SumaIlosci
-    {
-        get { return _sumaIlosci; }
-        set { _sumaIlosci = value; }
-    }
+    public decimal SumaCeny { get; set; }
+    public decimal SumaWartosci { get; set; }
+    public decimal SumaIlosci { get; set; }
+    public decimal SumaRoznic { get; set; }
 }

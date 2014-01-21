@@ -6,9 +6,9 @@ using System.Web;
 /// <summary>
 /// Summary description for ExpensesModel
 /// </summary>
-public class ExpensesModel
+public class ExpenseModel
 {
-    public ExpensesModel()
+    public ExpenseModel()
     {
     }
 

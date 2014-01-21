@@ -6,9 +6,9 @@ using System.Web;
 /// <summary>
 /// Summary description for BudgetDetailsModel
 /// </summary>
-public class BudgetDetailsModel
+public class BudgetPositionModel
 {
-	public BudgetDetailsModel()
+	public BudgetPositionModel()
 	{
 
 	}
@@ -37,6 +37,8 @@ public class BudgetDetailsModel
             return (decimal)Price * Quantity;
         }
     }
+    public decimal RoznicaCeny { get; set; }
+    public decimal SredniaCena { get; set; }
     public string AddInfo { get; set; }
 
     public string ExpenseCatName { get; set; }

@@ -8,6 +8,7 @@ var usernameOk = false;
 var passwordOk = false;
 var emailOk = false;
 var birthDateOk = false;
+var postCodeOk = false;
 
 $(function () {
     $(document).tooltip({
@@ -117,6 +118,34 @@ function ValidateBirthDate() {
         error: function (a, b, c) { alert(a + "\n" + b + "\n" + c); }
     });
 }
+function ValidatePostCode() {
+    var postCode = $("#tbShopKodPocztowy").val();
+
+    if (postCode.length != 6) {
+        $("#postCodeNotValid").show();
+        postCodeOk = false;
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: webServiceUrl + "ValidatePostCode",
+        data: JSON.stringify({ 'postCode': postCode }),
+        dataType: "json",
+        contentType: "application/json",
+        success: function (data) {
+            if (data.d == true) {
+                postCodeOk = true;
+                $("#postCodeNotValid").hide();
+            }
+            else {
+                postCodeOk = false;
+                $("#postCodeNotValid").show();
+            }
+        },
+        error: function (a, b, c) { alert(a + "\n" + b + "\n" + c); }
+    });
+}
 
 $(document).ready(function () {
     $("#usernameAvailable").hide();
@@ -125,6 +154,7 @@ $(document).ready(function () {
     $("#passwordTooShort").hide();
     $("#emailNotValid").hide();
     $("#birthDateNotValid").hide();
+    $("#postCodeNotValid").hide();
 
     $("#tbShops").on('change keyup paste mouseup', function () {
         if ($("#tbShops").val() != lastValShops && !shopAutocomplete) {
@@ -156,6 +186,10 @@ $(document).ready(function () {
 
     $("#tbBirthDate").on('change keyup paste mouseup', function () {
         ValidateBirthDate();
+    });
+
+    $("#tbShopKodPocztowy").on('change keyup paste mouseup', function () {
+        ValidatePostCode();
     });
 
     // inicjalizacja podpowiedzi dla nazwy produktu
@@ -267,6 +301,10 @@ function addShop() {
     var ulica = $("#tbShopUlica").val();
     var miasto = $("#tbShopMiasto").val();
     var kodPocztowy = $("#tbShopKodPocztowy").val();
+    var addRow = $("#addRow").prop('checked');
+
+    if (postCodeOk != true)
+        return;
 
     $.ajax({
         type: "POST",
@@ -283,11 +321,40 @@ function addShop() {
         success: function (data) {
             if (data.d == false)
                 alert("Wystąpił błąd podczas dodawania sklepu.");
-            else
+            else {
                 $("#pupNowySklep").dialog('close');
+                if (addRow) {
+                    var rowsNumber = $("#tabShops").children('tr').length;
+                    if (rowsNumber > 0)
+                        addShopRow(friendlyName, ulica, miasto, kodPocztowy, rowsNumber);
+                    else
+                        location.reload();
+                }
+            }
         },
         error: function (a, b, c) { alert(a + "\n" + b + "\n" + c); }
     });
+}
+function addShopRow(name, street, city, postCode, rowNumber) {
+    var style = '';
+
+    if (rowNumber % 2 != 0)
+        style = 'tableItem';
+    else
+        style = 'altTableItem';
+
+    $("#tabShops").append(
+    '<tr class="' + style + '">' +
+        '<td class="tekst">' + name + '</td>' +
+        '<td class="tekst">' + street + '</td>' +
+        '<td class="tekst">' + city + '</td>' +
+        '<td class="tekst">' + postCode + '</td>' +
+    '</tr>');
+
+    $("#tbShopFriendlyName").val('');
+    $("#tbShopUlica").val('');
+    $("#tbShopMiasto").val('');
+    $("#tbShopKodPocztowy").val('');
 }
 
 function addExpenseCategory() {
@@ -307,8 +374,11 @@ function addExpenseCategory() {
         success: function (data) {
             if (data.d == false)
                 alert("Wystąpił błąd podczas dodawania kategorii wydatków.");
-            else if (data.d == true)
+            else if (data.d == true) {
                 location.reload();
+                $("#tbNazwaKatWyd").val('');
+                $("#tbKwotaKatWyd").val('');
+            }
         },
         error: function (a, b, c) { alert(a + "\n" + b + "\n" + c); }
     });

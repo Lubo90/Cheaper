@@ -112,7 +112,8 @@
             <tr>
                 <td>Kod pocztowy</td>
                 <td>
-                    <asp:TextBox ClientIDMode="Static" ID="tbShopKodPocztowy" runat="server" /></td>
+                    <asp:TextBox ClientIDMode="Static" ID="tbShopKodPocztowy" runat="server" />
+                    <input type="checkbox" hidden="hidden" id="addRow" />
             </tr>
         </table>
     </div>

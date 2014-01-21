@@ -19,6 +19,23 @@
           <EntitySet Name="Products" EntityType="CheaperModel.Store.Products" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Shops" EntityType="CheaperModel.Store.Shops" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="CheaperModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BudgetPositionsWithStats" EntityType="CheaperModel.Store.BudgetPositionsWithStats" store:Type="Views" store:Schema="dbo" store:Name="BudgetPositionsWithStats">
+            <DefiningQuery>SELECT 
+      [BudgetPositionsWithStats].[PositionID] AS [PositionID], 
+      [BudgetPositionsWithStats].[BudgetID] AS [BudgetID], 
+      [BudgetPositionsWithStats].[ExpenseCatID] AS [ExpenseCatID], 
+      [BudgetPositionsWithStats].[ShopID] AS [ShopID], 
+      [BudgetPositionsWithStats].[UserID] AS [UserID], 
+      [BudgetPositionsWithStats].[ProdID] AS [ProdID], 
+      [BudgetPositionsWithStats].[Price] AS [Price], 
+      [BudgetPositionsWithStats].[PurchaseDate] AS [PurchaseDate], 
+      [BudgetPositionsWithStats].[Quantity] AS [Quantity], 
+      [BudgetPositionsWithStats].[CreationDate] AS [CreationDate], 
+      [BudgetPositionsWithStats].[AdditionalInfo] AS [AdditionalInfo], 
+      [BudgetPositionsWithStats].[AveragePrice] AS [AveragePrice], 
+      [BudgetPositionsWithStats].[PriceDifference] AS [PriceDifference]
+      FROM [dbo].[BudgetPositionsWithStats] AS [BudgetPositionsWithStats]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="BudgetsWithExpenses" EntityType="CheaperModel.Store.BudgetsWithExpenses" store:Type="Views" store:Schema="dbo" store:Name="BudgetsWithExpenses">
             <DefiningQuery>SELECT 
       [BudgetsWithExpenses].[BudgetID] AS [BudgetID], 
@@ -128,7 +145,7 @@
           <Property Name="ProdID" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="datetime" />
-          <Property Name="Quantity" Type="decimal" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="AdditionalInfo" Type="nvarchar" MaxLength="300" />
         </EntityType>
@@ -237,6 +254,36 @@
           <Property Name="VerifCode" Type="nvarchar" MaxLength="16" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'Cheaper.dbo.BudgetPositionsWithStats' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BudgetPositionsWithStats">
+          <Key>
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="BudgetID" />
+            <PropertyRef Name="ExpenseCatID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ProdID" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="AveragePrice" />
+            <PropertyRef Name="PriceDifference" />
+          </Key>
+          <Property Name="PositionID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BudgetID" Type="int" Nullable="false" />
+          <Property Name="ExpenseCatID" Type="int" Nullable="false" />
+          <Property Name="ShopID" Type="int" />
+          <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="24" />
+          <Property Name="ProdID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="PurchaseDate" Type="datetime" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="AdditionalInfo" Type="nvarchar" MaxLength="300" />
+          <Property Name="AveragePrice" Type="decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="PriceDifference" Type="decimal" Nullable="false" Precision="38" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'Cheaper.dbo.BudgetsWithExpenses' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="BudgetsWithExpenses">
@@ -251,8 +298,8 @@
           <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="24" />
           <Property Name="BudgetName" Type="nvarchar" MaxLength="50" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
-          <Property Name="ThisMonthExpenses" Type="decimal" Nullable="false" Precision="38" Scale="2" />
-          <Property Name="ThisYearExpenses" Type="decimal" Nullable="false" Precision="38" Scale="2" />
+          <Property Name="ThisMonthExpenses" Type="decimal" Nullable="false" Precision="38" Scale="4" />
+          <Property Name="ThisYearExpenses" Type="decimal" Nullable="false" Precision="38" Scale="4" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Cheaper.dbo.ExpenseCatLastMthBalance' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -268,7 +315,7 @@
           <Property Name="UserID" Type="nvarchar" Nullable="false" MaxLength="24" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Amount" Type="decimal" Nullable="false" Precision="9" Scale="2" />
-          <Property Name="Balance" Type="decimal" Precision="38" Scale="2" />
+          <Property Name="Balance" Type="decimal" Precision="38" Scale="4" />
         </EntityType>
         <Association Name="FK__Additiona__UserI__1920BF5C">
           <End Role="Users" Type="CheaperModel.Store.Users" Multiplicity="1" />
@@ -480,6 +527,7 @@
           <EntitySet Name="Products" EntityType="CheaperModel.Products" />
           <EntitySet Name="Shops" EntityType="CheaperModel.Shops" />
           <EntitySet Name="Users" EntityType="CheaperModel.Users" />
+          <EntitySet Name="BudgetPositionsWithStats" EntityType="CheaperModel.BudgetPositionsWithStats" />
           <EntitySet Name="BudgetsWithExpenses" EntityType="CheaperModel.BudgetsWithExpenses" />
           <EntitySet Name="ExpenseCatLastMthBalance" EntityType="CheaperModel.ExpenseCatLastMthBalance" />
           <AssociationSet Name="FK__Additiona__UserI__1920BF5C" Association="CheaperModel.FK__Additiona__UserI__1920BF5C">
@@ -569,7 +617,7 @@
           <Property Name="ProdID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
-          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="AdditionalInfo" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Budgets" Relationship="CheaperModel.FK__BudgetPos__Budge__4316F928" FromRole="BudgetPositions" ToRole="Budgets" />
@@ -698,6 +746,33 @@
           <NavigationProperty Name="Products" Relationship="CheaperModel.FK__Products__UserID__267ABA7A" FromRole="Users" ToRole="Products" />
           <NavigationProperty Name="Conversations1" Relationship="CheaperModel.ConversationParticipants" FromRole="Users" ToRole="Conversations" />
         </EntityType>
+        <EntityType Name="BudgetPositionsWithStats">
+          <Key>
+            <PropertyRef Name="PositionID" />
+            <PropertyRef Name="BudgetID" />
+            <PropertyRef Name="ExpenseCatID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="ProdID" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="CreationDate" />
+            <PropertyRef Name="AveragePrice" />
+            <PropertyRef Name="PriceDifference" />
+          </Key>
+          <Property Name="PositionID" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="BudgetID" Type="Int32" Nullable="false" />
+          <Property Name="ExpenseCatID" Type="Int32" Nullable="false" />
+          <Property Name="ShopID" Type="Int32" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
+          <Property Name="ProdID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+          <Property Name="Quantity" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AdditionalInfo" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="AveragePrice" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+          <Property Name="PriceDifference" Type="Decimal" Nullable="false" Precision="38" Scale="6" />
+        </EntityType>
         <EntityType Name="BudgetsWithExpenses">
           <Key>
             <PropertyRef Name="BudgetID" />
@@ -710,8 +785,8 @@
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="BudgetName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ThisMonthExpenses" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
-          <Property Name="ThisYearExpenses" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
+          <Property Name="ThisMonthExpenses" Type="Decimal" Nullable="false" Precision="38" Scale="4" />
+          <Property Name="ThisYearExpenses" Type="Decimal" Nullable="false" Precision="38" Scale="4" />
         </EntityType>
         <EntityType Name="ExpenseCatLastMthBalance">
           <Key>
@@ -724,7 +799,7 @@
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="24" Unicode="true" FixedLength="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Amount" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
-          <Property Name="Balance" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Balance" Type="Decimal" Precision="38" Scale="4" />
         </EntityType>
         <Association Name="FK__Additiona__UserI__1920BF5C">
           <End Role="Users" Type="CheaperModel.Users" Multiplicity="1" />
@@ -1036,6 +1111,25 @@
                 <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
                 <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
                 <ScalarProperty Name="VerifCode" ColumnName="VerifCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BudgetPositionsWithStats">
+            <EntityTypeMapping TypeName="CheaperModel.BudgetPositionsWithStats">
+              <MappingFragment StoreEntitySet="BudgetPositionsWithStats">
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="BudgetID" ColumnName="BudgetID" />
+                <ScalarProperty Name="ExpenseCatID" ColumnName="ExpenseCatID" />
+                <ScalarProperty Name="ShopID" ColumnName="ShopID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProdID" ColumnName="ProdID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="AveragePrice" ColumnName="AveragePrice" />
+                <ScalarProperty Name="PriceDifference" ColumnName="PriceDifference" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

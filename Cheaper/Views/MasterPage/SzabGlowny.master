@@ -44,17 +44,20 @@
                 </asp:Panel>
             </div>
             <div id="menu">
-                <span>Menu</span>
-                <span class="menuItem">
+                <div class="menuHeader">Menu</div>
+                <div class="menuItem">
                     <asp:LinkButton ID="menuStronaGlowna" CausesValidation="false" PostBackUrl="~/Views/StronaGlowna/Default.aspx" Text="Strona główna" runat="server" /><br />
-                </span>
+                </div>
                 <asp:Panel runat="server" Visible="<%# this.IsLoggedIn %>">
-                    <span class="menuItem">
+                    <div class="menuItem">
                         <asp:LinkButton ID="menuBudzety" CausesValidation="false" PostBackUrl="~/Views/Budzet/Budzet.aspx" Text="Lista budżetów" runat="server" /><br />
-                    </span>
-                    <span class="menuItem">
+                    </div>
+                    <div class="menuItem">
                         <asp:LinkButton ID="menuKategorieWyd" CausesValidation="false" PostBackUrl="~/Views/KategorieWydatkow/KategorieWydatkow.aspx" Text="Kategorie wydatków" runat="server" /><br />
-                    </span>
+                    </div>
+                    <div class="menuItem">
+                        <asp:LinkButton ID="menuSklepy" CausesValidation="false" PostBackUrl="~/Views/Shops/Sklep.aspx" Text="Lista sklepów" runat="server" /><br />
+                    </div>
                 </asp:Panel>
             </div>
             <div id="zawartosc">

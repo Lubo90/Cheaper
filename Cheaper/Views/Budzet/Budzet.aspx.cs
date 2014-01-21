@@ -15,7 +15,7 @@ public partial class Views_Budzet_Budzet : BaseView, IBudzetView
         _presenter.InitView(this.IsPostBack);
     }
 
-    public List<BudgetsModel> RepeaterDataSource
+    public List<BudgetModel> RepeaterDataSource
     {
         set
         {

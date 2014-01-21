@@ -8,5 +8,5 @@ using System.Web;
 /// </summary>
 public interface IKategorieWydatkowView : IView
 {
-    List<ExpensesModel> RepeaterDataSource { set; }
+    List<ExpenseModel> RepeaterDataSource { set; }
 }

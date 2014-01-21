@@ -6,9 +6,9 @@ using System.Web;
 /// <summary>
 /// Summary description for UsersModel
 /// </summary>
-public class UsersModel
+public class UserModel
 {
-	public UsersModel()
+	public UserModel()
 	{
 		//
 		// TODO: Add constructor logic here

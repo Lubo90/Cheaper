@@ -9,23 +9,24 @@ using System.Web;
 public interface ICheaperService
 {
     bool CheckUserAuthentication(string login, string password);
-    UsersModel GetUserData(string userName);
+    UserModel GetUserData(string userName);
     bool RegisterNewUser(string login, string password, string email, DateTime birthDate, bool statsEnabled);
     bool IsUsernameAvailable(string userName);
 
-    List<BudgetsModel> GetBudgets(string userName);
-    BudgetsModel GetBudgetData(int budgetId, string userName);
-    List<BudgetDetailsModel> GetBudgetDetailsData(int budgetId, string userName);
+    List<BudgetModel> GetBudgets(string userName);
+    BudgetModel GetBudgetData(int budgetId, string userName);
+    List<BudgetPositionModel> GetBudgetDetailsData(int budgetId, string userName);
     bool DodajPozycjeBudzetu(int idBudzetu, int idProduktu, int idKategorii, int? idSklepu, decimal cena, DateTime dataZakupu, decimal ilosc, string dodatkoweInfo, string userName);
 
     bool DodajBudzet(string nazwaBudzetu, string login, DateTime dataUtworzenia);
     string[] GetProductsAutocomplete(string firstLetter, string userName, bool getDictValues);
     string[] GetShopsAutocomplete(string startsWith, string userName);
+    List<ShopModel> GetShops(string userName);
     bool DodajProdukt(string nazwaProduktu, short idKategorii, string userName);
 
     Dictionary<int, string> GetKategorie();
     Dictionary<int, string> GetKategorieWydatkuComboList(string userName);
-    List<ExpensesModel> GetKategorieWydatku(string userName);
+    List<ExpenseModel> GetKategorieWydatku(string userName);
 
     bool ChangeKwotaKatWyd(decimal kwota, int idKatWyd, string userName);
     bool DodajKatWyd(string nazwaKat, decimal kwotaKat, string userName);

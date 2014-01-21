@@ -6,9 +6,9 @@ using System.Web;
 /// <summary>
 /// Summary description for BudgetsModel
 /// </summary>
-public class BudgetsModel
+public class BudgetModel
 {
-	public BudgetsModel()
+	public BudgetModel()
 	{
         
 	}

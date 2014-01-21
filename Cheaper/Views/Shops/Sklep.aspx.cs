@@ -5,22 +5,22 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Views_KategorieWydatkow_KategorieWydatkow : BaseView, IKategorieWydatkowView
+public partial class Views_Shops_Sklep : BaseView, ISklepView
 {
-    KategorieWydatkowPresenter _presenter;
+    SklepPresenter _presenter;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        _presenter = new KategorieWydatkowPresenter(this);
+        _presenter = new SklepPresenter(this);
         _presenter.InitView(this.IsPostBack);
     }
 
-    public List<ExpenseModel> RepeaterDataSource
+    public List<ShopModel> RepeaterDataSource
     {
         set
         {
-            this.rptrKatWyd.DataSource = value;
-            this.rptrKatWyd.DataBind();
+            this.rptrShops.DataSource = value;
+            this.rptrShops.DataBind();
         }
     }
 
@@ -28,7 +28,7 @@ public partial class Views_KategorieWydatkow_KategorieWydatkow : BaseView, IKate
     {
         get
         {
-            var ds = rptrKatWyd.DataSource as List<ExpenseModel>;
+            var ds = rptrShops.DataSource as List<ShopModel>;
             if (ds != null && ds.Count > 0)
                 return true;
             else

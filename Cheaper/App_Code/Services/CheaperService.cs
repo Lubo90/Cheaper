@@ -70,14 +70,14 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public UsersModel GetUserData(string userName)
+    public UserModel GetUserData(string userName)
     {
         using (var context = new CheaperEntities())
         {
             var select = from c in context.Users
                          join a in context.AdditionalUserInfo on c.UserName equals a.UserID
                          where c.UserName == userName
-                         select new UsersModel()
+                         select new UserModel()
                          {
                              UserName = c.UserName,
                              Passwd = c.Passwd,
@@ -94,14 +94,14 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public List<BudgetsModel> GetBudgets(string userName)
+    public List<BudgetModel> GetBudgets(string userName)
     {
         using (var context = new CheaperEntities())
         {
             var select = from c in context.BudgetsWithExpenses
                          where c.UserID == userName
                          orderby c.BudgetName ascending
-                         select new BudgetsModel()
+                         select new BudgetModel()
                          {
                              BudgetID = c.BudgetID,
                              BudgetName = c.BudgetName,
@@ -116,11 +116,11 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public BudgetsModel GetBudgetData(int budgetId, string userName)
+    public BudgetModel GetBudgetData(int budgetId, string userName)
     {
         using (var context = new CheaperEntities())
         {
-            var select = from c in context.BudgetsWithExpenses where c.UserID == userName && c.BudgetID == budgetId orderby c.CreationDate select new BudgetsModel() { BudgetID = c.BudgetID, BudgetName = c.BudgetName, CreationDate = c.CreationDate, LastMonthExpenses = c.ThisMonthExpenses, LastYearExpenses = c.ThisYearExpenses };
+            var select = from c in context.BudgetsWithExpenses where c.UserID == userName && c.BudgetID == budgetId orderby c.CreationDate select new BudgetModel() { BudgetID = c.BudgetID, BudgetName = c.BudgetName, CreationDate = c.CreationDate, LastMonthExpenses = c.ThisMonthExpenses, LastYearExpenses = c.ThisYearExpenses };
             var resultArray = select.ToArray();
             if (resultArray.Count() > 0)
                 return resultArray[0];
@@ -129,23 +129,25 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public List<BudgetDetailsModel> GetBudgetDetailsData(int budgetId, string userName)
+    public List<BudgetPositionModel> GetBudgetDetailsData(int budgetId, string userName)
     {
         using (var context = new CheaperEntities())
         {
-            var select = from budPos in context.BudgetPositions
+            var select = from budPos in context.BudgetPositionsWithStats
                          from shops in context.Shops.Where(x => budPos.ShopID == x.Id).DefaultIfEmpty()
                          join buds in context.Budgets on budPos.BudgetID equals buds.BudgetID
                          join products in context.Products on budPos.ProdID equals products.ProductID
                          join expCats in context.ExpenseCategories on budPos.ExpenseCatID equals expCats.Id
                          where budPos.BudgetID == budgetId && buds.UserID == userName
                          orderby budPos.PurchaseDate descending
-                         select new BudgetDetailsModel()
+                         select new BudgetPositionModel()
                          {
                              PositionID = budPos.PositionID,
                              Price = budPos.Price,
                              PurchaseDate = budPos.PurchaseDate,
                              Quantity = budPos.Quantity,
+                             RoznicaCeny = budPos.PriceDifference,
+                             SredniaCena = budPos.AveragePrice,
                              AddInfo = budPos.AdditionalInfo,
                              ProductName = products.Name,
                              ExpenseCatName = expCats.Name,
@@ -247,6 +249,24 @@ public class CheaperService : ICheaperService
         }
     }
 
+    public List<ShopModel> GetShops(string userName)
+    {
+        using (var context = new CheaperEntities())
+        {
+            var select = from c in context.Shops
+                         where c.UserID == userName
+                         select new ShopModel()
+                         {
+                             FriendlyName = c.FriendlyName,
+                             City = c.City,
+                             Street = c.Street,
+                             PostCode = c.PostCode
+                         };
+
+            return select.ToList();
+        }
+    }
+
     public bool DodajProdukt(string nazwaProduktu, short idKategorii, string userName)
     {
         using (var context = new CheaperEntities())
@@ -299,11 +319,11 @@ public class CheaperService : ICheaperService
         }
     }
 
-    public List<ExpensesModel> GetKategorieWydatku(string userName)
+    public List<ExpenseModel> GetKategorieWydatku(string userName)
     {
         using (var context = new CheaperEntities())
         {
-            var select = from c in context.ExpenseCatLastMthBalance where c.UserID == userName select new ExpensesModel() { Id = c.Id, Name = c.Name, Amount = c.Amount, Balance = c.Balance };
+            var select = from c in context.ExpenseCatLastMthBalance where c.UserID == userName select new ExpenseModel() { Id = c.Id, Name = c.Name, Amount = c.Amount, Balance = c.Balance };
 
             return select.ToList();
         }

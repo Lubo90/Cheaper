@@ -9,11 +9,12 @@ using System.Web;
 public interface IBudzetDetailsView : IView
 {
     string BudgetName { set; }
-    List<BudgetDetailsModel> RepeaterDataSource { set; }
+    List<BudgetPositionModel> RepeaterDataSource { set; }
 
     decimal SumaCeny { get; set; }
     decimal SumaWartosci { get; set; }
     decimal SumaIlosci { get; set; }
+    decimal SumaRoznic { get; set; }
 
     bool CanView { get; set; }
 }

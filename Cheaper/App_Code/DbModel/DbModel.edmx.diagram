@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="961eb29cf1a74bfb8ea8e1d7a6a45d11" Name="Diagram1">
+      <Diagram DiagramId="61dfd71a62af429d9c932c5142c2423a" Name="Diagram1">
         <EntityTypeShape EntityType="CheaperModel.AdditionalUserInfo" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.BudgetPositions" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Budgets" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="CheaperModel.Products" Width="1.5" PointX="8" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Shops" Width="1.5" PointX="3" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.Users" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CheaperModel.BudgetPositionsWithStats" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.BudgetsWithExpenses" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CheaperModel.ExpenseCatLastMthBalance" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="CheaperModel.FK__Additiona__UserI__1920BF5C" ManuallyRouted="false" />

@@ -13,31 +13,40 @@ public static class Converters
         switch (month)
         {
             case 1:
-                return "styczeń";
+                return "stycznia";
             case 2:
-                return "luty";
+                return "lutego";
             case 3:
-                return "marzec";
+                return "marca";
             case 4:
-                return "kwiecień";
+                return "kwietnia";
             case 5:
-                return "maj";
+                return "maja";
             case 6:
-                return "czerwiec";
+                return "czerwca";
             case 7:
-                return "lipiec";
+                return "lipca";
             case 8:
-                return "sierpień";
+                return "sierpnia";
             case 9:
-                return "wrzesień";
+                return "września";
             case 10:
-                return "październik";
+                return "października";
             case 11:
-                return "listopad";
+                return "listopada";
             case 12:
-                return "grudzień";
+                return "grudnia";
             default:
                 return string.Empty;
         }
+    }
+
+    public static string GetColorBasedOnDecimal(object balance, string positiveColor = "black", string negativeColor = "red")
+    {
+        var convBalance = Convert.ToDecimal(balance);
+        if (convBalance < 0)
+            return string.Format("color: {0};", negativeColor);
+        else
+            return string.Format("color: {0};", positiveColor);
     }
 }

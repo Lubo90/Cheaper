@@ -160,7 +160,22 @@ public class WebService : System.Web.Services.WebService
         }
         catch (Exception ex)
         {
-            service.LogEvent("DodajBudzet", ex, UserName);
+            service.LogEvent("ValidateUsername", ex, UserName);
+            return false;
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+    public bool ValidatePostCode(object postCode)
+    {
+        try
+        {
+            return Regex.IsMatch(postCode.ToString(), @"^\d{2}-\d{3}$");
+        }
+        catch (Exception ex)
+        {
+            service.LogEvent("ValidatePostCode", ex, UserName);
             return false;
         }
     }

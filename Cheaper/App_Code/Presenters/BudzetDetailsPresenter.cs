@@ -43,15 +43,19 @@ public class BudzetDetailsPresenter : BasePresenter<IBudzetDetailsView>
         decimal sumaCeny = 0;
         decimal sumaIlosci = 0;
         decimal sumaWartosci = 0;
+        decimal sumaRoznic = 0;
         foreach (var item in budgetDetails)
         {
             sumaCeny += item.Price;
             sumaIlosci += item.Quantity;
             sumaWartosci += item.Wartosc;
+            if (_view.StatisticsEnabled)
+                sumaRoznic += item.RoznicaCeny;
         }
 
         _view.SumaCeny = sumaCeny;
         _view.SumaIlosci = sumaIlosci;
         _view.SumaWartosci = sumaWartosci;
+        _view.SumaRoznic = sumaRoznic;
     }
 }

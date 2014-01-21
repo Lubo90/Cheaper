@@ -8,24 +8,25 @@
         <div style="text-align: center; float: none;">
             <asp:LinkButton ID="btnNowyBudzet" OnClientClick='$("#pupNowaKatWyd").dialog("open"); return false;' runat="server">Dodaj nową kategorię</asp:LinkButton>
         </div>
-            <div style="display: block; margin-top: 30px; font-size: 16px; color: darkred; font-weight: bold;">
-                <asp:Label ID="Label1" runat="server" Text="Brak dodanych kategorii wydatków" Visible="<%# !this.RepeaterVisible %>" />
-            </div>
+        <div style="display: block; margin-top: 30px; font-size: 16px; color: darkred; font-weight: bold;">
+            <asp:Label ID="Label1" runat="server" Text="Brak dodanych kategorii wydatków" Visible="<%# !this.RepeaterVisible %>" />
+        </div>
         <asp:Repeater runat="server" ID="rptrKatWyd" Visible="<%# this.RepeaterVisible %>">
             <HeaderTemplate>
                 <table class="table">
-                    <tr class="tableHeader">
-                        <td class="tekstHeader">Nazwa</td>
-                        <td class="tekstHeader">Miesięczna kwota</td>
-                        <td class="tekstHeader">Pozostało do wydania</td>
-                        <td></td>
-                    </tr>
+                    <tbody id="tabWydatki">
+                        <tr class="tableHeader">
+                            <td class="tekstHeader">Nazwa</td>
+                            <td class="tekstHeader">Miesięczna kwota</td>
+                            <td class="tekstHeader">Pozostało do wydania</td>
+                            <td class="tekstHeader">Edycja</td>
+                        </tr>
             </HeaderTemplate>
             <ItemTemplate>
                 <tr class="tableItem">
                     <td class="tekst"><%# Eval("Name") %></td>
-                    <td class="liczba"><%# Eval("Amount") %> zł</td>
-                    <td class="liczba" style="<%# this.GetColorBasedOnBalance(Eval("Balance")) %>"><%# Eval("Balance") %> zł</td>
+                    <td class="liczba"><%# Eval("Amount", "{0:0.## zł}") %></td>
+                    <td class="liczba" style="<%# Converters.GetColorBasedOnDecimal(Eval("Balance")) %>"><%# Eval("Balance", "{0:0.## zł}") %></td>
                     <td class="tekst">
                         <asp:LinkButton ID="LinkButton1" runat="server" Text="Zmień kwotę" OnClientClick='<%# "openKatWydPopUp(" + Eval("Id") + "); return false;" %>' /></td>
                 </tr>
@@ -33,13 +34,14 @@
             <AlternatingItemTemplate>
                 <tr class="altTableItem">
                     <td class="tekst"><%# Eval("Name") %></td>
-                    <td class="liczba"><%# Eval("Amount") %> zł</td>
-                    <td class="liczba" style="<%# this.GetColorBasedOnBalance(Eval("Balance")) %>"><%# Eval("Balance") %> zł</td>
+                    <td class="liczba"><%# Eval("Amount", "{0:0.## zł}") %></td>
+                    <td class="liczba" style="<%# Converters.GetColorBasedOnDecimal(Eval("Balance")) %>"><%# Eval("Balance", "{0:0.## zł}") %></td>
                     <td class="tekst">
                         <asp:LinkButton ID="LinkButton2" runat="server" Text="Zmień kwotę" OnClientClick='<%# "openKatWydPopUp(" + Eval("Id") + "); return false;" %>' /></td>
                 </tr>
             </AlternatingItemTemplate>
             <FooterTemplate>
+                    </tbody>
                 </table>
             </FooterTemplate>
         </asp:Repeater>

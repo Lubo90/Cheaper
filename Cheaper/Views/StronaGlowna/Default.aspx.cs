@@ -16,7 +16,7 @@ public partial class _Default : BaseView, IStronaGlownaView
     {
         set
         {
-            if (value is List<UsersModel>)
+            if (value is List<UserModel>)
             {
                 rptrUsers.DataSource = value;
                 rptrUsers.DataBind();

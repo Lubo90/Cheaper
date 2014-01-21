@@ -130,6 +130,8 @@ CREATE TABLE BudgetPositions (
 	CONSTRAINT MinPrice CHECK (Price >= 0));
 GO
 
+
+
 CREATE VIEW ExpenseCatLastMthBalance AS
 SELECT ec.Id, ec.UserID, ec.Name, ec.Amount,
 	(ec.Amount - ISNULL((SELECT SUM(bp.Price * bp.Quantity)
@@ -156,12 +158,29 @@ SELECT b.BudgetID, b.UserID, b.BudgetName, b.CreationDate,
 FROM Budgets b;
 GO
 
+CREATE VIEW BudgetPositionsWithStats AS
+SELECT bp.PositionID, bp.BudgetID, bp.ExpenseCatID,
+	bp.ShopID, bp.UserID, bp.ProdID, bp.Price, bp.PurchaseDate,
+	bp.Quantity, bp.CreationDate, bp.AdditionalInfo,
+	ISNULL((SELECT AVG(sbp.Price)
+	FROM BudgetPositions sbp
+		 JOIN Products sp ON sbp.ProdID = sp.ProductID
+	WHERE sbp.ProdID = bp.ProdID AND sp.UserID = 'dft'), 0) AS 'AveragePrice',
+	ISNULL(((SELECT AVG(sbp.Price)
+	FROM BudgetPositions sbp
+		 JOIN Products sp ON sbp.ProdID = sp.ProductID
+	WHERE sbp.ProdID = bp.ProdID AND sp.UserID = 'dft') - bp.Price), 0) AS 'PriceDifference'
+FROM BudgetPositions bp;
+GO
+
 commit;
 
 -- POPULACJA STRUKTUR SŁOWNIKOWYCH DANYMI
 begin transaction;
 
 insert into Users values ('lubo', 'f6a3a3e101a484c1b0ff5facacf1be56', 'lubo@ue.katowice.pl', getdate(), getdate(), null);
+insert into AdditionalUserInfo (UserID, ShowBirthDate, ShowEmail, ShowPhone, StatsEnabled, Phone, GaduGadu, DisplayPic)
+	values ('lubo', 0, 0, 0, 0, null, null, null);
 INSERT INTO Users values ('dft', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'x', getdate(), getdate(), null);
 
 INSERT INTO Categories(Name)
